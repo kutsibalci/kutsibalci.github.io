@@ -7,135 +7,286 @@
 <meta name="description" content="Hüseyin Kutsi Balcı, Anadolu Üniversitesi Arka Yüz Yazılım Geliştirme öğrencisi. Açık kaynak katkıları, projeler ve iletişim.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans:wght@400;500;600&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,700&family=JetBrains+Mono:wght@400;500&family=Onest:wght@400;500;600;700&display=swap">
 <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
 <header class="topbar">
   <div class="wrap">
-    <a class="brand" href="#top"><span>~/</span>kutsi</a>
+    <a class="brand" href="#top"><span class="mark">HK</span><span>Hüseyin Kutsi Balcı</span></a>
     <nav class="nav" aria-label="Bölümler">
-      <a href="#hakkimda">hakkimda</a>
-      <a href="#acik-kaynak">acik-kaynak</a>
-      <a href="#projeler">projeler</a>
-      <a href="#yigin">yigin</a>
-      <a href="#iletisim">iletisim</a>
+      <a href="#hakkimda">Hakkımda</a>
+      <a href="#projeler">Projeler</a>
+      <a href="#acik-kaynak">Açık kaynak</a>
+      <a href="#yetenekler">Yetenekler</a>
+      <a class="cta" href="#iletisim">İletişim</a>
     </nav>
   </div>
 </header>
 
-<main>
-  <section class="hero wrap" id="top">
-    <div class="term">
-      <div class="term-bar">
-        <span class="dots" aria-hidden="true"><i></i><i></i><i></i></span>
-        <span>kutsi@izmir: ~</span>
-      </div>
-      <div class="term-body">
-        <p class="cmd"><span class="ps1">kutsi@izmir</span><span class="ps-sep">:~$</span><span class="typed">whoami</span><span class="caret" aria-hidden="true"></span></p>
-        <h1>Hüseyin Kutsi Balcı</h1>
-        <p class="role">Arka Yüz Yazılım Geliştirme öğrencisi · Anadolu Üniversitesi · İzmir</p>
-        <p class="lead">Backend sistemleri yazıyorum. Bu sayfadaki her sayıyı kendim ölçtüm.</p>
-
-        <p class="cmd"><span class="ps1">kutsi@izmir</span><span class="ps-sep">:~$</span>cat ozet.log</p>
-        <ul class="facts">
-          <li><b>18 yama</b><span>NASA, CERN ROOT, LLVM, Apache Kafka, .NET ve systemd gibi projelere kabul edildi</span></li>
-          <li><b>İlk 10</b><span>GSMA MENA Ignite Hackathon 2026, 1.348 takım arasından, tek başıma</span></li>
-          <li><b>258 → 14 ms</b><span>İkinci sunucu eklenince watch-party motorunun p95 gecikmesi</span></li>
-          <li><b>20 → 1</b><span>Aynı koltuğa gelen 20 eşzamanlı istekten yalnızca biri satış yapıyor</span></li>
-        </ul>
+<main id="top">
+  <section class="hero wrap">
+    <div class="hero-text">
+      <p class="hello"><span class="status">Staj ve junior pozisyonlara açık</span></p>
+      <p class="hello">Merhaba, ben <b>Hüseyin Kutsi Balcı</b></p>
+      <h1>Ölçülebilir sonuç veren <span class="hl-blue">backend sistemleri</span> yazıyorum.</h1>
+      <p class="sub">Anadolu Üniversitesi'nde Arka Yüz Yazılım Geliştirme öğrencisiyim. Eşzamanlılık, veritabanları ve mesaj kuyrukları üzerine çalışıyorum. İzmir'deyim, uzaktan ve hibrit çalışmaya açığım.</p>
+      <div class="actions">
+        <a class="btn dark" href="#projeler">Projelerimi gör</a>
+        <a class="btn light" href="https://github.com/kutsibalci" target="_blank" rel="noopener">GitHub</a>
+        <a class="btn light" href="https://www.linkedin.com/in/h%C3%BCseyinkutsibalci/" target="_blank" rel="noopener">LinkedIn</a>
       </div>
     </div>
 
-    <p class="status"><span class="dot" aria-hidden="true"></span>Staj veya junior backend pozisyonu arıyorum. Uzaktan ve hibrit çalışmaya açığım.</p>
-    <div class="actions">
-      <a class="btn primary" href="https://github.com/kutsibalci" target="_blank" rel="noopener">GitHub</a>
-      <a class="btn" href="https://www.linkedin.com/in/h%C3%BCseyinkutsibalci/" target="_blank" rel="noopener">LinkedIn</a>
-      <a class="btn" href="#iletisim">İletişim</a>
+    <div class="bento" aria-label="Öne çıkan sayılar">
+      <div class="tile blue"><span class="num">18</span><span class="lbl">NASA, CERN, LLVM ve Kafka gibi projelere kabul edilen yama</span></div>
+      <div class="tile orange"><span class="num">İlk 10</span><span class="lbl">GSMA MENA Ignite 2026, 1.348 takım arasından</span></div>
+      <div class="tile yellow"><span class="num">258→14<small style="font-size:.5em"> ms</small></span><span class="lbl">İkinci sunucuyla p95 gecikmesi</span></div>
+      <div class="tile green"><span class="num">20→1</span><span class="lbl">Aynı koltuğa 20 eşzamanlı istek, tek satış</span></div>
     </div>
   </section>
 
-  <section class="block wrap about" id="hakkimda">
-    <div class="block-head">
-      <p class="cmd"><span class="ps1">$</span> cat hakkimda.txt</p>
-      <h2>Hakkımda</h2>
+  <div class="orgs">
+    <div class="wrap">
+      <p>Kodum şu projelerde çalışıyor</p>
+      <ul>
+        <li>NASA F´</li><li>CERN ROOT</li><li>LLVM</li><li>Apache Kafka</li><li>NVIDIA CUTLASS</li><li>.NET</li><li>systemd</li><li>Apache Airflow</li><li>Rust</li><li>VS Code</li>
+      </ul>
     </div>
-    <p>Anadolu Üniversitesi'nde Arka Yüz Yazılım Geliştirme okuyorum ve İzmir'de yaşıyorum. Sunucu tarafında çalışıyorum: eşzamanlılık, veritabanları, mesaj kuyrukları ve bir sistemin yük altında nasıl davrandığı.</p>
-    <p>Bir şeyin çalıştığını söylemek yerine ölçmeyi tercih ediyorum. Projelerimde gerçek container'lara karşı test yazıyor, gecikmeyi ölçüyor, açık kaynakta da bir hatayı PR açmadan önce kanıtlıyorum.</p>
+  </div>
 
-    <ul class="timeline">
-      <li>
-        <span class="when">2026 yaz</span>
-        <div>
-          <h3>Staj · Anadolu Üniversitesi BAUM</h3>
-          <p>Üniversitenin bilgisayar merkezinde Redmine 7 için yedi eklenti yazdım. Redmine'ı Jira benzeri bir takip aracına çeviren paket bugün on üç eklentiden oluşuyor.</p>
-        </div>
-      </li>
-      <li>
-        <span class="when">2026</span>
-        <div>
-          <h3>GSMA MENA Ignite Hackathon · İlk 10</h3>
-          <p>HeatShield'ı Nokia Network as Code'un altı API'si üzerine tek başıma kurdum ve jüriye canlı sundum. 1.348 takım arasında ilk ona girdi.</p>
-        </div>
-      </li>
-      <li>
-        <span class="when">2026</span>
-        <div>
-          <h3>Açık kaynak · 18 kabul edilen yama</h3>
-          <p>NASA F´, CERN ROOT, LLVM, Apache Kafka, NVIDIA CUTLASS, .NET runtime, systemd, Apache Airflow, Rust derleyicisinin GCC arka ucu ve VS Code dokümanlarına katkı.</p>
-        </div>
-      </li>
-      <li>
-        <span class="when">Devam</span>
-        <div>
-          <h3>Ön muhasebe ve lojistik sistemi</h3>
-          <p>Gerçek kullanıcıları olan, hâlâ geliştirdiğim bir sistem. Yanında Flutter ve React Native ile mobil uygulamalar.</p>
-        </div>
-      </li>
-    </ul>
+  <section class="section wrap" id="hakkimda">
+    <div class="about">
+      <div class="about-text">
+        <span class="eyebrow blue">Hakkımda</span>
+        <h2>Bir şeyin çalıştığını söylemek yerine ölçüyorum.</h2>
+        <p>Projelerimde gerçek container'lara karşı test yazıyor, gecikmeyi ölçüyor, sonucu sayılarla gösteriyorum. Açık kaynakta da bir hatayı PR açmadan önce kanıtlıyor, sonra beni tanımayan bakımcılara savunuyorum.</p>
+        <p>Şu an gerçek kullanıcıları olan bir ön muhasebe ve lojistik sistemi geliştiriyorum. Yanında Flutter ve React Native ile mobil uygulamalar yazıyorum.</p>
+      </div>
+      <ul class="timeline">
+        <li>
+          <span class="dot" aria-hidden="true"></span>
+          <div>
+            <span class="when">2026 yaz</span>
+            <h3>Stajyer · Anadolu Üniversitesi BAUM</h3>
+            <p>Redmine 7 için yedi eklenti yazdım. Redmine'ı Jira benzeri bir takip aracına çeviren paket bugün on üç eklentiden oluşuyor.</p>
+          </div>
+        </li>
+        <li>
+          <span class="dot" aria-hidden="true"></span>
+          <div>
+            <span class="when">2026</span>
+            <h3>GSMA MENA Ignite Hackathon · İlk 10</h3>
+            <p>HeatShield'ı Nokia Network as Code'un altı API'si üzerine tek başıma kurdum ve jüriye canlı sundum.</p>
+          </div>
+        </li>
+        <li>
+          <span class="dot" aria-hidden="true"></span>
+          <div>
+            <span class="when">2026</span>
+            <h3>Açık kaynak · 18 kabul edilen yama</h3>
+            <p>NASA, CERN, LLVM, Apache, NVIDIA, Microsoft ve Rust projelerinde, daha önce hiç çalışmadığım kod tabanlarında.</p>
+          </div>
+        </li>
+        <li>
+          <span class="dot" aria-hidden="true"></span>
+          <div>
+            <span class="when">Devam ediyor</span>
+            <h3>Arka Yüz Yazılım Geliştirme · Anadolu Üniversitesi</h3>
+            <p>Öğrenimime devam ederken gerçek kullanıcılı projeler geliştiriyorum.</p>
+          </div>
+        </li>
+      </ul>
+    </div>
   </section>
 
-  <section class="block wrap" id="acik-kaynak">
-    <div class="block-head">
-      <p class="cmd"><span class="ps1">$</span> git log --author=kutsibalci --merged</p>
-      <h2>Açık kaynak katkıları</h2>
-      <p class="intro">Daha önce hiç çalışmadığım kod tabanlarında her seferinde tek bir hata türünü arıyorum. Taramanın bulduğu adayların çoğu yanlış alarm çıkıyor ve eleniyor. Kalanı PR açmadan önce kanıtlıyor, sonra beni tanımayan bakımcılara savunuyorum.</p>
+  <section class="section wrap" id="projeler">
+    <div class="section-head">
+      <span class="eyebrow orange">Projeler</span>
+      <h2>Geliştirdiğim sistemler</h2>
+      <p>Kapalı kaynak projelerin kodunu paylaşamıyorum, görüşmede detaylı anlatabilirim.</p>
+      <div class="legend">
+        <span style="--c: var(--blue)"><i></i>Backend</span>
+        <span style="--c: var(--green)"><i></i>Güvenlik</span>
+        <span style="--c: var(--pink)"><i></i>Mobil</span>
+        <span style="--c: var(--yellow)"><i></i>Araştırma</span>
+      </div>
     </div>
 
-    <ul class="log">
-      <li>
-        <div class="log-head"><span class="merged">✓ merged</span><a class="ref" href="https://github.com/apache/kafka/pull/23098" target="_blank" rel="noopener">apache/kafka#23098</a><span class="org">Apache Kafka</span></div>
-        <p><code>equals</code> altı alanı karşılaştırırken <code>hashCode</code> yedinci bir alanı da hash'liyordu. Eşit iki token farklı hash üretiyor, <code>HashMap</code> anahtarlarını sessizce bozuyordu. 89 satır yeni testle kabul edildi.</p>
-      </li>
-      <li>
-        <div class="log-head"><span class="merged">✓ merged</span><a class="ref" href="https://github.com/root-project/root/pull/23065" target="_blank" rel="noopener">root-project/root#23065</a><span class="org">CERN ROOT</span></div>
-        <p>RDataFrame ilerleme çubuğu olay sayısını tam saniyeye yuvarlanmış süreye bölüyordu. Bir saniyenin altındaki döngüler <code>inf evt/s</code> yazdırıyor, uzun olanlar %12 ile %20 arası fazla gösteriyordu. Testin master'da kırıldığını, yamayla geçtiğini gösterdim.</p>
-      </li>
-      <li>
-        <div class="log-head"><span class="merged">✓ merged</span><a class="ref" href="https://github.com/nasa/fprime-gds/pull/333" target="_blank" rel="noopener">nasa/fprime-gds#333</a><span class="org">NASA F´</span></div>
-        <p>Dosya açma işlemini saran çıplak <code>except:</code>, <code>KeyboardInterrupt</code>'ı da yakalıyor ve gerçek hata nedenini kaybediyordu. <code>OSError</code> ile daralttım ve nedeni zincirledim.</p>
-      </li>
-      <li>
-        <div class="log-head"><span class="merged">✓ merged</span><a class="ref" href="https://github.com/eclipse-score/baselibs/pull/517" target="_blank" rel="noopener">eclipse-score/baselibs#517</a><span class="org">BMW / Bosch / Mercedes otomotiv platformu</span></div>
-        <p>Bir bakımcının önerdiği değişikliğin API'yi sessizce daraltacağını her durumu derleyerek gösterdim. 292 satırlık karakterizasyon testi kabul edilen davranışın iki sınırını da sabitliyor.</p>
-      </li>
-      <li>
-        <div class="log-head"><span class="merged">✓ merged</span><a class="ref" href="https://github.com/eclipse-score/baselibs/pull/444" target="_blank" rel="noopener">eclipse-score/baselibs#444</a><span class="org">BMW / Bosch / Mercedes otomotiv platformu</span></div>
-        <p>Altı yer, canlı bir <code>score::Result</code> üzerine placement new ile yazıyor ve eski nesnenin yıkıcısını hiç çalıştırmıyordu. Bellek sızıntısı olup olmadığını ölçtüm, olmadığını PR'da açıkça yazdım. Değişiklik nesne ömrü doğruluğu olarak kabul edildi.</p>
-      </li>
-      <li>
-        <div class="log-head"><span class="merged">✓ merged</span><a class="ref" href="https://github.com/eclipse-score/logging/pull/253" target="_blank" rel="noopener">eclipse-score/logging#253</a><span class="org">Eclipse S-CORE</span></div>
-        <p>ISO 26262 güvenlik kaydı, depoda hiçbir yerde var olmayan bir sembole işaret ediyordu. Bu kayıt testi karşıladığı gereksinime bağlayan denetim izi olduğu için kırık bir iz demekti.</p>
-      </li>
-      <li>
-        <div class="log-head"><span class="merged">✓ merged</span><a class="ref" href="https://github.com/root-project/root/pull/23019" target="_blank" rel="noopener">root-project/root#23019</a><span class="org">CERN ROOT</span></div>
-        <p>Tutorials derlemesinde hiçbir şeyin okumadığı dört CMake değişkenini kaldırdım. En ince olanını ayrı bir CMake projesinde yeniden kurup değeri okuyarak kanıtladım.</p>
-      </li>
-    </ul>
+    <div class="grid">
+      <article class="card featured">
+        <div class="feat-main">
+          <div class="card-top"><span class="kind">Yarışma · Ajan</span><span class="vis public">Açık kaynak</span></div>
+          <h3>HeatShield</h3>
+          <p class="desc">Mobil şebekeyi sensör olarak kullanan sıcak stresi ajanı. Yasal WBGT sınırı aşılınca sabit bir sorgu bütçesini en riskli çalışanlara harcıyor. Tek başıma geliştirip jüriye canlı sundum.</p>
+          <ul class="chips"><li>Python</li><li>FastAPI</li><li>CAMARA</li><li>Nokia Network as Code</li></ul>
+          <div class="links">
+            <a href="https://heatshield-demo.onrender.com/demo" target="_blank" rel="noopener">Canlı demo</a>
+            <a href="https://youtu.be/z1N6U4yv6xA" target="_blank" rel="noopener">3 dk video</a>
+            <a href="https://github.com/kutsibalci/heatshield" target="_blank" rel="noopener">Kaynak kod</a>
+          </div>
+        </div>
+        <div class="feat-stats">
+          <div><b>İlk 10</b><span>1.348 takım arasından</span></div>
+          <div><b>6 canlı API</b><span>Nokia Network as Code üzerinde</span></div>
+          <div><b>130 test</b><span>tek kişilik geliştirme</span></div>
+        </div>
+      </article>
+
+      <article class="card backend">
+        <div class="card-top"><span class="kind">Backend · Gerçek zamanlı</span><span class="vis public">Açık kaynak</span></div>
+        <h3>Watch Party Sync Engine</h3>
+        <p class="meta">p95: 258 ms → 14 ms</p>
+        <p class="desc">Birlikte video izleme için senkron motoru: WebSocket katmanı, Redis Lua ile atomik durum geçişleri, elle yazılmış iş kuyruğu ve ffmpeg HLS dönüştürme hattı. Yatay ölçekleme ölçümle doğrulandı.</p>
+        <ul class="chips"><li>TypeScript</li><li>WebSocket</li><li>Redis Lua</li><li>ffmpeg</li></ul>
+        <div class="links"><a href="https://github.com/kutsibalci/watch-party-sync-engine" target="_blank" rel="noopener">Kaynak kod</a></div>
+      </article>
+
+      <article class="card backend">
+        <div class="card-top"><span class="kind">Backend · Eşzamanlılık</span><span class="vis public">Açık kaynak</span></div>
+        <h3>Concurrent Ticketing</h3>
+        <p class="meta">20 eşzamanlı istek, tek satış · 119 test</p>
+        <p class="desc">Yoğun talep altında bir koltuğun tam olarak bir kez satıldığını gösteren bilet API'si. PostgreSQL xmin ile iyimser kilitleme, RabbitMQ'ya transactional outbox ve rotasyonlu JWT.</p>
+        <ul class="chips"><li>C#</li><li>ASP.NET Core</li><li>PostgreSQL</li><li>RabbitMQ</li></ul>
+        <div class="links"><a href="https://github.com/kutsibalci/concurrent-ticketing" target="_blank" rel="noopener">Kaynak kod</a></div>
+      </article>
+
+      <article class="card backend">
+        <div class="card-top"><span class="kind">Sistem · Ağ</span><span class="vis">Kapalı kaynak</span></div>
+        <h3>Uzaktan Bağlantı</h3>
+        <p class="meta">Dış sunucu yok, internetsiz çalışır</p>
+        <p class="desc">Windows bilgisayarı telefondan ya da tabletten tarayıcıyla kontrol etmeyi sağlayan uzaktan masaüstü. Donanım kodlayıcıyla H.264 görüntü, ikinci ekran, pano ve dosya aktarımı, kendi yerel sertifika otoritesiyle HTTPS.</p>
+        <ul class="chips"><li>Node.js</li><li>WebSocket</li><li>H.264</li><li>C#</li><li>X.509</li></ul>
+      </article>
+
+      <article class="card backend">
+        <div class="card-top"><span class="kind">Backend · Staj</span><span class="vis">Kapalı kaynak</span></div>
+        <h3>Redmine 7 Eklentileri</h3>
+        <p class="meta">13 eklenti · 61/61 smoke test</p>
+        <p class="desc">Redmine'ı Jira benzeri bir takip aracına çeviren eklenti paketi: kimlik, ekranlar, iş akışları, denetim kaydı, arama ve pano. Yedisini Anadolu Üniversitesi BAUM stajımda yazdım.</p>
+        <ul class="chips"><li>Ruby</li><li>Rails 8</li><li>PostgreSQL</li><li>Docker</li></ul>
+      </article>
+
+      <article class="card backend">
+        <div class="card-top"><span class="kind">Backend · Ürün</span><span class="vis">Kapalı kaynak</span></div>
+        <h3>Ön Muhasebe ve Lojistik</h3>
+        <p class="meta">Gerçek kullanıcılar · geliştiriliyor</p>
+        <p class="desc">Bir yanda seferler, yakıt ve araç evrakı, öbür yanda cari hesaplar, UBL-TR e-faturalar ve tahsilatlar. Kopyalanan bir klasörden çalışıyor; kurulum ya da ağ gerekmiyor.</p>
+        <ul class="chips"><li>Node.js</li><li>SQLite</li><li>UBL-TR</li><li>e-Fatura</li></ul>
+      </article>
+
+      <article class="card backend">
+        <div class="card-top"><span class="kind">Backend · Ajan</span><span class="vis public">Açık kaynak</span></div>
+        <h3>ArrivalGuard</h3>
+        <p class="meta">Nokia Network as Code · CAMARA</p>
+        <p class="desc">Sağlık turizmi için gelen hastaları karşılama koruması. Şebeke sinyalleri, kararlarını açıklayabilen bir vaka ajanını yönlendiriyor.</p>
+        <ul class="chips"><li>Python</li><li>CAMARA</li><li>ajan</li></ul>
+        <div class="links"><a href="https://github.com/kutsibalci/arrivalguard" target="_blank" rel="noopener">Kaynak kod</a></div>
+      </article>
+
+      <article class="card security">
+        <div class="card-top"><span class="kind">Güvenlik · Asenkron</span><span class="vis">Kapalı kaynak</span></div>
+        <h3>File Analysis Service</h3>
+        <p class="meta">YARA + CAPE sandbox</p>
+        <p class="desc">Yüklenen dosyaları YARA ile tarıyor, PE başlıklarını ayrıştırıyor ve Celery kuyruğu üzerinden CAPE sandbox'a gönderiyor. Bozuk kuralların her örneği temiz göstermesine yol açan bir hata bu projede yakalandı.</p>
+        <ul class="chips"><li>FastAPI</li><li>YARA</li><li>Celery</li><li>Docker</li></ul>
+      </article>
+
+      <article class="card mobile">
+        <div class="card-top"><span class="kind">Mobil · Rota</span><span class="vis">Kapalı kaynak</span></div>
+        <h3>Kurye Rota</h3>
+        <p class="meta">10 durak: 44,3 km → 14,6 km</p>
+        <p class="desc">Kuryelerin WhatsApp'tan yapıştırdığı serbest Türkçe adresleri çevrimdışı ayrıştırıyor (81 il, 50 bin bölge) ve durakları sıralıyor.</p>
+        <ul class="chips"><li>React Native</li><li>Expo</li><li>TSP 2-opt</li></ul>
+      </article>
+
+      <article class="card mobile">
+        <div class="card-top"><span class="kind">Mobil · Motor</span><span class="vis">Kapalı kaynak</span></div>
+        <h3>Sınav Motoru</h3>
+        <p class="meta">Her sınav ayrı bir Play Store uygulaması</p>
+        <p class="desc">Tek bir uygulama değil, birçok sınav için bir motor. Saf Dart çekirdek ve uzaktan sürümlenen JSON soru bankaları sayesinde yeni sınav eklemek bir JSON ve bir ayar dosyası demek. İlk ürün SRC sınavları.</p>
+        <ul class="chips"><li>Flutter</li><li>Dart</li><li>sqflite</li><li>aralıklı tekrar</li></ul>
+      </article>
+
+      <article class="card research">
+        <div class="card-top"><span class="kind">Araştırma · Ciddi oyun</span><span class="vis">Kapalı kaynak</span></div>
+        <h3>Life Gate</h3>
+        <p class="meta">Cihaz üstü uyarlanabilir zorluk</p>
+        <p class="desc">Kanamalarda ilk yardım eğitimi veren tarayıcı oyunu. Zorluk, kural tabanlı bir yetkinlik modeliyle öğrenene göre ayarlanıyor. Psikometrik ölçekler ve araştırma verisi toplama içeriyor.</p>
+        <ul class="chips"><li>JavaScript</li><li>psikometri</li><li>çevrimdışı</li></ul>
+      </article>
+    </div>
+  </section>
+
+  <section class="section wrap" id="acik-kaynak">
+    <div class="section-head">
+      <span class="eyebrow green">Açık kaynak</span>
+      <h2>Dünyanın en büyük projelerine 18 katkı</h2>
+      <p>Daha önce hiç çalışmadığım kod tabanlarında her seferinde tek bir hata türünü arıyorum. Bulduğumu PR açmadan önce kanıtlıyorum.</p>
+    </div>
+
+    <div class="prs">
+      <article class="pr wide">
+        <div class="pr-head">
+          <span class="org-badge" style="background: var(--ink)">K</span>
+          <div><strong>Apache Kafka</strong><a href="https://github.com/apache/kafka/pull/23098" target="_blank" rel="noopener">apache/kafka#23098</a></div>
+          <span class="merged">Merged</span>
+        </div>
+        <p><code>equals</code> altı alanı karşılaştırırken <code>hashCode</code> yedinci bir alanı da hash'liyordu. Eşit iki token farklı hash üretiyor ve <code>HashMap</code> anahtarlarını sessizce bozuyordu. 89 satır yeni testle kabul edildi.</p>
+      </article>
+      <article class="pr">
+        <div class="pr-head">
+          <span class="org-badge" style="background: var(--blue)">C</span>
+          <div><strong>CERN ROOT</strong><a href="https://github.com/root-project/root/pull/23065" target="_blank" rel="noopener">root-project/root#23065</a></div>
+          <span class="merged">Merged</span>
+        </div>
+        <p>İlerleme çubuğu, tam saniyeye yuvarlanmış süreye böldüğü için kısa döngülerde <code>inf evt/s</code> yazıyor, uzun olanlarda %12 ile %20 fazla gösteriyordu.</p>
+      </article>
+      <article class="pr">
+        <div class="pr-head">
+          <span class="org-badge" style="background: var(--orange); color: var(--ink)">N</span>
+          <div><strong>NASA F´</strong><a href="https://github.com/nasa/fprime-gds/pull/333" target="_blank" rel="noopener">nasa/fprime-gds#333</a></div>
+          <span class="merged">Merged</span>
+        </div>
+        <p>Çıplak bir <code>except:</code> gerçek hata nedenini yutuyordu. <code>OSError</code> ile daraltıp nedeni zincirledim.</p>
+      </article>
+      <article class="pr">
+        <div class="pr-head">
+          <span class="org-badge" style="background: var(--green)">S</span>
+          <div><strong>Eclipse S-CORE</strong><a href="https://github.com/eclipse-score/baselibs/pull/517" target="_blank" rel="noopener">eclipse-score/baselibs#517</a></div>
+          <span class="merged">Merged</span>
+        </div>
+        <p>BMW, Bosch ve Mercedes'in otomotiv platformu. Önerilen bir değişikliğin API'yi daraltacağını gösterdim; 292 satırlık test iki sınırı da sabitliyor.</p>
+      </article>
+      <article class="pr">
+        <div class="pr-head">
+          <span class="org-badge" style="background: var(--green)">S</span>
+          <div><strong>Eclipse S-CORE</strong><a href="https://github.com/eclipse-score/baselibs/pull/444" target="_blank" rel="noopener">eclipse-score/baselibs#444</a></div>
+          <span class="merged">Merged</span>
+        </div>
+        <p>Placement new, canlı nesnelerin yıkıcısını atlıyordu. Sızıntı olmadığını ölçüp PR'da açıkça yazdım; nesne ömrü düzeltmesi olarak kabul edildi.</p>
+      </article>
+      <article class="pr">
+        <div class="pr-head">
+          <span class="org-badge" style="background: var(--pink)">S</span>
+          <div><strong>Eclipse S-CORE</strong><a href="https://github.com/eclipse-score/logging/pull/253" target="_blank" rel="noopener">eclipse-score/logging#253</a></div>
+          <span class="merged">Merged</span>
+        </div>
+        <p>ISO 26262 güvenlik kaydı var olmayan bir sembole işaret ediyordu; testi gereksinime bağlayan denetim izi kırıktı.</p>
+      </article>
+      <article class="pr">
+        <div class="pr-head">
+          <span class="org-badge" style="background: var(--blue)">C</span>
+          <div><strong>CERN ROOT</strong><a href="https://github.com/root-project/root/pull/23019" target="_blank" rel="noopener">root-project/root#23019</a></div>
+          <span class="merged">Merged</span>
+        </div>
+        <p>Hiçbir şeyin okumadığı dört CMake değişkenini kaldırdım. En ince olanını ayrı bir CMake projesinde kanıtladım.</p>
+      </article>
+    </div>
 
     <details class="sweeps">
-      <summary>Hata taramaları <span>· 11 kabul edilen yama daha</span></summary>
+      <summary>Hata taramaları <span>11 kabul edilen yama daha</span></summary>
       <div class="table-scroll">
         <table>
           <tbody>
@@ -156,134 +307,41 @@
     </details>
   </section>
 
-  <section class="block wrap" id="projeler">
-    <div class="block-head">
-      <p class="cmd"><span class="ps1">$</span> ls ~/projeler</p>
-      <h2>Projeler</h2>
-      <p class="intro">"Kapalı" etiketli projeler kapalı kaynak. Kodlarını paylaşamıyorum ama görüşmede anlatmaktan memnuniyet duyarım.</p>
-    </div>
-
-    <div class="grid">
-      <article class="card featured">
-        <div class="card-top"><h3>HeatShield</h3><span class="badge public">Açık</span></div>
-        <p class="meta">1.348 takımda ilk 10 · GSMA MENA Ignite 2026</p>
-        <p class="desc">Mobil şebekeyi sensör olarak kullanan sıcak stresi ajanı. Yasal WBGT sınırı aşılınca sabit bir sorgu bütçesini en riskli çalışanlara harcıyor. Tek başıma geliştirip jüriye canlı sundum.</p>
-        <ul class="chips"><li>Python</li><li>FastAPI</li><li>CAMARA</li><li>6 canlı API</li><li>130 test</li></ul>
-        <div class="links">
-          <a href="https://github.com/kutsibalci/heatshield" target="_blank" rel="noopener">kod →</a>
-          <a href="https://heatshield-demo.onrender.com/demo" target="_blank" rel="noopener">demo →</a>
-          <a href="https://youtu.be/z1N6U4yv6xA" target="_blank" rel="noopener">video →</a>
-        </div>
-      </article>
-
-      <article class="card">
-        <div class="card-top"><h3>Watch Party Sync Engine</h3><span class="badge public">Açık</span></div>
-        <p class="meta">gerçek zamanlı · yatay ölçekleme</p>
-        <p class="desc">Birlikte video izleme için senkron motoru: WebSocket katmanı, Redis Lua ile atomik durum geçişleri, elle yazılmış iş kuyruğu ve ffmpeg HLS dönüştürme hattı. İkinci sunucu p95 gecikmesini 258 ms'den 14 ms'ye indirdi.</p>
-        <ul class="chips"><li>TypeScript</li><li>WebSocket</li><li>Redis Lua</li><li>ffmpeg / HLS</li></ul>
-        <div class="links"><a href="https://github.com/kutsibalci/watch-party-sync-engine" target="_blank" rel="noopener">kod →</a></div>
-      </article>
-
-      <article class="card">
-        <div class="card-top"><h3>Concurrent Ticketing</h3><span class="badge public">Açık</span></div>
-        <p class="meta">eşzamanlılık · 119 test</p>
-        <p class="desc">Yoğun talep altında bir koltuğun tam olarak bir kez satıldığını gösteren bilet API'si. PostgreSQL xmin ile iyimser kilitleme, RabbitMQ'ya transactional outbox, rotasyonlu JWT ve gerçek container'lara karşı testler.</p>
-        <ul class="chips"><li>C#</li><li>ASP.NET Core</li><li>PostgreSQL</li><li>RabbitMQ</li></ul>
-        <div class="links"><a href="https://github.com/kutsibalci/concurrent-ticketing" target="_blank" rel="noopener">kod →</a></div>
-      </article>
-
-      <article class="card">
-        <div class="card-top"><h3>Uzaktan Bağlantı</h3><span class="badge">Kapalı</span></div>
-        <p class="meta">kişisel proje · uzaktan masaüstü</p>
-        <p class="desc">Windows bilgisayarı telefondan ya da tabletten tarayıcıyla görüp kontrol etmeyi sağlayan, kendi bilgisayarında çalışan uzaktan masaüstü. Donanım kodlayıcıyla H.264 görüntü, ikinci ekran, pano ve dosya aktarımı, ev ağında kendi yerel sertifika otoritesiyle HTTPS. Dış sunucu yok, internet olmadan da çalışıyor.</p>
-        <ul class="chips"><li>Node.js</li><li>WebSocket</li><li>H.264 / ffmpeg</li><li>C#</li><li>X.509</li></ul>
-      </article>
-
-      <article class="card">
-        <div class="card-top"><h3>ArrivalGuard</h3><span class="badge public">Açık</span></div>
-        <p class="meta">Nokia Network as Code · CAMARA</p>
-        <p class="desc">Sağlık turizmi için gelen hastaları karşılama koruması. Şebeke sinyalleri, kararlarını açıklayabilen bir vaka ajanını yönlendiriyor.</p>
-        <ul class="chips"><li>Python</li><li>CAMARA</li><li>ajan</li></ul>
-        <div class="links"><a href="https://github.com/kutsibalci/arrivalguard" target="_blank" rel="noopener">kod →</a></div>
-      </article>
-
-      <article class="card">
-        <div class="card-top"><h3>Redmine 7 Eklentileri</h3><span class="badge">Kapalı</span></div>
-        <p class="meta">staj · BAUM · Anadolu Üniversitesi</p>
-        <p class="desc">Redmine'ı Jira benzeri bir takip aracına çeviren on üç eklenti: kimlik, ekranlar, iş akışları, denetim kaydı, arama ve pano. Yedisini 2026 yaz stajımda yazdım.</p>
-        <ul class="chips"><li>Ruby</li><li>Rails 8</li><li>PostgreSQL</li><li>Docker</li><li>61/61 smoke</li></ul>
-      </article>
-
-      <article class="card">
-        <div class="card-top"><h3>Ön Muhasebe ve Lojistik</h3><span class="badge">Kapalı</span></div>
-        <p class="meta">geliştiriliyor · gerçek kullanıcılar</p>
-        <p class="desc">Bir yanda seferler, yakıt ve araç evrakı, öbür yanda cari hesaplar, UBL-TR faturalar ve tahsilatlar. Kopyalanan bir klasörden çalışıyor: kurulum, kayıt defteri ya da ağ gerekmiyor.</p>
-        <ul class="chips"><li>Node.js</li><li>SQLite</li><li>UBL-TR</li><li>e-Fatura</li></ul>
-      </article>
-
-      <article class="card">
-        <div class="card-top"><h3>Kurye Rota</h3><span class="badge">Kapalı</span></div>
-        <p class="meta">mobil · rota · çevrimdışı</p>
-        <p class="desc">Kuryeler adresleri WhatsApp'tan yapıştırıyor. Uygulama serbest yazılmış Türkçe adresleri çevrimdışı ayrıştırıyor (81 il, 50 bin bölge) ve durakları sıralıyor. 10 durakta rota 44,3 km'den 14,6 km'ye iniyor.</p>
-        <ul class="chips"><li>React Native</li><li>Expo</li><li>TSP 2-opt</li></ul>
-      </article>
-
-      <article class="card">
-        <div class="card-top"><h3>File Analysis Service</h3><span class="badge">Kapalı</span></div>
-        <p class="meta">güvenlik · asenkron iş hattı</p>
-        <p class="desc">Yüklenen dosyaları YARA ile tarıyor, PE başlıklarını ayrıştırıyor ve Celery kuyruğu üzerinden CAPE sandbox'a gönderiyor. Bozuk kuralların her örneği temiz göstermesine yol açan çıplak bir except bu projede yakalandı.</p>
-        <ul class="chips"><li>FastAPI</li><li>YARA</li><li>Celery</li><li>Docker</li></ul>
-      </article>
-
-      <article class="card">
-        <div class="card-top"><h3>Sınav Motoru</h3><span class="badge">Kapalı</span></div>
-        <p class="meta">mobil · çok flavor'lı motor</p>
-        <p class="desc">Tek bir sınav uygulaması değil, birçoğu için bir motor. Saf Dart çekirdek, uzaktan sürümlenen JSON soru bankaları ve sınav başına build flavor: her sınav ayrı bir Play Store uygulaması olarak çıkıyor. Yeni sınav eklemek bir JSON ve bir ayar dosyası demek. İlk ürün SRC sınavları.</p>
-        <ul class="chips"><li>Flutter</li><li>Dart</li><li>sqflite</li><li>aralıklı tekrar</li><li>çevrimdışı</li></ul>
-      </article>
-
-      <article class="card">
-        <div class="card-top"><h3>Life Gate</h3><span class="badge">Kapalı</span></div>
-        <p class="meta">ciddi oyun · araştırma</p>
-        <p class="desc">Kanamalarda ilk yardım eğitimi veren tarayıcı oyunu. Zorluk, cihazda çalışan kural tabanlı bir yetkinlik modeliyle öğrenene göre ayarlanıyor. Psikometrik ölçekler ve araştırma verisi toplama içeriyor; sunucu ve internet gerekmiyor.</p>
-        <ul class="chips"><li>JavaScript</li><li>psikometri</li><li>çevrimdışı</li></ul>
-      </article>
-    </div>
-
-  </section>
-
-  <section class="block wrap" id="yigin">
-    <div class="block-head">
-      <p class="cmd"><span class="ps1">$</span> cat yigin.yml</p>
+  <section class="section wrap" id="yetenekler">
+    <div class="section-head">
+      <span class="eyebrow pink">Yetenekler</span>
       <h2>Kullandığım teknolojiler</h2>
     </div>
-<pre class="yaml"><span class="c"># en çok kullandıklarım başta</span>
-<span class="k">diller:</span>        C#, Python, TypeScript, Dart, SQL
-<span class="k">backend:</span>       ASP.NET Core, EF Core, FastAPI, SQLAlchemy, Node.js, Celery, REST, JWT
-<span class="k">veri:</span>          PostgreSQL, MySQL, SQLite, Redis, Redis Lua
-<span class="k">mesajlasma:</span>    RabbitMQ, transactional outbox, idempotency
-<span class="k">mobil:</span>         Flutter, React Native
-<span class="k">gercek_zaman:</span>  WebSocket, WebRTC
-<span class="k">altyapi:</span>       Docker, Compose, AWS EC2, Linux, GitHub Actions</pre>
+    <div class="skills">
+      <div class="skill"><h3><i style="background: var(--blue)"></i>Diller</h3><ul><li>C#</li><li>Python</li><li>TypeScript</li><li>Dart</li><li>SQL</li></ul></div>
+      <div class="skill"><h3><i style="background: var(--orange)"></i>Backend</h3><ul><li>ASP.NET Core</li><li>EF Core</li><li>FastAPI</li><li>SQLAlchemy</li><li>Node.js</li><li>Celery</li><li>REST</li><li>JWT</li></ul></div>
+      <div class="skill"><h3><i style="background: var(--green)"></i>Veri</h3><ul><li>PostgreSQL</li><li>MySQL</li><li>SQLite</li><li>Redis</li><li>Redis Lua</li></ul></div>
+      <div class="skill"><h3><i style="background: var(--yellow)"></i>Mesajlaşma</h3><ul><li>RabbitMQ</li><li>Transactional outbox</li><li>Idempotency</li><li>WebSocket</li><li>WebRTC</li></ul></div>
+      <div class="skill"><h3><i style="background: var(--pink)"></i>Mobil</h3><ul><li>Flutter</li><li>React Native</li><li>Expo</li></ul></div>
+      <div class="skill"><h3><i style="background: var(--ink)"></i>Altyapı</h3><ul><li>Docker</li><li>Compose</li><li>AWS EC2</li><li>Linux</li><li>GitHub Actions</li></ul></div>
+    </div>
   </section>
 
-  <section class="block wrap" id="iletisim">
-    <div class="block-head">
-      <p class="cmd"><span class="ps1">$</span> ./iletisim.sh</p>
-      <h2>İletişim</h2>
-      <p class="intro">Staj ve junior backend fırsatları için bana yazabilirsiniz.</p>
+  <section class="wrap" id="iletisim">
+    <div class="contact">
+      <div>
+        <h2>Birlikte çalışalım</h2>
+        <p>Staj ve junior backend fırsatları için bana yazabilirsiniz. İzmir'deyim, uzaktan ve hibrit çalışmaya açığım.</p>
+      </div>
+      <div class="contact-list">
+        <div class="contact-item"><div><small>E-posta</small><span id="email">balcihkutsi@gmail.com</span></div><button class="copy" type="button" id="copy-email">Kopyala</button></div>
+        <a class="contact-item" href="https://github.com/kutsibalci" target="_blank" rel="noopener"><div><small>GitHub</small><span>github.com/kutsibalci</span></div><span aria-hidden="true">↗</span></a>
+        <a class="contact-item" href="https://www.linkedin.com/in/h%C3%BCseyinkutsibalci/" target="_blank" rel="noopener"><div><small>LinkedIn</small><span>Hüseyin Kutsi Balcı</span></div><span aria-hidden="true">↗</span></a>
+      </div>
     </div>
-    <dl class="contact">
-      <div><dt>e-posta</dt><dd><a href="mailto:balcihkutsi@gmail.com" id="email">balcihkutsi@gmail.com</a><button class="copy" type="button" id="copy-email">kopyala</button></dd></div>
-      <div><dt>github</dt><dd><a href="https://github.com/kutsibalci" target="_blank" rel="noopener">github.com/kutsibalci</a></dd></div>
-      <div><dt>linkedin</dt><dd><a href="https://www.linkedin.com/in/h%C3%BCseyinkutsibalci/" target="_blank" rel="noopener">linkedin.com/in/hüseyinkutsibalci</a></dd></div>
-      <div><dt>konum</dt><dd>İzmir, Türkiye · uzaktan ve hibrit</dd></div>
-    </dl>
   </section>
 </main>
 
-<footer class="wrap">
-  <p>© 2026 Hüseyin Kutsi Balcı · HTML, CSS ve JavaScript ile elle yazıldı.</p>
+<footer>
+  <div class="wrap">
+    <span>© 2026 Hüseyin Kutsi Balcı</span>
+    <span>HTML, CSS ve JavaScript ile yazıldı</span>
+  </div>
 </footer>
 
 <script src="script.js"></script>
