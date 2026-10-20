@@ -42,8 +42,8 @@
     <div class="bento" aria-label="Öne çıkan sayılar">
       <div class="tile blue"><span class="num">18</span><span class="lbl">NASA, CERN, LLVM ve Kafka gibi projelere kabul edilen yama</span></div>
       <div class="tile orange"><span class="num">İlk 10</span><span class="lbl">GSMA MENA Ignite 2026, 1.348 takım arasından</span></div>
-      <div class="tile yellow"><span class="num">258→14<small style="font-size:.5em"> ms</small></span><span class="lbl">İkinci sunucuyla p95 gecikmesi</span></div>
-      <div class="tile green"><span class="num">20→1</span><span class="lbl">Aynı koltuğa 20 eşzamanlı istek, tek satış</span></div>
+      <div class="tile yellow"><span class="num">800→89</span><span class="lbl">HeatShield: 240 çalışanlık sahada %90 daha az ağ sorgusu</span></div>
+      <div class="tile green"><span class="num">13</span><span class="lbl">Redmine eklentisi, yedisi Anadolu Üniversitesi stajımda</span></div>
     </div>
   </section>
 
@@ -139,33 +139,6 @@
           <div><b>800 → 89</b><span>240 çalışanlık sahada ağ sorgusu, %90 daha az</span></div>
           <div><b>130 test</b><span>6 canlı API · 2,5 haftada tek kişi</span></div>
         </div>
-      </article>
-
-      <article class="card backend">
-        <div class="art" aria-hidden="true"><svg viewBox="0 0 320 140" preserveAspectRatio="xMidYMid meet"><rect class="w" x="34" y="22" width="108" height="68" rx="10"/><rect class="w" x="178" y="22" width="108" height="68" rx="10"/>
-<path class="a" d="M80 42l18 12-18 12z"/><path class="a" d="M224 42l18 12-18 12z"/>
-<rect class="soft" x="44" y="78" width="88" height="5" rx="2.5"/><rect class="a" x="44" y="78" width="52" height="5" rx="2.5"/>
-<rect class="soft" x="188" y="78" width="88" height="5" rx="2.5"/><rect class="a" x="188" y="78" width="52" height="5" rx="2.5"/>
-<path class="s" stroke-dasharray="4 5" d="M142 56h36"/>
-<rect class="ink" x="105" y="102" width="110" height="24" rx="12"/><text class="t" x="160" y="118">t = 01:42.3</text></svg></div>
-        <div class="card-top"><span class="kind">Backend · Gerçek zamanlı</span><span class="vis public">Açık kaynak</span></div>
-        <h3>Watch Party Sync Engine</h3>
-        <p class="meta">p95: 258 ms → 14 ms</p>
-        <p class="desc">Birlikte video izleme için senkron motoru: WebSocket katmanı, Redis Lua ile atomik durum geçişleri, elle yazılmış iş kuyruğu ve ffmpeg HLS dönüştürme hattı. Yatay ölçekleme ölçümle doğrulandı.</p>
-        <ul class="chips"><li>TypeScript</li><li>WebSocket</li><li>Redis Lua</li><li>ffmpeg</li></ul>
-        <div class="links"><a href="https://github.com/kutsibalci/watch-party-sync-engine" target="_blank" rel="noopener">Kaynak kod</a></div>
-      </article>
-
-      <article class="card backend">
-        <div class="art" aria-hidden="true"><svg viewBox="0 0 320 140" preserveAspectRatio="xMidYMid meet"><rect class="w" x="62" y="22" width="22" height="18" rx="5"/><rect class="w" x="92" y="22" width="22" height="18" rx="5"/><rect class="w" x="122" y="22" width="22" height="18" rx="5"/><rect class="w" x="152" y="22" width="22" height="18" rx="5"/><rect class="w" x="182" y="22" width="22" height="18" rx="5"/><rect class="w" x="212" y="22" width="22" height="18" rx="5"/><rect class="w" x="242" y="22" width="22" height="18" rx="5"/><rect class="w" x="62" y="48" width="22" height="18" rx="5"/><rect class="w" x="92" y="48" width="22" height="18" rx="5"/><rect class="w" x="122" y="48" width="22" height="18" rx="5"/><rect class="w" x="152" y="48" width="22" height="18" rx="5"/><rect class="a" x="182" y="48" width="22" height="18" rx="5"/><rect class="w" x="212" y="48" width="22" height="18" rx="5"/><rect class="w" x="242" y="48" width="22" height="18" rx="5"/><rect class="w" x="62" y="74" width="22" height="18" rx="5"/><rect class="w" x="92" y="74" width="22" height="18" rx="5"/><rect class="w" x="122" y="74" width="22" height="18" rx="5"/><rect class="w" x="152" y="74" width="22" height="18" rx="5"/><rect class="w" x="182" y="74" width="22" height="18" rx="5"/><rect class="w" x="212" y="74" width="22" height="18" rx="5"/><rect class="w" x="242" y="74" width="22" height="18" rx="5"/><path class="s" d="M197 40v-14h44"/>
-<rect class="ink" x="241" y="14" width="56" height="22" rx="11"/><text class="t" x="269" y="29">SOLD</text>
-<rect class="ink" x="96" y="104" width="128" height="20" rx="10"/><text class="t" x="160" y="118">20 istek → 1 satış</text></svg></div>
-        <div class="card-top"><span class="kind">Backend · Eşzamanlılık</span><span class="vis public">Açık kaynak</span></div>
-        <h3>Concurrent Ticketing</h3>
-        <p class="meta">20 eşzamanlı istek, tek satış · 119 test</p>
-        <p class="desc">Yoğun talep altında bir koltuğun tam olarak bir kez satıldığını gösteren bilet API'si. PostgreSQL xmin ile iyimser kilitleme, RabbitMQ'ya transactional outbox ve rotasyonlu JWT.</p>
-        <ul class="chips"><li>C#</li><li>ASP.NET Core</li><li>PostgreSQL</li><li>RabbitMQ</li></ul>
-        <div class="links"><a href="https://github.com/kutsibalci/concurrent-ticketing" target="_blank" rel="noopener">Kaynak kod</a></div>
       </article>
 
       <article class="card backend">

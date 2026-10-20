@@ -422,7 +422,7 @@ a.contact-item:hover { background: rgba(255, 255, 255, 0.2); }
 }
 .copy:hover { background: var(--yellow); color: var(--ink); }
 
-footer { padding-block: 40px; color: var(--muted); font-size: 14px; }
+footer { margin-top: 88px; padding-block: 32px; background: var(--navy-deep); color: #c3cdf2; font-size: 14px; }
 footer .wrap { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 12px; }
 
 @media (max-width: 900px) {
