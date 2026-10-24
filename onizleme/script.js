@@ -1,6 +1,10 @@
 (function () {
   var root = document.documentElement;
   var reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  var EN = root.lang === "en";
+  var T = EN
+    ? { img: "image", video: "Video", copied: "Copied ✓", copy: "Copy", selected: "Selected, press Ctrl+C", locale: "en-US" }
+    : { img: "görsel", video: "Video", copied: "Kopyalandı ✓", copy: "Kopyala", selected: "Seçildi, Ctrl+C", locale: "tr-TR" };
 
   // Tema düğmesi
   document.getElementById("theme-btn").addEventListener("click", function () {
@@ -76,7 +80,7 @@
       if (!start) start = t;
       var p = Math.min(1, (t - start) / 1400);
       var v = Math.round(to * (1 - Math.pow(1 - p, 3)));
-      el.textContent = v.toLocaleString("tr-TR") + suffix;
+      el.textContent = v.toLocaleString(T.locale) + suffix;
       if (p < 1) requestAnimationFrame(step);
     }
     requestAnimationFrame(step);
@@ -151,7 +155,7 @@
       imgs.forEach(function (im, i) {
         var b = document.createElement("button");
         b.type = "button";
-        b.setAttribute("aria-label", (i + 1) + ". görsel: " + im.alt);
+        b.setAttribute("aria-label", (i + 1) + ". " + T.img + ": " + im.alt);
         var t = document.createElement("img");
         t.src = im.getAttribute("src");
         t.alt = "";
@@ -192,7 +196,7 @@
         v.controls = true;
         v.autoplay = true;
         v.playsInline = true;
-        openLightbox(v, "Video");
+        openLightbox(v, T.video);
       });
     }
   });
@@ -233,8 +237,8 @@
   var email = document.getElementById("email");
   copyBtn.addEventListener("click", function () {
     var done = function () {
-      copyBtn.textContent = "Kopyalandı ✓";
-      setTimeout(function () { copyBtn.textContent = "Kopyala"; }, 1800);
+      copyBtn.textContent = T.copied;
+      setTimeout(function () { copyBtn.textContent = T.copy; }, 1800);
     };
     var fallback = function () {
       var range = document.createRange();
@@ -242,7 +246,7 @@
       var sel = window.getSelection();
       sel.removeAllRanges();
       sel.addRange(range);
-      copyBtn.textContent = "Seçildi, Ctrl+C";
+      copyBtn.textContent = T.selected;
     };
     if (navigator.clipboard && navigator.clipboard.writeText) {
       navigator.clipboard.writeText(email.textContent).then(done, fallback);

@@ -885,3 +885,49 @@ footer .wrap { display: flex; flex-wrap: wrap; justify-content: space-between; g
   .ribbon b { font-size: 1.35rem; }
   .plain { margin-top: -20px; }
 }
+
+/* --- Sol üst: isim ve unvan --- */
+.brand-text { gap: 2px; }
+.brand-text b { font-size: 17px; letter-spacing: -0.01em; }
+.brand-text small { font-family: var(--body); font-size: 13px; letter-spacing: 0; text-transform: none; color: var(--muted); }
+
+/* --- TR / EN seçici --- */
+.lang { display: inline-flex; padding: 3px; border: 1px solid var(--line-strong); border-radius: 999px; }
+.lang a { font-family: var(--mono); font-size: 12.5px; font-weight: 500; text-decoration: none; padding: 6px 11px; border-radius: 999px; color: var(--muted); transition: background 0.2s ease, color 0.2s ease; }
+.lang a:hover { color: var(--fg); }
+.lang a.on { background: var(--accent); color: #fff; }
+
+/* --- Açık tema: daha az beyaz, daha yüksek kontrast --- */
+:root[data-theme="light"] {
+  --bg: #e9edf6;
+  --bg-2: #dfe5f1;
+  --surface: #f8f9fc;
+  --surface-2: #eef1f8;
+  --line: rgba(11, 20, 48, 0.15);
+  --line-strong: rgba(11, 20, 48, 0.28);
+  --fg: #0a1330;
+  --muted: #3c4766;
+  --accent: #2343c9;
+  --accent-soft: rgba(35, 67, 201, 0.1);
+  --live: #08775a;
+  --warm: #b85f00;
+  --shadow: 0 24px 50px -30px rgba(10, 19, 48, 0.45);
+}
+:root[data-theme="light"] .hero::before { opacity: 0.6; }
+:root[data-theme="light"] .metric,
+:root[data-theme="light"] .work,
+:root[data-theme="light"] .pr,
+:root[data-theme="light"] .skill,
+:root[data-theme="light"] .sweeps { box-shadow: 0 1px 0 rgba(10, 19, 48, 0.04), 0 10px 24px -18px rgba(10, 19, 48, 0.35); }
+:root[data-theme="light"] .ribbon { color: #fff; }
+:root[data-theme="light"] .badge { color: var(--muted); }
+:root[data-theme="light"] .chips li { color: var(--fg); }
+:root[data-theme="light"] .topbar.scrolled { background: color-mix(in srgb, var(--bg) 88%, transparent); }
+:root[data-theme="light"] .pr strong em { color: var(--live); }
+
+@media (max-width: 640px) {
+  .lang a { padding: 6px 9px; }
+  .brand-text b { font-size: 15px; }
+  .brand-text small { font-size: 12px; display: block; }
+}
+.tr-name { display: block; margin-top: 8px; font-family: var(--body); font-size: 0.42em; font-weight: 500; letter-spacing: 0; color: var(--muted); }
