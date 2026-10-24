@@ -79,17 +79,27 @@
           </div>
         </div>
 
-        <div class="collage" id="collage" aria-hidden="true">
-          <figure class="shot s1"><div class="bar"><i></i><i></i><i></i></div><img src="../img/hs-1.webp" alt="" width="1440" height="900"><figcaption>HeatShield · live demo</figcaption></figure>
-          <figure class="shot s3"><div class="bar"><i></i><i></i><i></i></div><img src="../img/lg-1.webp" alt="" width="1600" height="1000"><figcaption>Life Gate · 3D</figcaption></figure>
+        <div class="showcase">
+        <div class="collage" id="collage">
+          <button type="button" class="shot" data-target="heatshield" aria-label="HeatShield · Top 10"><span class="bar"><i></i><i></i><i></i></span><img src="../img/hs-1.webp" alt="" loading="eager"><span class="sc">HeatShield · Top 10</span></button>
+          <button type="button" class="shot" data-target="arrivalguard" aria-label="ArrivalGuard"><span class="bar"><i></i><i></i><i></i></span><img src="../img/ag-1.webp" alt="" loading="eager"><span class="sc">ArrivalGuard</span></button>
+          <button type="button" class="shot" data-target="ekt" aria-label="EKT Akademi · live"><span class="bar"><i></i><i></i><i></i></span><img src="../img/ekt-3.webp" alt="" loading="eager"><span class="sc">EKT Akademi · live</span></button>
+          <button type="button" class="shot" data-target="remote" aria-label="Remote Connect"><span class="bar"><i></i><i></i><i></i></span><img src="../img/rc-1.webp" alt="" loading="lazy"><span class="sc">Remote Connect</span></button>
+          <button type="button" class="shot" data-target="logistics" aria-label="Logistics Accounting"><span class="bar"><i></i><i></i><i></i></span><img src="../img/om-1.webp" alt="" loading="lazy"><span class="sc">Logistics Accounting</span></button>
+          <button type="button" class="shot tall" data-target="src" aria-label="SRC Exam Prep"><span class="bar"><i></i><i></i><i></i></span><img src="../img/src-2.webp" alt="" loading="lazy"><span class="sc">SRC Exam Prep</span></button>
+          <button type="button" class="shot" data-target="lifegate" aria-label="Life Gate · 3D"><span class="bar"><i></i><i></i><i></i></span><img src="../img/lg-1.webp" alt="" loading="lazy"><span class="sc">Life Gate · 3D</span></button>
+        </div>
+        <div class="sc-foot"><span>Click a screen to open the project summary.</span><div class="sc-dots" id="sc-dots" role="group" aria-label="Projects"></div></div>
         </div>
       </div>
 
-      <div class="stats">
-        <div class="stat"><b data-count="18">18</b><span>accepted contributions to projects such as NASA, CERN and LLVM</span></div>
-        <div class="stat"><b>Top 10</b><span>GSMA MENA Ignite 2026, out of 1,348 teams</span></div>
-        <div class="stat"><b>Live</b><span>EKT Akademi, serving real users since 20 August 2026</span></div>
-        <div class="stat"><b>BAUM</b><span>Backend internship at Anadolu University, July – August 2026</span></div>
+      <div class="facts">
+        <div class="fact rv"><small>Focus</small><b>Backend, network APIs and security</b></div>
+        <div class="fact rv"><small>Education</small><b>Anadolu University · Backend Software Development, 2nd year</b></div>
+        <div class="fact rv"><small>Location</small><b>İzmir, Türkiye · open to remote and hybrid</b></div>
+        <div class="fact rv"><small>Languages</small><b>Turkish, English</b></div>
+        <div class="fact rv"><small>Open source</small><b><span data-count="18">18</span> accepted contributions · NASA, CERN, LLVM</b></div>
+        <div class="fact rv hl"><small>Award</small><b>GSMA MENA Ignite 2026 · Top 10 (1,348 teams)</b></div>
       </div>
     </div>
   </section>
@@ -110,7 +120,7 @@
       <p>Eight projects with screenshots and measured results. Click an image to enlarge it.</p>
     </div>
 
-    <article class="case">
+    <article class="case" id="heatshield">
       <div class="gallery rv">
         <div class="stage">
           <div class="ribbon"><b>TOP 10</b><span>out of 1,348 teams<br>GSMA MENA Ignite 2026</span></div>
@@ -122,7 +132,7 @@
         <div class="thumbs"></div>
       </div>
       <div class="info rv d1">
-        <div class="badges"><span class="badge win">Top 10 · 1,348 teams</span><span class="badge">GSMA MENA Ignite 2026</span></div>
+        <div class="badges"><span class="badge win">Top 10 · 1,348 teams</span><span class="badge win">GSMA MENA Ignite 2026</span></div>
         <h3>HeatShield</h3>
         <p class="one">An agent that uses the mobile network as its sensor to protect construction workers from heat stress.</p>
         <p class="desc">In Qatar, outdoor work must stop once heat passes the legal limit. HeatShield detects workers still on site through the network, with no extra device, spends its query budget on the workers most at risk first, and writes every decision to a record that can be used in an inspection. I built it on my own in two and a half weeks and presented it live to an international jury.</p>
@@ -171,7 +181,7 @@
       </div>
     </article>
 
-    <article class="case">
+    <article class="case" id="ekt">
       <div class="gallery rv">
         <div class="stage">
           <img class="on" src="../img/ekt-3.webp" alt="EKT Akademi course page" data-cap="Course page: program structure, modules and enrolment." width="1440" height="900">
@@ -204,7 +214,6 @@
       <div class="gallery rv">
         <div class="stage">
           <img class="on" src="../img/rc-1.webp" alt="Remote Connect system status panel" data-cap="System status: CPU, memory and GPU graphs; running programs are grouped like Task Manager and can be closed remotely." width="1600" height="1000" loading="lazy">
-          <img class="fit" src="../img/rc-2.webp" alt="Remote Connect on a phone in landscape" data-cap="Turned sideways, the phone fills the screen with the desktop; latency and frame rate in the top right." width="1600" height="739" loading="lazy">
           <img src="../img/rc-4.webp" alt="Remote Connect latency meter" data-cap="Latency detail: 2 ms network round trip, 2.1 ms decode and draw, 31 frames per second." width="1600" height="1000" loading="lazy">
           <img src="../img/rc-3.webp" alt="Remote Connect admin panel" data-cap="Admin panel: access from anywhere, one-time guest codes, new-device approval and blocking logins from public networks." width="1600" height="1000" loading="lazy">
         </div>
@@ -229,26 +238,6 @@
         <figure class="phone rv d1"><div class="frame"><img src="../img/rc-p2.webp" alt="Special keys panel on a phone" data-cap="Special keys panel: shortcuts and sticky Ctrl/Alt/Shift/Win; the panel doesn't cover the screen." width="520" height="1125" loading="lazy"></div><figcaption>Special keys panel</figcaption></figure>
         <figure class="phone rv d2"><div class="frame"><img src="../img/rc-p3.webp" alt="Remote-control mode on a phone" data-cap="Remote-control mode: media keys and per-app volume without streaming the screen." width="520" height="1125" loading="lazy"></div><figcaption>Remote control and audio mixer</figcaption></figure>
         <figure class="phone rv d3"><div class="frame"><img src="../img/rc-p4.webp" alt="File transfer on a phone" data-cap="File transfer: browse the computer's files, download whole folders, send from the phone (sample folder)." width="520" height="1125" loading="lazy"></div><figcaption>File transfer</figcaption></figure>
-      </div>
-    </article>
-
-    <article class="case">
-      <div class="gallery rv">
-        <div class="stage">
-        </div>
-        <p class="cap"><span class="count"></span><span class="txt"></span></p>
-        <div class="thumbs"></div>
-      </div>
-      <div class="info rv d1">
-        <div class="badges"><span class="badge">In development</span><span class="badge">Personal project</span></div>
-        <p class="one">An electric vehicle charging planner that accounts for whether a station actually works.</p>
-        <div class="metrics">
-          <div class="metric"><b>13,000+</b><span>stations pulled daily from the EPDK list</span></div>
-          <div class="metric"><b>262</b><span>automated tests (255 + 7)</span></div>
-          <div class="metric"><b>≈ 5 min</b><span>expected delay from broken chargers, Ankara → İzmir</span></div>
-        </div>
-        <ul class="chips"><li>Python</li><li>FastAPI</li><li>SQLAlchemy</li><li>Next.js</li><li>MapLibre</li><li>OSRM</li><li>Docker</li></ul>
-        <p class="note">Not published yet; the repository is private.</p>
       </div>
     </article>
 
@@ -304,7 +293,7 @@
       </div>
     </article>
 
-    <article class="case">
+    <article class="case" id="lifegate">
       <div class="gallery rv">
         <div class="stage">
           <img class="on" src="../img/lg-1.webp" alt="Life Gate intervention screen" data-cap="While pressure is applied with gloved hands, the patient voices their worry and the student replies by choosing a sentence." width="1600" height="1000" loading="lazy">
@@ -375,53 +364,36 @@
         <span class="when">2025 – present</span>
         <div>
           <h3>Associate degree · <span class="org">Anadolu University</span></h3>
-          <p>Vocational School of Information Technologies, Backend Software Development, second year. Alongside my classes I built and shipped the projects above.</p>
+          <p>Vocational School of Information Technologies, Backend Software Development, second year. Alongside my classes I built the work below from the first line of code to production.</p>
         </div>
       </li>
       <li class="rv">
         <span class="when">Ongoing</span>
         <div>
           <h3>Open education · <span class="org">Logistics</span></h3>
-          <p>Alongside my software degree I'm studying logistics through open education. I put that domain knowledge to use in the accounting program I wrote for trucking businesses.</p>
+          <p>I study logistics alongside my software degree, and used that knowledge in the accounting program I wrote for trucking businesses.</p>
         </div>
       </li>
       <li class="rv">
         <span class="when">September 2026</span>
         <div>
-          <h3>GSMA MENA Ignite Hackathon · <span class="org">Top 10</span></h3>
-          <p>At a hackathon organised by GSMA and Nokia, with more than 1,800 participants from 22 countries, I was one of the 10 finalists out of 1,348 teams, competing as a one-person team.</p>
-          <ul class="bul">
-            <li>Built HeatShield on my own in two and a half weeks.</li>
-            <li>Presented it live to an international jury on 21 September.</li>
-            <li>Anadolu University published the result as a news story.</li>
-          </ul>
+          <h3>GSMA MENA Ignite Hackathon · <span class="org warm">Top 10</span></h3>
+          <p>One of the 10 finalists out of 1,348 teams; I built HeatShield on my own and presented it live to an international jury.</p>
           <a class="more" href="https://anahaber.anadolu.edu.tr/tr/haber-detay/ieryw2wyhfbm1t7qacj7rjfx" target="_blank" rel="noopener">Anadolu University news (Turkish) ↗</a>
         </div>
       </li>
       <li class="rv">
         <span class="when">August 2026 – present</span>
         <div>
-          <h3>Team developer · <span class="org">EKT Akademi</span></h3>
-          <p>With Bedirhan Çetin and Kadir Can Yıldırım I built the corporate training platform that has been live since 20 August 2026.</p>
-          <ul class="bul">
-            <li>Ran the platform's security audits: 24 areas scanned, 56 findings confirmed.</li>
-            <li>All 8 high-severity findings were fixed.</li>
-            <li>The platform is covered by 262 automated tests and runs on AWS.</li>
-          </ul>
+          <h3>Freelance software developer</h3>
+          <p>Backends and applications for teams and clients, from the first line of code to production: EKT Akademi and Logistics Accounting.</p>
         </div>
       </li>
       <li class="rv">
         <span class="when">August 2026 – present · Remote</span>
         <div>
           <h3>Open source contributor</h3>
-          <p>18 of my fixes have been accepted into widely used projects such as NASA, CERN, LLVM, Apache, NVIDIA, Microsoft and Rust. Details in the Open source section below.</p>
-        </div>
-      </li>
-      <li class="rv">
-        <span class="when">August 2026</span>
-        <div>
-          <h3>Freelance developer · <span class="org">Logistics Accounting</span></h3>
-          <p>Built an accounting and logistics program that is now in use, from the first line of code to delivery (version 1.0).</p>
+          <p>18 of my fixes have been accepted into NASA, CERN, LLVM, Apache, NVIDIA, Microsoft and Rust projects.</p>
         </div>
       </li>
       <li class="rv">
@@ -429,15 +401,49 @@
         <div>
           <h3>Intern · <span class="org">Anadolu University Computer Research and Application Center (BAUM)</span></h3>
           <p>Developed plugins that turn the Redmine project tracker used inside the university into a Jira-style tool.</p>
+        </div>
+      </li>
+    </ul>
+    <details class="resp rv">
+      <summary>All responsibilities</summary>
+      <div class="resp-grid">
+        <section>
+          <h4>Freelance software developer</h4>
+          <ul class="bul">
+            <li>Built EKT Akademi with Bedirhan Çetin and Kadir Can Yıldırım; the platform has been live on AWS since 20 August 2026.</li>
+            <li>Ran the platform's security audits: 24 areas scanned, 56 findings confirmed, all 8 high-severity findings fixed.</li>
+            <li>Built the Logistics Accounting program from the first line to delivery (v1.0, August 2026); it is in use.</li>
+            <li>Wrote modules such as per-trip net profit, vehicle and driver document deadlines and e-invoice import with no third-party libraries.</li>
+          </ul>
+        </section>
+        <section>
+          <h4>Intern, BAUM</h4>
           <ul class="bul">
             <li>Wrote seven Redmine 7 plugins; the bundle now has thirteen.</li>
             <li>Delivered a backlog of 11 epics and 31 user stories end to end.</li>
             <li>Added modules such as user roles, workflows, an audit log and search.</li>
             <li>Shipped it as a one-command Docker package without touching Redmine's core; smoke tests pass 61/61.</li>
           </ul>
-        </div>
-      </li>
-    </ul>
+        </section>
+        <section>
+          <h4>GSMA MENA Ignite Hackathon</h4>
+          <ul class="bul">
+            <li>Built HeatShield on my own in two and a half weeks; 6 Nokia network APIs were tested live.</li>
+            <li>Cut network queries on a 240-worker site from 800 to 89.</li>
+            <li>Presented it live to an international jury on 21 September 2026; Anadolu University published the result as a news story.</li>
+            <li>Built ArrivalGuard on the same technology and released it as open source.</li>
+          </ul>
+        </section>
+        <section>
+          <h4>Open source contributor</h4>
+          <ul class="bul">
+            <li>Fixed faulty behaviour in NASA F´, CERN ROOT, Apache Kafka and Eclipse S-CORE.</li>
+            <li>Made 12 fixes to the documentation of LLVM, .NET, systemd, Airflow, NVIDIA CUTLASS, Rust and VS Code.</li>
+            <li>Proved each problem was real with a test before sending the fix.</li>
+          </ul>
+        </section>
+      </div>
+    </details>
   </section>
 
   <!-- 04 Open source -->
@@ -530,6 +536,23 @@
     <span>Handwritten in HTML, CSS and JavaScript</span>
   </div>
 </footer>
+
+<div class="pmodal" id="pmodal" role="dialog" aria-modal="true" aria-labelledby="pm-title" hidden>
+  <div class="pm-card">
+    <button class="icon-btn pm-close" type="button" id="pm-close" aria-label="Close">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M6 6l12 12M18 6L6 18"/></svg>
+    </button>
+    <div class="pm-media"><img id="pm-img" alt=""></div>
+    <div class="pm-body">
+      <div class="badges" id="pm-badges"></div>
+      <h3 id="pm-title"></h3>
+      <p class="one" id="pm-one"></p>
+      <p class="desc" id="pm-desc"></p>
+      <div class="metrics" id="pm-metrics"></div>
+      <div class="links"><a class="link solid" id="pm-go" href="#">See the project ↓</a></div>
+    </div>
+  </div>
+</div>
 
 <div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="Enlarged image">
   <button class="icon-btn close" type="button" id="lb-close" aria-label="Close">

@@ -53,24 +53,6 @@
     }, 2600);
   }
 
-  // Kolajda fareyle hafif derinlik
-  var collage = document.getElementById("collage");
-  if (collage && !reduce && window.matchMedia("(pointer: fine)").matches) {
-    var shots = collage.querySelectorAll(".shot");
-    collage.parentElement.addEventListener("mousemove", function (e) {
-      var r = collage.getBoundingClientRect();
-      var x = (e.clientX - r.left) / r.width - 0.5;
-      var y = (e.clientY - r.top) / r.height - 0.5;
-      shots.forEach(function (s, i) {
-        var d = (i + 1) * 8;
-        s.style.transform = "translate(" + (-x * d) + "px," + (-y * d) + "px) rotateY(" + (x * 4) + "deg) rotateX(" + (-y * 4) + "deg)";
-      });
-    });
-    collage.parentElement.addEventListener("mouseleave", function () {
-      shots.forEach(function (s) { s.style.transform = ""; });
-    });
-  }
-
   // Sayaçlar
   function countUp(el) {
     var to = +el.getAttribute("data-count");
@@ -140,6 +122,21 @@
     var thumbs = g.querySelector(".thumbs");
     var cur = 0;
     var timer = null;
+    var DUR = 4500;
+    var tick = null;
+    if (imgs.length > 1 && !reduce) {
+      tick = document.createElement("span");
+      tick.className = "tick";
+      tick.innerHTML = "<i></i>";
+      tick.style.setProperty("--dur", DUR + "ms");
+      stage.appendChild(tick);
+    }
+    function runTick() {
+      if (!tick) return;
+      tick.classList.remove("run", "paused");
+      void tick.offsetWidth;
+      tick.classList.add("run");
+    }
 
     function show(i) {
       imgs[cur].classList.remove("on");
@@ -170,14 +167,15 @@
     function restart() {
       if (timer) clearInterval(timer);
       if (imgs.length < 2 || reduce) return;
-      timer = setInterval(function () { show((cur + 1) % imgs.length); }, 5000);
+      runTick();
+      timer = setInterval(function () { show((cur + 1) % imgs.length); runTick(); }, DUR);
     }
     if ("IntersectionObserver" in window && imgs.length > 1) {
       new IntersectionObserver(function (en) {
         if (en[0].isIntersecting) restart(); else if (timer) { clearInterval(timer); timer = null; }
       }, { threshold: 0.4 }).observe(stage);
     }
-    stage.addEventListener("mouseenter", function () { if (timer) { clearInterval(timer); timer = null; } });
+    stage.addEventListener("mouseenter", function () { if (timer) { clearInterval(timer); timer = null; } if (tick) tick.classList.add("paused"); });
     stage.addEventListener("mouseleave", restart);
 
     stage.addEventListener("click", function (e) {
@@ -225,12 +223,81 @@
     f.addEventListener("keydown", function (e) { if (e.key === "Enter" || e.key === " ") { e.preventDefault(); open(); } });
   });
 
-  // Kolaj: dokunmatik ekranda dokunulan görsel öne çıkar
-  document.querySelectorAll(".collage .shot").forEach(function (sh, i, all) {
-    sh.addEventListener("click", function () {
-      all.forEach(function (o) { o.classList.toggle("front", o === sh); });
+  // Giriş vitrini: projeler sırayla öne gelir, tıklayınca özet açılır
+  var collage = document.getElementById("collage");
+  var pm = document.getElementById("pmodal");
+  if (collage && pm) {
+    var shots = Array.prototype.slice.call(collage.querySelectorAll(".shot"));
+    var dotsBox = document.getElementById("sc-dots");
+    var front = 0, scTimer = null, hovering = false;
+    var dots = shots.map(function (sh, k) {
+      var b = document.createElement("button");
+      b.type = "button";
+      b.setAttribute("aria-label", sh.getAttribute("aria-label"));
+      b.addEventListener("click", function () { front = k; layout(); restartSc(); });
+      dotsBox.appendChild(b);
+      return b;
     });
-  });
+    function layout() {
+      var n = shots.length;
+      shots.forEach(function (sh, k) {
+        var d = (k - front + n) % n;
+        sh.setAttribute("data-slot", d < 3 ? String(d) : "h");
+        sh.tabIndex = d < 3 ? 0 : -1;
+        dots[k].classList.toggle("on", d === 0);
+      });
+    }
+    function restartSc() {
+      if (scTimer) clearInterval(scTimer);
+      if (reduce) return;
+      scTimer = setInterval(function () { if (!hovering && !pm.classList.contains("open")) { front = (front + 1) % shots.length; layout(); } }, 3200);
+    }
+    collage.addEventListener("mouseenter", function () { hovering = true; });
+    collage.addEventListener("mouseleave", function () { hovering = false; });
+    layout();
+    restartSc();
+
+    var lastShot = null;
+    function openProject(id, fromEl) {
+      var art = document.getElementById(id);
+      if (!art) return;
+      lastShot = fromEl || null;
+      var first = art.querySelector(".stage img, .phone img");
+      var pimg = document.getElementById("pm-img");
+      pimg.src = first ? first.getAttribute("src") : "";
+      pimg.alt = first ? first.alt : "";
+      pimg.classList.toggle("tall", !!art.querySelector(".phones.six") && !art.querySelector(".stage"));
+      var h = art.querySelector("h3");
+      document.getElementById("pm-title").innerHTML = h ? h.innerHTML : "";
+      var bd = art.querySelector(".badges");
+      document.getElementById("pm-badges").innerHTML = bd ? bd.innerHTML : "";
+      var one = art.querySelector(".one");
+      document.getElementById("pm-one").textContent = one ? one.textContent : "";
+      var desc = art.querySelector(".desc");
+      document.getElementById("pm-desc").textContent = desc ? desc.textContent : "";
+      var mt = art.querySelector(".metrics");
+      document.getElementById("pm-metrics").innerHTML = mt ? mt.innerHTML : "";
+      document.getElementById("pm-go").setAttribute("href", "#" + id);
+      pm.hidden = false;
+      requestAnimationFrame(function () { pm.classList.add("open"); });
+      document.getElementById("pm-close").focus();
+    }
+    function closeProject() {
+      pm.classList.remove("open");
+      setTimeout(function () { pm.hidden = true; }, 300);
+      if (lastShot) lastShot.focus();
+    }
+    shots.forEach(function (sh) {
+      sh.addEventListener("click", function () {
+        if (sh.getAttribute("data-slot") === "h") return;
+        openProject(sh.getAttribute("data-target"), sh);
+      });
+    });
+    document.getElementById("pm-close").addEventListener("click", closeProject);
+    pm.addEventListener("click", function (e) { if (e.target === pm) closeProject(); });
+    document.getElementById("pm-go").addEventListener("click", function () { lastShot = null; closeProject(); });
+    document.addEventListener("keydown", function (e) { if (e.key === "Escape" && pm.classList.contains("open")) closeProject(); });
+  }
 
   // E-postayı kopyala
   var copyBtn = document.getElementById("copy-email");

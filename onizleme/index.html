@@ -79,17 +79,27 @@
           </div>
         </div>
 
-        <div class="collage" id="collage" aria-hidden="true">
-          <figure class="shot s1"><div class="bar"><i></i><i></i><i></i></div><img src="img/hs-1.webp" alt="" width="1440" height="900"><figcaption>HeatShield · canlı demo</figcaption></figure>
-          <figure class="shot s3"><div class="bar"><i></i><i></i><i></i></div><img src="img/lg-1.webp" alt="" width="1600" height="1000"><figcaption>Life Gate · 3D</figcaption></figure>
+        <div class="showcase">
+        <div class="collage" id="collage">
+          <button type="button" class="shot" data-target="heatshield" aria-label="HeatShield · İlk 10"><span class="bar"><i></i><i></i><i></i></span><img src="img/hs-1.webp" alt="" loading="eager"><span class="sc">HeatShield · İlk 10</span></button>
+          <button type="button" class="shot" data-target="arrivalguard" aria-label="ArrivalGuard"><span class="bar"><i></i><i></i><i></i></span><img src="img/ag-1.webp" alt="" loading="eager"><span class="sc">ArrivalGuard</span></button>
+          <button type="button" class="shot" data-target="ekt" aria-label="EKT Akademi · canlı"><span class="bar"><i></i><i></i><i></i></span><img src="img/ekt-3.webp" alt="" loading="eager"><span class="sc">EKT Akademi · canlı</span></button>
+          <button type="button" class="shot" data-target="uzaktan" aria-label="Uzaktan Bağlantı"><span class="bar"><i></i><i></i><i></i></span><img src="img/rc-1.webp" alt="" loading="lazy"><span class="sc">Uzaktan Bağlantı</span></button>
+          <button type="button" class="shot" data-target="muhasebe" aria-label="Ön Muhasebe ve Lojistik"><span class="bar"><i></i><i></i><i></i></span><img src="img/om-1.webp" alt="" loading="lazy"><span class="sc">Ön Muhasebe ve Lojistik</span></button>
+          <button type="button" class="shot tall" data-target="src" aria-label="SRC Sınav Soruları"><span class="bar"><i></i><i></i><i></i></span><img src="img/src-2.webp" alt="" loading="lazy"><span class="sc">SRC Sınav Soruları</span></button>
+          <button type="button" class="shot" data-target="lifegate" aria-label="Life Gate · 3D"><span class="bar"><i></i><i></i><i></i></span><img src="img/lg-1.webp" alt="" loading="lazy"><span class="sc">Life Gate · 3D</span></button>
+        </div>
+        <div class="sc-foot"><span>Bir ekrana tıkla, projenin özeti açılsın.</span><div class="sc-dots" id="sc-dots" role="group" aria-label="Projeler"></div></div>
         </div>
       </div>
 
-      <div class="stats">
-        <div class="stat"><b data-count="18">18</b><span>NASA, CERN ve LLVM gibi projelere kabul edilen katkı</span></div>
-        <div class="stat"><b>İlk 10</b><span>GSMA MENA Ignite 2026, 1.348 takım arasından</span></div>
-        <div class="stat"><b>Canlı</b><span>EKT Akademi, 20 Ağustos 2026'dan beri gerçek kullanıcılarla yayında</span></div>
-        <div class="stat"><b>BAUM</b><span>Anadolu Üniversitesi'nde backend stajı, Temmuz – Ağustos 2026</span></div>
+      <div class="facts">
+        <div class="fact rv"><small>Odak</small><b>Backend, ağ API'leri ve güvenlik</b></div>
+        <div class="fact rv"><small>Eğitim</small><b>Anadolu Üniversitesi · Arka Yüz Yazılım Geliştirme, 2. sınıf</b></div>
+        <div class="fact rv"><small>Konum</small><b>İzmir · uzaktan ve hibrit çalışmaya açık</b></div>
+        <div class="fact rv"><small>Diller</small><b>Türkçe, İngilizce</b></div>
+        <div class="fact rv"><small>Açık kaynak</small><b><span data-count="18">18</span> kabul edilen katkı · NASA, CERN, LLVM</b></div>
+        <div class="fact rv hl"><small>Ödül</small><b>GSMA MENA Ignite 2026 · İlk 10 (1.348 takım)</b></div>
       </div>
     </div>
   </section>
@@ -110,7 +120,7 @@
       <p>Sekiz proje, ekran görüntüleri ve ölçülmüş sonuçlarıyla. Görsele tıklayınca büyür.</p>
     </div>
 
-    <article class="case">
+    <article class="case" id="heatshield">
       <div class="gallery rv">
         <div class="stage">
           <div class="ribbon"><b>İLK 10</b><span>1.348 takım arasından<br>GSMA MENA Ignite 2026</span></div>
@@ -122,7 +132,7 @@
         <div class="thumbs"></div>
       </div>
       <div class="info rv d1">
-        <div class="badges"><span class="badge win">İlk 10 · 1.348 takım</span><span class="badge">GSMA MENA Ignite 2026</span></div>
+        <div class="badges"><span class="badge win">İlk 10 · 1.348 takım</span><span class="badge win">GSMA MENA Ignite 2026</span></div>
         <h3>HeatShield</h3>
         <p class="one">Mobil şebekeyi sensör olarak kullanan, inşaat işçilerini sıcak stresinden koruyan bir ajan.</p>
         <p class="desc">Katar'da ısı yasal sınırı aştığında açık alandaki işin durması gerekiyor. HeatShield sahada kalan işçileri ek cihaz olmadan şebeke üzerinden tespit ediyor, sorgu bütçesini önce en riskli çalışanlara harcıyor ve her kararı denetimde kullanılabilecek bir kayda yazıyor. İki buçuk haftada tek başıma geliştirip uluslararası jüriye canlı sundum.</p>
@@ -171,7 +181,7 @@
       </div>
     </article>
 
-    <article class="case">
+    <article class="case" id="ekt">
       <div class="gallery rv">
         <div class="stage">
           <img class="on" src="img/ekt-3.webp" alt="EKT Akademi eğitim detay sayfası" data-cap="Eğitim detayı: program yapısı, modüller ve kayıt." width="1440" height="900">
@@ -204,7 +214,6 @@
       <div class="gallery rv">
         <div class="stage">
           <img class="on" src="img/rc-1.webp" alt="Uzaktan Bağlantı bilgisayar durumu paneli" data-cap="Bilgisayar durumu: işlemci, bellek ve GPU grafikleri; çalışan programlar Görev Yöneticisi gibi gruplu ve uzaktan kapatılabiliyor." width="1600" height="1000" loading="lazy">
-          <img class="fit" src="img/rc-2.webp" alt="Uzaktan Bağlantı yatay telefon görünümü" data-cap="Telefon yan çevrilince masaüstü ekranı dolduruyor; gecikme ve kare hızı sağ üstte." width="1600" height="739" loading="lazy">
           <img src="img/rc-4.webp" alt="Uzaktan Bağlantı gecikme sayacı" data-cap="Gecikme ayrıntısı: ağ gidiş-dönüşü 2 ms, çözme ve çizim 2,1 ms, 31 kare/sn." width="1600" height="1000" loading="lazy">
           <img src="img/rc-3.webp" alt="Uzaktan Bağlantı yönetim paneli" data-cap="Yönetim paneli: her yerden erişim, tek seferlik misafir kodu, yeni cihaz onayı ve ortak ağlardan girişi kapatma." width="1600" height="1000" loading="lazy">
         </div>
@@ -229,26 +238,6 @@
         <figure class="phone rv d1"><div class="frame"><img src="img/rc-p2.webp" alt="Telefonda özel tuşlar paneli" data-cap="Özel tuşlar paneli: kısayollar ve yapışkan Ctrl/Alt/Shift/Win; panel görüntüyü kapatmıyor." width="520" height="1125" loading="lazy"></div><figcaption>Özel tuşlar paneli</figcaption></figure>
         <figure class="phone rv d2"><div class="frame"><img src="img/rc-p3.webp" alt="Telefonda kumanda modu" data-cap="Kumanda modu: görüntü aktarmadan medya tuşları ve uygulama başına ses ayarı." width="520" height="1125" loading="lazy"></div><figcaption>Kumanda ve ses karıştırıcı</figcaption></figure>
         <figure class="phone rv d3"><div class="frame"><img src="img/rc-p4.webp" alt="Telefonda dosya aktarımı" data-cap="Dosya aktarımı: bilgisayardaki dosyalara göz atma, klasör indirme, telefondan gönderme (örnek klasörle)." width="520" height="1125" loading="lazy"></div><figcaption>Dosya aktarımı</figcaption></figure>
-      </div>
-    </article>
-
-    <article class="case">
-      <div class="gallery rv">
-        <div class="stage">
-        </div>
-        <p class="cap"><span class="count"></span><span class="txt"></span></p>
-        <div class="thumbs"></div>
-      </div>
-      <div class="info rv d1">
-        <div class="badges"><span class="badge">Geliştiriliyor</span><span class="badge">Kişisel proje</span></div>
-        <p class="one">İstasyonun gerçekten çalışma ihtimalini hesaba katan elektrikli araç şarj planlayıcısı.</p>
-        <div class="metrics">
-          <div class="metric"><b>13.000+</b><span>EPDK'dan her gün çekilen istasyon</span></div>
-          <div class="metric"><b>262</b><span>otomatik test (255 + 7)</span></div>
-          <div class="metric"><b>≈ 5 dk</b><span>Ankara → İzmir'de arıza kaynaklı beklenen gecikme</span></div>
-        </div>
-        <ul class="chips"><li>Python</li><li>FastAPI</li><li>SQLAlchemy</li><li>Next.js</li><li>MapLibre</li><li>OSRM</li><li>Docker</li></ul>
-        <p class="note">Henüz yayında değil; kod deposu gizli.</p>
       </div>
     </article>
 
@@ -304,7 +293,7 @@
       </div>
     </article>
 
-    <article class="case">
+    <article class="case" id="lifegate">
       <div class="gallery rv">
         <div class="stage">
           <img class="on" src="img/lg-1.webp" alt="Life Gate müdahale ekranı" data-cap="Eldivenli ellerle bası uygulanırken yaralı endişesini söylüyor, öğrenci cümle seçerek cevap veriyor." width="1600" height="1000" loading="lazy">
@@ -375,53 +364,36 @@
         <span class="when">2025 – bugün</span>
         <div>
           <h3>Ön lisans · <span class="org">Anadolu Üniversitesi</span></h3>
-          <p>Bilişim Teknolojileri Meslek Yüksekokulu, Arka Yüz Yazılım Geliştirme, 2. sınıf. Derslerin yanında yukarıdaki projeleri geliştirip yayına aldım.</p>
+          <p>Bilişim Teknolojileri Meslek Yüksekokulu, Arka Yüz Yazılım Geliştirme, 2. sınıf. Derslerin yanında aşağıdaki işleri ilk satırdan canlıya kadar geliştirdim.</p>
         </div>
       </li>
       <li class="rv">
         <span class="when">Devam ediyor</span>
         <div>
           <h3>Açıköğretim · <span class="org">Lojistik</span></h3>
-          <p>Yazılım eğitimime paralel olarak açıköğretimde lojistik okuyorum. Nakliye işletmeleri için yazdığım Ön Muhasebe ve Lojistik programında bu alan bilgisini kullandım.</p>
+          <p>Yazılım eğitimime paralel olarak lojistik okuyorum; bu alan bilgisini nakliye işletmeleri için yazdığım ön muhasebe programında kullandım.</p>
         </div>
       </li>
       <li class="rv">
         <span class="when">Eylül 2026</span>
         <div>
-          <h3>GSMA MENA Ignite Hackathon · <span class="org">İlk 10</span></h3>
-          <p>GSMA ve Nokia'nın düzenlediği, 22 ülkeden 1.800'den fazla katılımcının yarıştığı hackathonda tek kişilik takım olarak 1.348 takım arasından finale kalan 10 yarışmacıdan biri oldum.</p>
-          <ul class="bul">
-            <li>HeatShield'ı iki buçuk haftada tek başıma geliştirdim.</li>
-            <li>21 Eylül'de uluslararası jüriye canlı sundum.</li>
-            <li>Anadolu Üniversitesi bu başarıyı haber olarak yayımladı.</li>
-          </ul>
+          <h3>GSMA MENA Ignite Hackathon · <span class="org warm">İlk 10</span></h3>
+          <p>1.348 takım arasından finale kalan 10 yarışmacıdan biri oldum; HeatShield'ı tek başıma geliştirip uluslararası jüriye canlı sundum.</p>
           <a class="more" href="https://anahaber.anadolu.edu.tr/tr/haber-detay/ieryw2wyhfbm1t7qacj7rjfx" target="_blank" rel="noopener">Anadolu Üniversitesi haberi ↗</a>
         </div>
       </li>
       <li class="rv">
         <span class="when">Ağustos 2026 – bugün</span>
         <div>
-          <h3>Ekip geliştiricisi · <span class="org">EKT Akademi</span></h3>
-          <p>20 Ağustos 2026'dan beri canlıda olan kurumsal eğitim platformunu Bedirhan Çetin ve Kadir Can Yıldırım ile birlikte geliştirdik.</p>
-          <ul class="bul">
-            <li>Platformun güvenlik denetimlerini yürüttüm: 24 alan tarandı, 56 bulgu doğrulandı.</li>
-            <li>Yüksek önemdeki 8 bulgunun tamamı kapatıldı.</li>
-            <li>Platform 262 otomatik testle korunuyor ve AWS üzerinde çalışıyor.</li>
-          </ul>
+          <h3>Serbest yazılım geliştirici</h3>
+          <p>Ekipler ve müşteriler için ilk satırdan canlıya backend ve uygulamalar: EKT Akademi ve Ön Muhasebe ve Lojistik.</p>
         </div>
       </li>
       <li class="rv">
         <span class="when">Ağustos 2026 – bugün · Uzaktan</span>
         <div>
           <h3>Açık kaynak katkıcısı</h3>
-          <p>NASA, CERN, LLVM, Apache, NVIDIA, Microsoft ve Rust gibi dünya çapındaki projelere 18 düzeltmem kabul edildi. Ayrıntılar aşağıdaki Açık kaynak bölümünde.</p>
-        </div>
-      </li>
-      <li class="rv">
-        <span class="when">Ağustos 2026</span>
-        <div>
-          <h3>Serbest geliştirici · <span class="org">Ön Muhasebe ve Lojistik</span></h3>
-          <p>Kullanımda olan ön muhasebe ve lojistik programını ilk satırdan teslime kadar geliştirdim (sürüm 1.0).</p>
+          <p>NASA, CERN, LLVM, Apache, NVIDIA, Microsoft ve Rust projelerinde 18 düzeltmem kabul edildi.</p>
         </div>
       </li>
       <li class="rv">
@@ -429,15 +401,49 @@
         <div>
           <h3>Stajyer · <span class="org">Anadolu Üniversitesi Bilgisayar Araştırma ve Uygulama Merkezi (BAUM)</span></h3>
           <p>Kurum içinde kullanılan Redmine proje takip sistemini Jira benzeri bir araca dönüştüren eklentiler geliştirdim.</p>
+        </div>
+      </li>
+    </ul>
+    <details class="resp rv">
+      <summary>Tüm sorumluluklar</summary>
+      <div class="resp-grid">
+        <section>
+          <h4>Serbest yazılım geliştirici</h4>
+          <ul class="bul">
+            <li>EKT Akademi'yi Bedirhan Çetin ve Kadir Can Yıldırım ile geliştirdik; platform 20 Ağustos 2026'dan beri canlıda ve AWS üzerinde çalışıyor.</li>
+            <li>Platformun güvenlik denetimlerini yürüttüm: 24 alan tarandı, 56 bulgu doğrulandı, yüksek önemdeki 8 bulgunun tamamı kapatıldı.</li>
+            <li>Ön Muhasebe ve Lojistik programını ilk satırdan teslime kadar geliştirdim (v1.0, Ağustos 2026); program kullanımda.</li>
+            <li>Sefer bazında net kâr, araç ve şoför belge vadeleri ve e-Fatura içe aktarma gibi modülleri dış kütüphane kullanmadan yazdım.</li>
+          </ul>
+        </section>
+        <section>
+          <h4>Stajyer, BAUM</h4>
           <ul class="bul">
             <li>Yedi Redmine 7 eklentisi yazdım; paket bugün on üç eklentiden oluşuyor.</li>
             <li>11 epic ve 31 kullanıcı hikâyesinden oluşan iş listesini uçtan uca tamamladım.</li>
             <li>Kullanıcı rolleri, iş akışları, denetim kaydı ve arama gibi modüller ekledim.</li>
-            <li>Redmine'ın çekirdeğine dokunmadan, tek komutla kurulan bir Docker paketi olarak teslim ettim; duman testleri 61/61 geçiyor.</li>
+            <li>Redmine'ın çekirdeğine dokunmadan tek komutla kurulan bir Docker paketi olarak teslim ettim; duman testleri 61/61 geçiyor.</li>
           </ul>
-        </div>
-      </li>
-    </ul>
+        </section>
+        <section>
+          <h4>GSMA MENA Ignite Hackathon</h4>
+          <ul class="bul">
+            <li>HeatShield'ı iki buçuk haftada tek başıma geliştirdim; 6 Nokia ağ API'si canlı olarak test edildi.</li>
+            <li>240 çalışanlık bir şantiyede ağ sorgusunu 800'den 89'a indirdim.</li>
+            <li>21 Eylül 2026'da uluslararası jüriye canlı sundum; Anadolu Üniversitesi başarıyı haber olarak yayımladı.</li>
+            <li>Aynı teknolojiyle ArrivalGuard'ı geliştirip açık kaynak olarak yayımladım.</li>
+          </ul>
+        </section>
+        <section>
+          <h4>Açık kaynak katkıcısı</h4>
+          <ul class="bul">
+            <li>NASA F´, CERN ROOT, Apache Kafka ve Eclipse S-CORE'da hatalı davranışları düzelttim.</li>
+            <li>LLVM, .NET, systemd, Airflow, NVIDIA CUTLASS, Rust ve VS Code belgelerinde 12 düzeltme yaptım.</li>
+            <li>Her düzeltmeyi göndermeden önce sorunun gerçek olduğunu testle kanıtladım.</li>
+          </ul>
+        </section>
+      </div>
+    </details>
   </section>
 
   <!-- 04 Açık kaynak -->
@@ -530,6 +536,23 @@
     <span>HTML, CSS ve JavaScript ile elle yazıldı</span>
   </div>
 </footer>
+
+<div class="pmodal" id="pmodal" role="dialog" aria-modal="true" aria-labelledby="pm-title" hidden>
+  <div class="pm-card">
+    <button class="icon-btn pm-close" type="button" id="pm-close" aria-label="Kapat">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M6 6l12 12M18 6L6 18"/></svg>
+    </button>
+    <div class="pm-media"><img id="pm-img" alt=""></div>
+    <div class="pm-body">
+      <div class="badges" id="pm-badges"></div>
+      <h3 id="pm-title"></h3>
+      <p class="one" id="pm-one"></p>
+      <p class="desc" id="pm-desc"></p>
+      <div class="metrics" id="pm-metrics"></div>
+      <div class="links"><a class="link solid" id="pm-go" href="#">Projeyi incele ↓</a></div>
+    </div>
+  </div>
+</div>
 
 <div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="Büyütülmüş görsel">
   <button class="icon-btn close" type="button" id="lb-close" aria-label="Kapat">
