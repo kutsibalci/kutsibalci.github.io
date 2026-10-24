@@ -107,7 +107,7 @@
     <div class="sec-head rv">
       <span class="sec-num">01</span>
       <h2>Seçkin projeler</h2>
-      <p>Altı proje, ekran görüntüleri ve ölçülmüş sonuçlarıyla. Görsele tıklayınca büyür.</p>
+      <p>Sekiz proje, ekran görüntüleri ve ölçülmüş sonuçlarıyla. Görsele tıklayınca büyür.</p>
     </div>
 
     <article class="case">
@@ -145,7 +145,33 @@
       </div>
     </article>
 
-    <article class="case flip">
+    <article class="case flip" id="arrivalguard">
+      <div class="gallery rv">
+        <div class="stage">
+          <img class="on" src="img/ag-1.webp" alt="ArrivalGuard aynı sinyal zıt karar senaryosu" data-cap="Aynı sinyal, zıt karar: iki hasta da ulaşılamıyor; şoförle buluşmamış olan için alarm yükseliyor, buluşmuş olan için düşüyor." width="1600" height="1000" loading="lazy">
+          <img src="img/ag-2.webp" alt="ArrivalGuard tam varış zinciri" data-cap="Tam zincir: aktarmadan kliniğe kadar; sahte şoför araması reddediliyor, gerçek şoför buluşma koduyla doğrulanıyor." width="1600" height="1000" loading="lazy">
+          <img src="img/ag-3.webp" alt="ArrivalGuard SIM değişikliği senaryosu" data-cap="Varışta SIM değişmiş: numara ele geçirilmiş olabilir; şoför ve plaka bilgisi gönderilmiyor, koordinatör devreye giriyor." width="1600" height="1000" loading="lazy">
+        </div>
+        <p class="cap"><span class="count"></span><span class="txt"></span></p>
+        <div class="thumbs"></div>
+      </div>
+      <div class="info rv d1">
+        <div class="badges"><span class="badge live">Açık kaynak · MIT</span><span class="badge">Nokia API'sinde canlı doğrulandı</span></div>
+        <h3 lang="en">ArrivalGuard</h3>
+        <p class="one">Yurt dışından gelen hastaların havalimanında güvenle karşılanmasını sağlayan, mobil şebeke sinyalleriyle çalışan bir ajan.</p>
+        <p class="desc">Hastanın konumunu takip etmiyor; şebekenin olaylarına bakarak karar veriyor: ülkeye varış, SIM kartın yakın zamanda değişip değişmediği, telefona ulaşılabilirlik ve bölgeye giriş. Şoförü kendi telefonu üzerinden doğruluyor, sahte "klinik şoförü" aramalarına karşı uyarıyor ve her kararın gerekçesini kaydediyor. Aynı sinyal (hastaya ulaşılamıyor), şoförle buluşmadan önce alarm, buluştuktan sonra ise büyük ihtimalle yerel SIM kartı demek; sistem bu farkı biliyor.</p>
+        <div class="metrics">
+          <div class="metric"><b>152</b><span>otomatik test, %90 kod kapsamı</span></div>
+          <div class="metric"><b>7</b><span>Nokia ağ API'si (CAMARA)</span></div>
+          <div class="metric"><b>0</b><span>konum geçmişi kaydı; yalnızca bölge olayları</span></div>
+        </div>
+        <ul class="chips"><li>Python</li><li>FastAPI</li><li>CAMARA</li><li>Nokia NaC</li><li>SQLite</li><li>Docker</li></ul>
+        <div class="links"><a class="link solid" href="https://github.com/kutsibalci/arrivalguard" target="_blank" rel="noopener">Kaynak kod ↗</a></div>
+        <p class="note">Tam vaka akışı 27 Eylül 2026'da canlı Nokia olaylarıyla doğrulandı. Gerçek telefonla şoför doğrulaması Nokia'nın ücretsiz planında denenemedi.</p>
+      </div>
+    </article>
+
+    <article class="case">
       <div class="gallery rv">
         <div class="stage">
           <img class="on" src="img/ekt-3.webp" alt="EKT Akademi eğitim detay sayfası" data-cap="Eğitim detayı: program yapısı, modüller ve kayıt." width="1440" height="900">
@@ -174,7 +200,7 @@
       </div>
     </article>
 
-    <article class="case" id="uzaktan">
+    <article class="case flip" id="uzaktan">
       <div class="gallery rv">
         <div class="stage">
           <img class="on" src="img/rc-1.webp" alt="Uzaktan Bağlantı bilgisayar durumu paneli" data-cap="Bilgisayar durumu: işlemci, bellek ve GPU grafikleri; çalışan programlar Görev Yöneticisi gibi gruplu ve uzaktan kapatılabiliyor." width="1600" height="1000" loading="lazy">
@@ -206,7 +232,7 @@
       </div>
     </article>
 
-    <article class="case flip">
+    <article class="case">
       <div class="gallery rv">
         <div class="stage">
         </div>
@@ -226,7 +252,7 @@
       </div>
     </article>
 
-    <article class="case" id="muhasebe">
+    <article class="case flip" id="muhasebe">
       <div class="gallery rv">
         <div class="stage">
           <img class="on" src="img/om-1.webp" alt="Ön Muhasebe paneli" data-cap="Panel: alacak, borç, kasa-banka, bu ayın navlun, yakıt ve net kârı ile yaklaşan belge vadeleri." width="1600" height="1000" loading="lazy">
@@ -254,7 +280,31 @@
       </div>
     </article>
 
-    <article class="case flip">
+    <article class="case solo" id="src">
+      <div class="info rv">
+        <div class="badges"><span class="badge">Yayın öncesi</span><span class="badge">Android · İnternetsiz</span></div>
+        <h3>SRC Sınav Soruları 2026</h3>
+        <p class="one">Profesyonel sürücülerin SRC belgesi sınavına hazırlanması için internetsiz çalışan Android uygulaması.</p>
+        <p class="desc">Her sorunun mevzuat kaynağı ve açıklaması var; deneme sınavları gerçek sınavla aynı biçimde (40 soru, 45 dakika). Yanlış yapılan sorular, sınav tarihine göre planlanan tekrarlarla geri geliyor. Uygulama, tek bir Dart çekirdeğinden birden çok sınav uygulaması çıkarabilen bir motor üzerine kurulu; soru bankası uygulama güncellemesi gerekmeden uzaktan yenileniyor.</p>
+        <div class="metrics">
+          <div class="metric"><b>1.137</b><span>kaynaklı soru · 5 belge, 71 konu</span></div>
+          <div class="metric"><b>307</b><span>otomatik test, hepsi geçiyor</span></div>
+          <div class="metric"><b>İnternetsiz</b><span>internet kapalıyken tam çalışıyor</span></div>
+        </div>
+        <ul class="chips"><li>Flutter</li><li>Dart</li><li>SQLite</li><li>Kotlin</li><li>GitHub Pages</li></ul>
+        <p class="note">Play Store yayını öncesi aşamada. Ekranlar Android emülatöründe, temiz kurulumla alındı.</p>
+      </div>
+      <div class="phones six">
+        <figure class="phone rv"><div class="frame"><img src="img/src-1.webp" alt="Belge seçimi" data-cap="İlk açılış: kullanıcı gireceği SRC belgelerini seçiyor, uygulama yalnızca onlara odaklanıyor." width="520" height="1127" loading="lazy"></div><figcaption>Belge seçimi</figcaption></figure>
+        <figure class="phone rv d1"><div class="frame"><img src="img/src-2.webp" alt="Ana ekran" data-cap="Sınava kalan gün, belge ilerlemesi, hazırlık yüzdesi, günlük hedef ve günün sorusu tek bakışta." width="520" height="1127" loading="lazy"></div><figcaption>Ana ekran</figcaption></figure>
+        <figure class="phone rv d2"><div class="frame"><img src="img/src-3.webp" alt="Deneme sınavı" data-cap="Gerçek sınav gibi 40 soru ve geri sayan 45 dakikalık süre." width="520" height="1127" loading="lazy"></div><figcaption>Deneme sınavı</figcaption></figure>
+        <figure class="phone rv"><div class="frame"><img src="img/src-4.webp" alt="Açıklamalı cevap" data-cap="Yanlış cevapta doğru şık ve kaynağa dayalı açıklama hemen gösteriliyor." width="520" height="1127" loading="lazy"></div><figcaption>Açıklamalı cevap</figcaption></figure>
+        <figure class="phone rv d1"><div class="frame"><img src="img/src-5.webp" alt="Konu konu ilerleme" data-cap="Çalışma sonrası konu konu sonuç ve en zayıf konuya tek dokunuşla geçiş." width="520" height="1127" loading="lazy"></div><figcaption>Konu konu ilerleme</figcaption></figure>
+        <figure class="phone rv d2"><div class="frame"><img src="img/src-6.webp" alt="Deneme sonucu" data-cap="Puan, geçti/kaldı, doğru-yanlış-boş ve konu dökümü." width="520" height="1127" loading="lazy"></div><figcaption>Deneme sonucu</figcaption></figure>
+      </div>
+    </article>
+
+    <article class="case">
       <div class="gallery rv">
         <div class="stage">
           <img class="on" src="img/lg-1.webp" alt="Life Gate müdahale ekranı" data-cap="Eldivenli ellerle bası uygulanırken yaralı endişesini söylüyor, öğrenci cümle seçerek cevap veriyor." width="1600" height="1000" loading="lazy">
@@ -290,13 +340,6 @@
       <p>Kapalı kaynak projelerin kodunu paylaşamıyorum, görüşmede anlatabilirim.</p>
     </div>
     <div class="works">
-      <article class="work wide rv">
-        <div class="work-top"><span class="kind">Mobil · Motor</span><span class="badge">Kapalı kaynak</span></div>
-        <h3>SRC Sınav Motoru</h3>
-        <p class="meta">Her sınav ayrı bir Play Store uygulaması</p>
-        <p class="d">Birden fazla sınav uygulamasını aynı Dart çekirdeğinden çıkaran motor. Soru bankaları uzaktan sürümlenen JSON dosyaları; ilk ürün SRC sınavları.</p>
-        <ul class="chips"><li>Flutter</li><li>Dart</li><li>sqflite</li></ul>
-      </article>
       <article class="work rv">
         <div class="work-top"><span class="kind">Backend · Staj</span><span class="badge">Kapalı kaynak</span></div>
         <h3>Redmine 7 Eklentileri</h3>
@@ -317,13 +360,6 @@
         <p class="meta">10 durak: 44,3 km → 14,6 km</p>
         <p class="d">Kuryelerin WhatsApp'tan yapıştırdığı serbest Türkçe adresleri çevrimdışı ayrıştırıp durakları sıralıyor.</p>
         <ul class="chips"><li>React Native</li><li>Expo</li><li>TSP 2-opt</li></ul>
-      </article>
-      <article class="work rv d1">
-        <div class="work-top"><span class="kind">Backend · Ajan</span><span class="badge">Açık kaynak</span></div>
-        <h3>ArrivalGuard</h3>
-        <p class="meta">Nokia Network as Code · CAMARA</p>
-        <p class="d">Sağlık turizmi için gelen hastaları karşılama koruması; şebeke sinyalleri, kararlarını açıklayabilen bir vaka ajanını yönlendiriyor.</p>
-        <div class="links"><a class="link" href="https://github.com/kutsibalci/arrivalguard" target="_blank" rel="noopener">Kaynak kod ↗</a></div>
       </article>
     </div>
   </section>

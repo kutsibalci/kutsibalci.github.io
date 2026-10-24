@@ -107,7 +107,7 @@
     <div class="sec-head rv">
       <span class="sec-num">01</span>
       <h2>Selected projects</h2>
-      <p>Six projects with screenshots and measured results. Click an image to enlarge it.</p>
+      <p>Eight projects with screenshots and measured results. Click an image to enlarge it.</p>
     </div>
 
     <article class="case">
@@ -145,7 +145,33 @@
       </div>
     </article>
 
-    <article class="case flip">
+    <article class="case flip" id="arrivalguard">
+      <div class="gallery rv">
+        <div class="stage">
+          <img class="on" src="../img/ag-1.webp" alt="ArrivalGuard same-signal scenario" data-cap="Same signal, opposite decision: both patients are unreachable; the alarm rises for the one who hasn't met the driver and drops for the one who has." width="1600" height="1000" loading="lazy">
+          <img src="../img/ag-2.webp" alt="ArrivalGuard full arrival chain" data-cap="The full chain from layover to clinic: a fake driver's call is rejected and the real driver is verified with a meeting code." width="1600" height="1000" loading="lazy">
+          <img src="../img/ag-3.webp" alt="ArrivalGuard SIM swap scenario" data-cap="SIM swapped on arrival: the number may be hijacked, so the driver and plate are withheld and the coordinator steps in." width="1600" height="1000" loading="lazy">
+        </div>
+        <p class="cap"><span class="count"></span><span class="txt"></span></p>
+        <div class="thumbs"></div>
+      </div>
+      <div class="info rv d1">
+        <div class="badges"><span class="badge live">Open source · MIT</span><span class="badge">Verified on the live Nokia API</span></div>
+        <h3 lang="en">ArrivalGuard</h3>
+        <p class="one">An agent that keeps medical tourists safe as they're picked up at the airport, driven by mobile network signals.</p>
+        <p class="desc">It never tracks the patient's location; it decides from network events: arrival in the country, whether the SIM was recently swapped, whether the phone is reachable, and entry into an area. It verifies the driver through the driver's own phone, warns against fake "clinic driver" calls and records the reasoning behind every decision. The same signal (the patient can't be reached) means an alarm before they've met the driver, and most likely a local SIM card afterwards; the system knows the difference.</p>
+        <div class="metrics">
+          <div class="metric"><b>152</b><span>automated tests, 90% code coverage</span></div>
+          <div class="metric"><b>7</b><span>Nokia network APIs (CAMARA)</span></div>
+          <div class="metric"><b>0</b><span>stored location history; area events only</span></div>
+        </div>
+        <ul class="chips"><li>Python</li><li>FastAPI</li><li>CAMARA</li><li>Nokia NaC</li><li>SQLite</li><li>Docker</li></ul>
+        <div class="links"><a class="link solid" href="https://github.com/kutsibalci/arrivalguard" target="_blank" rel="noopener">Source code ↗</a></div>
+        <p class="note">The full case flow was verified with live Nokia events on 27 September 2026. Driver verification on a real phone couldn't be tested on Nokia's free plan.</p>
+      </div>
+    </article>
+
+    <article class="case">
       <div class="gallery rv">
         <div class="stage">
           <img class="on" src="../img/ekt-3.webp" alt="EKT Akademi course page" data-cap="Course page: program structure, modules and enrolment." width="1440" height="900">
@@ -174,7 +200,7 @@
       </div>
     </article>
 
-    <article class="case" id="remote">
+    <article class="case flip" id="remote">
       <div class="gallery rv">
         <div class="stage">
           <img class="on" src="../img/rc-1.webp" alt="Remote Connect system status panel" data-cap="System status: CPU, memory and GPU graphs; running programs are grouped like Task Manager and can be closed remotely." width="1600" height="1000" loading="lazy">
@@ -206,7 +232,7 @@
       </div>
     </article>
 
-    <article class="case flip">
+    <article class="case">
       <div class="gallery rv">
         <div class="stage">
         </div>
@@ -226,7 +252,7 @@
       </div>
     </article>
 
-    <article class="case" id="logistics">
+    <article class="case flip" id="logistics">
       <div class="gallery rv">
         <div class="stage">
           <img class="on" src="../img/om-1.webp" alt="Accounting app dashboard" data-cap="Dashboard: receivables, payables, cash and bank, this month's freight income, fuel and net profit, plus upcoming document deadlines." width="1600" height="1000" loading="lazy">
@@ -254,7 +280,31 @@
       </div>
     </article>
 
-    <article class="case flip">
+    <article class="case solo" id="src">
+      <div class="info rv">
+        <div class="badges"><span class="badge">Pre-release</span><span class="badge">Android · Offline</span></div>
+        <h3>SRC Exam Prep 2026</h3>
+        <p class="one">An offline Android app that prepares professional drivers for Türkiye's SRC certificate exams.</p>
+        <p class="desc">Every question cites its legal source and comes with an explanation; mock exams match the real format (40 questions, 45 minutes). Missed questions come back on a review schedule planned around the exam date. The app is built on an engine that can produce several exam apps from one Dart core, and the question bank updates remotely without an app update.</p>
+        <div class="metrics">
+          <div class="metric"><b>1,137</b><span>sourced questions · 5 certificates, 71 topics</span></div>
+          <div class="metric"><b>307</b><span>automated tests, all passing</span></div>
+          <div class="metric"><b>Offline</b><span>works fully without internet</span></div>
+        </div>
+        <ul class="chips"><li>Flutter</li><li>Dart</li><li>SQLite</li><li>Kotlin</li><li>GitHub Pages</li></ul>
+        <p class="note">Before its Play Store release. Screens were taken on an Android emulator with a clean install.</p>
+      </div>
+      <div class="phones six">
+        <figure class="phone rv"><div class="frame"><img src="../img/src-1.webp" alt="Certificate choice" data-cap="First launch: the user picks the SRC certificates they're taking and the app focuses on those." width="520" height="1127" loading="lazy"></div><figcaption>Certificate choice</figcaption></figure>
+        <figure class="phone rv d1"><div class="frame"><img src="../img/src-2.webp" alt="Home screen" data-cap="Days to the exam, progress per certificate, readiness, daily goal and question of the day at a glance." width="520" height="1127" loading="lazy"></div><figcaption>Home screen</figcaption></figure>
+        <figure class="phone rv d2"><div class="frame"><img src="../img/src-3.webp" alt="Mock exam" data-cap="40 questions and a 45-minute countdown, just like the real exam." width="520" height="1127" loading="lazy"></div><figcaption>Mock exam</figcaption></figure>
+        <figure class="phone rv"><div class="frame"><img src="../img/src-4.webp" alt="Explained answer" data-cap="A wrong answer immediately shows the right option and a sourced explanation." width="520" height="1127" loading="lazy"></div><figcaption>Explained answer</figcaption></figure>
+        <figure class="phone rv d1"><div class="frame"><img src="../img/src-5.webp" alt="Progress by topic" data-cap="Results topic by topic after practice, with one tap to the weakest topic." width="520" height="1127" loading="lazy"></div><figcaption>Progress by topic</figcaption></figure>
+        <figure class="phone rv d2"><div class="frame"><img src="../img/src-6.webp" alt="Mock exam result" data-cap="Score, pass/fail, right-wrong-blank and a topic breakdown." width="520" height="1127" loading="lazy"></div><figcaption>Mock exam result</figcaption></figure>
+      </div>
+    </article>
+
+    <article class="case">
       <div class="gallery rv">
         <div class="stage">
           <img class="on" src="../img/lg-1.webp" alt="Life Gate intervention screen" data-cap="While pressure is applied with gloved hands, the patient voices their worry and the student replies by choosing a sentence." width="1600" height="1000" loading="lazy">
@@ -290,13 +340,6 @@
       <p>I can't share the code of closed-source projects, but I'm happy to walk through them in an interview.</p>
     </div>
     <div class="works">
-      <article class="work wide rv">
-        <div class="work-top"><span class="kind">Mobile · Engine</span><span class="badge">Closed source</span></div>
-        <h3>SRC Exam Engine</h3>
-        <p class="meta">Each exam ships as its own Play Store app</p>
-        <p class="d">An engine that builds several exam-prep apps from one shared Dart core. Question banks are remotely versioned JSON files; the first product covers Türkiye's SRC professional driver exams.</p>
-        <ul class="chips"><li>Flutter</li><li>Dart</li><li>sqflite</li></ul>
-      </article>
       <article class="work rv">
         <div class="work-top"><span class="kind">Backend · Internship</span><span class="badge">Closed source</span></div>
         <h3>Redmine 7 Plugins</h3>
@@ -317,13 +360,6 @@
         <p class="meta">10 stops: 44.3 km → 14.6 km</p>
         <p class="d">Parses free-form Turkish addresses that couriers paste from WhatsApp, offline, and orders the stops.</p>
         <ul class="chips"><li>React Native</li><li>Expo</li><li>TSP 2-opt</li></ul>
-      </article>
-      <article class="work rv d1">
-        <div class="work-top"><span class="kind">Backend · Agent</span><span class="badge">Open source</span></div>
-        <h3>ArrivalGuard</h3>
-        <p class="meta">Nokia Network as Code · CAMARA</p>
-        <p class="d">An arrival guard for medical tourists: network signals drive a case agent that can explain its decisions.</p>
-        <div class="links"><a class="link" href="https://github.com/kutsibalci/arrivalguard" target="_blank" rel="noopener">Source code ↗</a></div>
       </article>
     </div>
   </section>
