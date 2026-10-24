@@ -1,9 +1,8 @@
 (function () {
   var root = document.documentElement;
   var reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-  var hasIO = "IntersectionObserver" in window;
 
-  // Tema
+  // Tema düğmesi
   document.getElementById("theme-btn").addEventListener("click", function () {
     var light = root.getAttribute("data-theme") === "light";
     if (light) root.removeAttribute("data-theme"); else root.setAttribute("data-theme", "light");
@@ -21,23 +20,84 @@
     if (e.target.tagName === "A") { nav.classList.remove("open"); menuBtn.setAttribute("aria-expanded", "false"); }
   });
 
-  // Ölçüm tablosu: satırlar sırayla gelir
-  var readout = document.getElementById("readout");
-  requestAnimationFrame(function () { setTimeout(function () { readout.classList.add("go"); }, 150); });
+  // Üst menü arka planı ve kaydırma çubuğu
+  var topbar = document.querySelector(".topbar");
+  var progress = document.querySelector(".progress");
+  function onScroll() {
+    var y = window.scrollY;
+    topbar.classList.toggle("scrolled", y > 20);
+    var max = document.documentElement.scrollHeight - window.innerHeight;
+    progress.style.transform = "scaleX(" + (max > 0 ? y / max : 0) + ")";
+  }
+  window.addEventListener("scroll", onScroll, { passive: true });
+  onScroll();
+
+  // Dönen kelimeler
+  var words = document.querySelectorAll(".rotator span");
+  if (words.length && !reduce) {
+    var w = 0;
+    setInterval(function () {
+      var cur = words[w];
+      cur.classList.remove("on");
+      cur.classList.add("off");
+      w = (w + 1) % words.length;
+      var next = words[w];
+      next.classList.remove("off");
+      void next.offsetWidth;
+      next.classList.add("on");
+      setTimeout(function () { cur.classList.remove("off"); }, 650);
+    }, 2600);
+  }
+
+  // Kolajda fareyle hafif derinlik
+  var collage = document.getElementById("collage");
+  if (collage && !reduce && window.matchMedia("(pointer: fine)").matches) {
+    var shots = collage.querySelectorAll(".shot");
+    collage.parentElement.addEventListener("mousemove", function (e) {
+      var r = collage.getBoundingClientRect();
+      var x = (e.clientX - r.left) / r.width - 0.5;
+      var y = (e.clientY - r.top) / r.height - 0.5;
+      shots.forEach(function (s, i) {
+        var d = (i + 1) * 8;
+        s.style.transform = "translate(" + (-x * d) + "px," + (-y * d) + "px) rotateY(" + (x * 4) + "deg) rotateX(" + (-y * 4) + "deg)";
+      });
+    });
+    collage.parentElement.addEventListener("mouseleave", function () {
+      shots.forEach(function (s) { s.style.transform = ""; });
+    });
+  }
+
+  // Sayaçlar
+  function countUp(el) {
+    var to = +el.getAttribute("data-count");
+    var suffix = el.getAttribute("data-suffix") || "";
+    var start = null;
+    function step(t) {
+      if (!start) start = t;
+      var p = Math.min(1, (t - start) / 1400);
+      var v = Math.round(to * (1 - Math.pow(1 - p, 3)));
+      el.textContent = v.toLocaleString("tr-TR") + suffix;
+      if (p < 1) requestAnimationFrame(step);
+    }
+    requestAnimationFrame(step);
+  }
 
   // Kaydırınca belirme
-  var io = hasIO ? new IntersectionObserver(function (entries) {
+  var io = "IntersectionObserver" in window ? new IntersectionObserver(function (entries) {
     entries.forEach(function (en) {
       if (!en.isIntersecting) return;
       en.target.classList.add("in");
+      if (en.target.hasAttribute("data-count") && !reduce) countUp(en.target);
       io.unobserve(en.target);
     });
   }, { rootMargin: "0px 0px -40px 0px", threshold: 0.01 }) : null;
-  document.querySelectorAll(".rv").forEach(function (el) { if (io) io.observe(el); else el.classList.add("in"); });
+  document.querySelectorAll(".rv, [data-count]").forEach(function (el) {
+    if (io) io.observe(el); else el.classList.add("in");
+  });
 
   // Menüde aktif bölüm
   var links = nav.querySelectorAll("a");
-  if (hasIO) {
+  if ("IntersectionObserver" in window) {
     var sio = new IntersectionObserver(function (entries) {
       entries.forEach(function (en) {
         if (!en.isIntersecting) return;
@@ -47,13 +107,11 @@
     links.forEach(function (a) { var s = document.querySelector(a.getAttribute("href")); if (s) sio.observe(s); });
   }
 
-  // Büyütme penceresi
+  // Galeriler
   var lb = document.getElementById("lightbox");
   var lbBody = document.getElementById("lb-body");
   var lbCap = document.getElementById("lb-cap");
-  var lastFocus = null;
   function openLightbox(node, cap) {
-    lastFocus = document.activeElement;
     lbBody.innerHTML = "";
     lbBody.appendChild(node);
     lbCap.textContent = cap || "";
@@ -64,30 +122,20 @@
     lb.classList.remove("open");
     var v = lbBody.querySelector("video");
     if (v) v.pause();
-    setTimeout(function () { lbBody.innerHTML = ""; }, 260);
-    if (lastFocus) lastFocus.focus();
+    setTimeout(function () { lbBody.innerHTML = ""; }, 300);
   }
   document.getElementById("lb-close").addEventListener("click", closeLightbox);
   lb.addEventListener("click", function (e) { if (e.target === lb) closeLightbox(); });
   document.addEventListener("keydown", function (e) { if (e.key === "Escape" && lb.classList.contains("open")) closeLightbox(); });
-  function bigImage(img, label) {
-    var big = document.createElement("img");
-    big.src = img.getAttribute("src");
-    big.alt = img.alt;
-    openLightbox(big, (label ? label + " — " : "") + (img.getAttribute("data-cap") || ""));
-  }
 
-  // Galeriler: numaralı şekiller, küçük resimler, otomatik geçiş
   document.querySelectorAll(".gallery").forEach(function (g) {
-    var fig = g.getAttribute("data-fig");
     var stage = g.querySelector(".stage");
     var imgs = stage.querySelectorAll("img");
-    var no = g.querySelector(".no");
+    var count = g.querySelector(".count");
     var txt = g.querySelector(".txt");
     var thumbs = g.querySelector(".thumbs");
     var cur = 0;
     var timer = null;
-    function label(i) { return "Şekil " + fig + "." + (i + 1); }
 
     function show(i) {
       imgs[cur].classList.remove("on");
@@ -95,14 +143,15 @@
       cur = i;
       imgs[cur].classList.add("on");
       if (thumbs) thumbs.children[cur].classList.add("on");
-      no.textContent = label(cur);
+      count.textContent = imgs.length > 1 ? String(cur + 1).padStart(2, "0") + " / " + String(imgs.length).padStart(2, "0") : "";
       txt.textContent = imgs[cur].getAttribute("data-cap") || "";
     }
+
     if (thumbs) {
       imgs.forEach(function (im, i) {
         var b = document.createElement("button");
         b.type = "button";
-        b.setAttribute("aria-label", label(i) + ": " + im.alt);
+        b.setAttribute("aria-label", (i + 1) + ". görsel: " + im.alt);
         var t = document.createElement("img");
         t.src = im.getAttribute("src");
         t.alt = "";
@@ -114,27 +163,32 @@
     }
     show(0);
 
-    function stop() { if (timer) { clearInterval(timer); timer = null; } }
     function restart() {
-      stop();
+      if (timer) clearInterval(timer);
       if (imgs.length < 2 || reduce) return;
-      timer = setInterval(function () { show((cur + 1) % imgs.length); }, 5500);
+      timer = setInterval(function () { show((cur + 1) % imgs.length); }, 5000);
     }
-    if (hasIO && imgs.length > 1) {
-      new IntersectionObserver(function (en) { if (en[0].isIntersecting) restart(); else stop(); }, { threshold: 0.4 }).observe(stage);
+    if ("IntersectionObserver" in window && imgs.length > 1) {
+      new IntersectionObserver(function (en) {
+        if (en[0].isIntersecting) restart(); else if (timer) { clearInterval(timer); timer = null; }
+      }, { threshold: 0.4 }).observe(stage);
     }
-    stage.addEventListener("mouseenter", stop);
+    stage.addEventListener("mouseenter", function () { if (timer) { clearInterval(timer); timer = null; } });
     stage.addEventListener("mouseleave", restart);
+
     stage.addEventListener("click", function (e) {
-      if (e.target.closest(".video-btn")) return;
-      bigImage(imgs[cur], label(cur));
+      if (e.target.closest(".play")) return;
+      var big = document.createElement("img");
+      big.src = imgs[cur].getAttribute("src");
+      big.alt = imgs[cur].alt;
+      openLightbox(big, imgs[cur].getAttribute("data-cap"));
     });
 
-    var vbtn = stage.querySelector(".video-btn");
-    if (vbtn) {
-      vbtn.addEventListener("click", function () {
+    var play = stage.querySelector(".play");
+    if (play) {
+      play.addEventListener("click", function () {
         var v = document.createElement("video");
-        v.src = vbtn.getAttribute("data-video");
+        v.src = play.getAttribute("data-video");
         v.controls = true;
         v.autoplay = true;
         v.playsInline = true;
@@ -143,14 +197,13 @@
     }
   });
 
-  // Telefon görüntüleri
-  document.querySelectorAll(".phone .frame").forEach(function (f) {
-    f.setAttribute("tabindex", "0");
-    f.setAttribute("role", "button");
-    var img = f.querySelector("img");
-    var lab = f.parentElement.querySelector(".no").textContent;
-    f.addEventListener("click", function () { bigImage(img, lab); });
-    f.addEventListener("keydown", function (e) { if (e.key === "Enter" || e.key === " ") { e.preventDefault(); bigImage(img, lab); } });
+  // Diğer işler kartlarında fareyi izleyen ışık
+  document.querySelectorAll(".work").forEach(function (c) {
+    c.addEventListener("mousemove", function (e) {
+      var r = c.getBoundingClientRect();
+      c.style.setProperty("--mx", (e.clientX - r.left) + "px");
+      c.style.setProperty("--my", (e.clientY - r.top) + "px");
+    });
   });
 
   // E-postayı kopyala
