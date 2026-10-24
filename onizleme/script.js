@@ -206,6 +206,28 @@
     });
   });
 
+  // Telefon görüntüleri tıklayınca büyür
+  document.querySelectorAll(".phone .frame").forEach(function (f) {
+    var img = f.querySelector("img");
+    f.setAttribute("tabindex", "0");
+    f.setAttribute("role", "button");
+    function open() {
+      var big = document.createElement("img");
+      big.src = img.getAttribute("src");
+      big.alt = img.alt;
+      openLightbox(big, img.getAttribute("data-cap"));
+    }
+    f.addEventListener("click", open);
+    f.addEventListener("keydown", function (e) { if (e.key === "Enter" || e.key === " ") { e.preventDefault(); open(); } });
+  });
+
+  // Kolaj: dokunmatik ekranda dokunulan görsel öne çıkar
+  document.querySelectorAll(".collage .shot").forEach(function (sh, i, all) {
+    sh.addEventListener("click", function () {
+      all.forEach(function (o) { o.classList.toggle("front", o === sh); });
+    });
+  });
+
   // E-postayı kopyala
   var copyBtn = document.getElementById("copy-email");
   var email = document.getElementById("email");
