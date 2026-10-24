@@ -248,7 +248,7 @@ h1 {
   margin: 18px 0 0;
   color: var(--muted);
 }
-.rotator { display: inline-grid; vertical-align: bottom; overflow: hidden; height: 1.25em; }
+.rotator { display: grid; justify-items: start; overflow: hidden; height: 1.25em; }
 .rotator span {
   grid-area: 1 / 1;
   color: var(--accent);
