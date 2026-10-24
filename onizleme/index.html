@@ -4,10 +4,13 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Hüseyin Kutsi Balcı · Backend Geliştirici</title>
-<meta name="description" content="Hüseyin Kutsi Balcı: Anadolu Üniversitesi Arka Yüz Yazılım Geliştirme öğrencisi. HeatShield, EKT Akademi, Uzaktan Bağlantı, Ön Muhasebe, Life Gate ve 18 açık kaynak katkı.">
+<meta name="description" content="Hüseyin Kutsi Balcı: Anadolu Üniversitesi Arka Yüz Yazılım Geliştirme öğrencisi. HeatShield, EKT Akademi, Life Gate ve 18 açık kaynak katkı.">
+<meta property="og:title" content="Hüseyin Kutsi Balcı · Backend Geliştirici">
+<meta property="og:description" content="Canlı eğitim platformu, hackathonda ilk 10'a giren ajan, şarj rotası planlayıcısı ve 3D eğitim simülasyonu.">
 <meta name="robots" content="noindex">
-<meta name="theme-color" content="#0a1430">
+<meta name="theme-color" content="#070d1f">
 <script>
+  // Tema, sayfa çizilmeden önce uygulanır (yanıp sönmesin diye)
   (function () {
     var t = null;
     try { t = localStorage.getItem("tema"); } catch (e) {}
@@ -17,282 +20,339 @@
 </script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,400..800&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,700&family=Geist:wght@400;500;600&family=Geist+Mono:wght@400;500&display=swap">
 <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
+<div class="progress" aria-hidden="true"></div>
+
 <header class="topbar">
   <div class="wrap">
-    <a class="brand" href="#top"><b>H. Kutsi Balcı</b><span>backend</span></a>
+    <a class="brand" href="#top" aria-label="Başa dön">
+      <span class="mark">HK</span>
+      <span class="brand-text"><b>Hüseyin Kutsi Balcı</b><small>Backend · Açık kaynak</small></span>
+    </a>
     <nav class="nav" id="nav" aria-label="Bölümler">
       <a href="#projeler">Projeler</a>
       <a href="#diger">Diğer işler</a>
       <a href="#deneyim">Deneyim</a>
       <a href="#acik-kaynak">Açık kaynak</a>
-      <a href="#iletisim">İletişim</a>
+      <a href="#yetenekler">Yetenekler</a>
     </nav>
-    <button class="tool menu" id="menu-btn" type="button" aria-label="Menüyü aç" aria-expanded="false" aria-controls="nav">
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
+    <button class="icon-btn menu-btn" id="menu-btn" type="button" aria-label="Menüyü aç" aria-expanded="false" aria-controls="nav">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
     </button>
-    <button class="tool theme" id="theme-btn" type="button" aria-label="Açık ya da koyu tema">
-      <svg class="moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"><path d="M20 14.5A8 8 0 1 1 9.5 4a6.5 6.5 0 0 0 10.5 10.5z"/></svg>
+    <button class="icon-btn theme-btn" id="theme-btn" type="button" aria-label="Temayı değiştir">
+      <svg class="moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 14.5A8 8 0 1 1 9.5 4a6.5 6.5 0 0 0 10.5 10.5z"/></svg>
       <svg class="sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg>
     </button>
+    <a class="cta-sm" href="#iletisim">İletişim</a>
   </div>
 </header>
 
 <main id="top">
-  <section class="hero wrap">
-    <div class="hero-grid">
-      <div>
-        <p class="kicker"><span>Backend geliştirici · İzmir</span><span class="open">Staj ve junior pozisyonlara açık</span></p>
-        <h1><span>Hüseyin</span><span>Kutsi</span><span class="last">Balcı</span></h1>
-        <p class="intro">Anadolu Üniversitesi'nde Arka Yüz Yazılım Geliştirme 2. sınıf öğrencisiyim. Yaptığım işi ölçerek anlatırım; yandaki her değer bir projenin kendi testinden ya da ölçümünden geliyor.</p>
-        <div class="actions">
-          <a class="btn primary" href="#projeler">Projeleri incele ↓</a>
-          <a class="btn" href="https://github.com/kutsibalci" target="_blank" rel="noopener">GitHub ↗</a>
-          <a class="btn" href="https://www.linkedin.com/in/h%C3%BCseyinkutsibalci/" target="_blank" rel="noopener">LinkedIn ↗</a>
+  <section class="hero">
+    <span class="blob b1" aria-hidden="true"></span>
+    <span class="blob b2" aria-hidden="true"></span>
+    <div class="wrap">
+      <div class="hero-grid">
+        <div>
+          <span class="status"><span class="pulse" aria-hidden="true"></span>Staj ve junior backend pozisyonlarına açık · İzmir</span>
+          <h1>Hüseyin Kutsi Balcı</h1>
+          <p class="tagline">
+            <span class="rotator" aria-hidden="true">
+              <span class="on">backend sistemleri</span>
+              <span>canlı eğitim platformları</span>
+              <span>gerçek zamanlı uygulamalar</span>
+              <span>3D eğitim simülasyonları</span>
+            </span>
+            <span class="sr-only" style="position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)">backend sistemleri</span>
+            geliştiriyorum.
+          </p>
+          <p class="lead">Anadolu Üniversitesi'nde Arka Yüz Yazılım Geliştirme 2. sınıf öğrencisiyim. Canlıda çalışan bir eğitim platformunun ekibindeyim, uluslararası bir hackathonda ilk 10'a girdim ve NASA, CERN, LLVM gibi projelere 18 katkım kabul edildi.</p>
+          <div class="actions">
+            <a class="btn primary" href="#projeler">Seçkin projeler <span class="arr">→</span></a>
+            <a class="btn" href="https://github.com/kutsibalci" target="_blank" rel="noopener">GitHub ↗</a>
+            <a class="btn" href="https://www.linkedin.com/in/h%C3%BCseyinkutsibalci/" target="_blank" rel="noopener">LinkedIn ↗</a>
+          </div>
+        </div>
+
+        <div class="collage" id="collage" aria-hidden="true">
+          <figure class="shot s1"><div class="bar"><i></i><i></i><i></i></div><img src="img/hs-1.webp" alt="" width="1440" height="900"><figcaption>HeatShield · canlı demo</figcaption></figure>
+          <figure class="shot s3"><div class="bar"><i></i><i></i><i></i></div><img src="img/lg-1.webp" alt="" width="1600" height="1000"><figcaption>Life Gate · 3D</figcaption></figure>
         </div>
       </div>
 
-      <div class="readout" id="readout">
-        <div class="readout-head"><b>ÖLÇÜM DEFTERİ</b><span>6 proje · 24.10.2026</span></div>
-        <ol class="rows">
-          <li><a href="#heatshield"><span class="val">800→89</span><span class="what">240 çalışanlık şantiyede ağ sorgusu</span><span class="src">HeatShield</span></a></li>
-          <li><a href="#ekt"><span class="val">8 / 8</span><span class="what">yüksek önemli güvenlik bulgusu kapatıldı</span><span class="src">EKT Akademi</span></a></li>
-          <li><a href="#uzaktan"><span class="val">54 ms</span><span class="what">1080p ekranın H.264 kodlama gecikmesi</span><span class="src">Uzaktan Bağlantı</span></a></li>
-          <li><a href="#muhasebe"><span class="val">0</span><span class="what">npm bağımlılığı; XML ve ZIP okuyucu elle yazıldı</span><span class="src">Ön Muhasebe</span></a></li>
-          <li><a href="#lifegate"><span class="val">279</span><span class="what">uçtan uca test, hepsi geçiyor</span><span class="src">Life Gate</span></a></li>
-        </ol>
-        <div class="readout-foot">Satıra tıklayınca projeye gider.</div>
+      <div class="stats">
+        <div class="stat"><b data-count="18">18</b><span>NASA, CERN ve LLVM gibi projelere kabul edilen katkı</span></div>
+        <div class="stat"><b>İlk 10</b><span>GSMA MENA Ignite 2026, 1.348 takım arasından</span></div>
+        <div class="stat"><b data-count="279">279</b><span>Life Gate'i koruyan uçtan uca test</span></div>
       </div>
-    </div>
-
-    <div class="credits">
-      <div class="ruler" aria-hidden="true"></div>
-      <p><b>18 yamam kabul edildi:</b> NASA F´, CERN ROOT, LLVM, Apache Kafka, NVIDIA CUTLASS, .NET runtime, systemd, Apache Airflow, Rust derleyicisi, VS Code ve Eclipse S-CORE.</p>
     </div>
   </section>
 
+  <div class="marquee" aria-label="Katkı verdiğim projeler">
+    <div class="wrap"><p class="marquee-label">Katkılarımın kabul edildiği projeler</p></div>
+    <div class="track">
+      <ul><li>NASA F´</li><li>CERN ROOT</li><li>LLVM</li><li>Apache Kafka</li><li>NVIDIA CUTLASS</li><li>.NET runtime</li><li>systemd</li><li>Apache Airflow</li><li>Rust</li><li>VS Code</li><li>Eclipse S-CORE</li></ul>
+      <ul aria-hidden="true"><li>NASA F´</li><li>CERN ROOT</li><li>LLVM</li><li>Apache Kafka</li><li>NVIDIA CUTLASS</li><li>.NET runtime</li><li>systemd</li><li>Apache Airflow</li><li>Rust</li><li>VS Code</li><li>Eclipse S-CORE</li></ul>
+    </div>
+  </div>
+
+  <!-- 01 Seçkin projeler -->
   <section class="section wrap" id="projeler">
-    <div class="ruler" aria-hidden="true"></div>
     <div class="sec-head rv">
-      <h2>Projeler</h2>
-      <p>Altı proje, ekran görüntüleri ve ölçülmüş sonuçlarıyla. Görsele tıklayınca büyür.</p>
+      <span class="sec-num">01</span>
+      <h2>Seçkin projeler</h2>
+      <p>Dört proje, ekran görüntüleri ve ölçülmüş sonuçlarıyla. Görsele tıklayınca büyür.</p>
     </div>
 
-    <!-- 1 HeatShield -->
-    <article class="case" id="heatshield">
-      <div class="gallery rv" data-fig="1">
+    <article class="case">
+      <div class="gallery rv">
         <div class="stage">
-          <img class="on" src="img/hs-1.webp" alt="HeatShield canlı demosu" data-cap="Canlı demo: 35,4 °C'lik ihlalde ağ sorguları en riskli çalışandan başlayarak harcanıyor; 800 yerine 89 sorgu." width="1440" height="900">
+          <img class="on" src="img/hs-1.webp" alt="HeatShield canlı demosu: 35,4 °C'lik ısı ihlalinde sorgu bütçesi" data-cap="Canlı demo: 35,4 °C'lik ihlalde 800 yerine 89 ağ sorgusu, en riskli çalışandan başlayarak." width="1440" height="900">
         </div>
-        <p class="figcap"><span class="no"></span><span class="txt"></span></p>
+        <p class="cap"><span class="count"></span><span class="txt"></span></p>
       </div>
-      <div class="info rv">
-        <span class="idx">01 / 06</span>
-        <h3 lang="en">HeatShield</h3>
+      <div class="info rv d1">
+        <div class="badges"><span class="badge win">İlk 10 · 1.348 takım</span><span class="badge">GSMA MENA Ignite 2026</span></div>
+        <h3>HeatShield</h3>
         <p class="one">Mobil şebekeyi sensör olarak kullanan, inşaat işçilerini sıcak stresinden koruyan bir ajan.</p>
-        <p class="desc">Katar'da ısı yasal sınırı aştığında açık alandaki işin durması gerekiyor. HeatShield sahada kalan işçileri ek cihaz olmadan şebeke üzerinden tespit ediyor, sorgu bütçesini önce en riskli çalışanlara harcıyor ve her kararı denetimde kullanılabilecek bir kayda yazıyor.</p>
-        <dl class="spec">
-          <dt>Sonuç</dt><dd>GSMA MENA Ignite 2026, 1.348 takım arasında ilk 10</dd>
-          <dt>Rol</dt><dd>Tek kişilik takım; 2,5 haftada geliştirip jüriye canlı sundum</dd>
-          <dt>Yığın</dt><dd>Python, FastAPI, CAMARA, Nokia Network as Code</dd>
-        </dl>
-        <div class="figures">
-          <div><b>800→89</b><span>ağ sorgusu, %90 daha az</span></div>
-          <div><b>6</b><span>canlı API, Nokia üzerinde</span></div>
-          <div><b>130</b><span>internetsiz çalışan test</span></div>
+        <p class="desc">Katar'da ısı yasal sınırı aştığında açık alandaki işin durması gerekiyor. HeatShield sahada kalan işçileri ek cihaz olmadan şebeke üzerinden tespit ediyor, sorgu bütçesini önce en riskli çalışanlara harcıyor ve her kararı denetimde kullanılabilecek bir kayda yazıyor. İki buçuk haftada tek başıma geliştirip uluslararası jüriye canlı sundum.</p>
+        <div class="metrics">
+          <div class="metric"><b>800 → 89</b><span>240 çalışanlık sahada ağ sorgusu</span></div>
+          <div class="metric"><b>6 API</b><span>Nokia Network as Code üzerinde canlı</span></div>
+          <div class="metric"><b>130</b><span>internetsiz çalışan otomatik test</span></div>
         </div>
+        <ul class="chips"><li>Python</li><li>FastAPI</li><li>CAMARA</li><li>Nokia NaC</li></ul>
         <div class="links">
-          <a href="https://heatshield-demo.onrender.com/demo" target="_blank" rel="noopener">Canlı demo ↗</a>
-          <a href="https://youtu.be/z1N6U4yv6xA" target="_blank" rel="noopener">3 dk video ↗</a>
-          <a href="https://github.com/kutsibalci/heatshield" target="_blank" rel="noopener">Kaynak kod ↗</a>
-          <a href="https://anahaber.anadolu.edu.tr/tr/haber-detay/ieryw2wyhfbm1t7qacj7rjfx" target="_blank" rel="noopener">Haber ↗</a>
+          <a class="link solid" href="https://heatshield-demo.onrender.com/demo" target="_blank" rel="noopener">Canlı demo ↗</a>
+          <a class="link" href="https://youtu.be/z1N6U4yv6xA" target="_blank" rel="noopener">3 dk video ↗</a>
+          <a class="link" href="https://github.com/kutsibalci/heatshield" target="_blank" rel="noopener">Kaynak kod ↗</a>
+          <a class="link" href="https://anahaber.anadolu.edu.tr/tr/haber-detay/ieryw2wyhfbm1t7qacj7rjfx" target="_blank" rel="noopener">Haber ↗</a>
         </div>
       </div>
     </article>
 
-    <!-- 2 EKT Akademi -->
-    <article class="case flip" id="ekt">
-      <div class="gallery rv" data-fig="2">
+    <article class="case flip">
+      <div class="gallery rv">
         <div class="stage">
-          <img class="on" src="img/ekt-3.webp" alt="EKT Akademi eğitim detay sayfası" data-cap="Eğitim detay sayfası: program yapısı, modüller ve kayıt." width="1440" height="900">
+          <img class="on" src="img/ekt-3.webp" alt="EKT Akademi eğitim detay sayfası" data-cap="Eğitim detayı: program yapısı, modüller ve kayıt." width="1440" height="900">
           <img src="img/ekt-2.webp" alt="EKT Akademi eğitim kataloğu" data-cap="Eğitim kataloğu: 20 güncel program." width="1440" height="900" loading="lazy">
-          <img src="img/ekt-1.webp" alt="EKT Akademi ana sayfası" data-cap="Ana sayfa." width="1440" height="900" loading="lazy">
+          <img src="img/ekt-1.webp" alt="EKT Akademi ana sayfası" data-cap="Ana sayfa: kurumsal eğitim programları." width="1440" height="900" loading="lazy">
         </div>
-        <p class="figcap"><span class="no"></span><span class="txt"></span></p>
+        <p class="cap"><span class="count"></span><span class="txt"></span></p>
         <div class="thumbs"></div>
       </div>
-      <div class="info rv">
-        <span class="idx">02 / 06</span>
+      <div class="info rv d1">
+        <div class="badges"><span class="badge live">Canlı</span><span class="badge">Ekip projesi</span></div>
         <h3>EKT Akademi</h3>
         <p class="one">20 Ağustos 2026'dan beri canlıda olan kurumsal eğitim platformu.</p>
-        <p class="desc">Hazır bir statik ön yüzün arkasına backend'i sıfırdan kurduk: kimlik doğrulama, öğrenci, eğitmen ve yönetici panelleri, QR ile doğrulanan PDF sertifikalar, dosya yükleme, e-posta ve SMS hatırlatmaları ve canlı ders linkleri.</p>
-        <dl class="spec">
-          <dt>Durum</dt><dd class="live">Canlı · ektakademi.com</dd>
-          <dt>Ekip</dt><dd>Bedirhan Çetin, Kadir Can Yıldırım ve ben</dd>
-          <dt>Rol</dt><dd>Geliştirme ve güvenlik denetimleri. 24 alanı tarayan denetimde 143 ham bulgu çapraz doğrulandı, 56'sı onaylandı; yüksek önemdeki 8 bulgunun tamamı kapatıldı.</dd>
-          <dt>Yığın</dt><dd>Node.js 22, Express 5, PostgreSQL 16, Prisma, nginx, AWS</dd>
-        </dl>
-        <div class="figures">
-          <div><b>8 / 8</b><span>yüksek önemli bulgu kapatıldı</span></div>
-          <div><b>262</b><span>otomatik backend testi</span></div>
-          <div><b>56</b><span>onaylı bulgu, 143 ham bulgudan</span></div>
+        <p class="desc">Hazır bir statik ön yüzün arkasına backend'i sıfırdan kurduk: kimlik doğrulama, öğrenci, eğitmen ve yönetici panelleri, QR ile doğrulanan PDF sertifikalar, dosya yükleme, e-posta ve SMS hatırlatmaları ve canlı ders linkleri. Platform AWS üzerinde çalışıyor.</p>
+        <div class="role">
+          <strong>Ekip ve rolüm</strong>
+          <p>Platformu Bedirhan Çetin ve Kadir Can Yıldırım ile birlikte geliştirdik. Güvenlik denetimlerini ben yürüttüm: 24 alanı tarayan denetimde 143 ham bulgu çapraz doğrulandı, 56'sı onaylandı ve yüksek önemdeki 8 bulgunun tamamı kapatıldı.</p>
         </div>
-        <div class="links"><a href="https://ektakademi.com" target="_blank" rel="noopener">ektakademi.com ↗</a></div>
+        <div class="metrics">
+          <div class="metric"><b>Canlı</b><span>20 Ağustos 2026'dan beri</span></div>
+          <div class="metric"><b>262</b><span>otomatik backend testi</span></div>
+          <div class="metric"><b>8 / 8</b><span>yüksek önemli bulgu kapatıldı</span></div>
+        </div>
+        <ul class="chips"><li>Node.js 22</li><li>Express 5</li><li>PostgreSQL 16</li><li>Prisma</li><li>nginx</li><li>AWS</li></ul>
+        <div class="links"><a class="link solid" href="https://ektakademi.com" target="_blank" rel="noopener">ektakademi.com ↗</a></div>
       </div>
     </article>
 
-    <!-- 3 Uzaktan Bağlantı -->
-    <article class="case" id="uzaktan">
-      <div class="gallery rv" data-fig="3">
+    <article class="case">
+      <div class="gallery rv">
         <div class="stage">
-          <img class="on" src="img/rc-1.webp" alt="Uzaktan Bağlantı bilgisayar durumu paneli" data-cap="Bilgisayar durumu: işlemci, bellek ve GPU grafikleri; çalışan programlar Görev Yöneticisi gibi gruplu ve uzaktan kapatılabiliyor." width="1600" height="1000">
-          <img class="fit" src="img/rc-2.webp" alt="Uzaktan Bağlantı yatay telefon görünümü" data-cap="Telefon yan çevrilince masaüstü ekranı dolduruyor; gecikme ve kare hızı sağ üstte." width="1600" height="739" loading="lazy">
-          <img src="img/rc-4.webp" alt="Uzaktan Bağlantı gecikme sayacı" data-cap="Gecikme ayrıntısı: ağ gidiş-dönüşü 2 ms, çözme ve çizim 2,1 ms, 31 kare/sn; altında oturumun veri kullanımı." width="1600" height="1000" loading="lazy">
-          <img src="img/rc-3.webp" alt="Uzaktan Bağlantı yönetim paneli" data-cap="Yönetim paneli: Tailscale ile her yerden erişim, tek seferlik misafir kodu, yeni cihaz onayı ve ortak ağlardan girişi kapatma." width="1600" height="1000" loading="lazy">
         </div>
-        <p class="figcap"><span class="no"></span><span class="txt"></span></p>
+        <p class="cap"><span class="count"></span><span class="txt"></span></p>
         <div class="thumbs"></div>
       </div>
-      <div class="info rv">
-        <span class="idx">03 / 06</span>
-        <h3>Uzaktan Bağlantı</h3>
-        <p class="one">Windows bilgisayarı telefondan, hiçbir uygulama kurmadan tarayıcıyla kontrol etmeyi sağlayan uzaktan masaüstü.</p>
-        <p class="desc">Bulut sunucusu yok: görüntü, ses ve dosyalar doğrudan bilgisayardan cihaza gidiyor. Ekran, ekran kartının donanım kodlayıcısıyla H.264 olarak sıkıştırılıp tarayıcıda WebCodecs ile çözülüyor. Ses karıştırıcı, dosya aktarımı, iki yönlü pano, kumanda modu ve ev ağında kendi sertifikasıyla HTTPS var.</p>
-        <dl class="spec">
-          <dt>Durum</dt><dd>Geliştiriliyor · kişisel proje, açık kaynak yayın planlanıyor</dd>
-          <dt>Yapı</dt><dd>Node.js sunucu, 7 C# Windows yardımcısı, çatısız tarayıcı istemcisi</dd>
-          <dt>Yığın</dt><dd>Node.js, WebSocket, ffmpeg, NVENC, WebCodecs, C#, X.509</dd>
-        </dl>
-        <div class="figures">
-          <div><b>54 ms</b><span>1080p kodlama gecikmesi (ortanca)</span></div>
-          <div><b>225 MB</b><span>saatlik veri, tasarruf modunda</span></div>
-          <div><b>1.790</b><span>otomatik kontrol, 47 test paketi</span></div>
+      <div class="info rv d1">
+        <div class="badges"><span class="badge">Geliştiriliyor</span><span class="badge">Kişisel proje</span></div>
+        <p class="one">İstasyonun gerçekten çalışma ihtimalini hesaba katan elektrikli araç şarj planlayıcısı.</p>
+        <div class="metrics">
+          <div class="metric"><b>13.000+</b><span>EPDK'dan her gün çekilen istasyon</span></div>
+          <div class="metric"><b>262</b><span>otomatik test (255 + 7)</span></div>
+          <div class="metric"><b>≈ 5 dk</b><span>Ankara → İzmir'de arıza kaynaklı beklenen gecikme</span></div>
         </div>
-        <p class="note">Telefon görüntüleri Chrome'da telefon boyutu taklit edilerek alındı; gerçek cihaz testleri sürüyor.</p>
-      </div>
-      <div class="phones">
-        <figure class="phone rv"><div class="frame"><img src="img/rc-p1.webp" alt="Telefonda ana ekran" data-cap="Ana ekran: uzaktan kontrol, ikinci ekran, çizim tableti ve kumanda modları." width="520" height="1125" loading="lazy"></div><figcaption><span class="no">Şekil 3.5</span>Ana ekran ve modlar</figcaption></figure>
-        <figure class="phone rv"><div class="frame"><img src="img/rc-p2.webp" alt="Telefonda özel tuşlar paneli" data-cap="Özel tuşlar paneli: kısayollar ve yapışkan Ctrl/Alt/Shift/Win; panel görüntüyü kapatmıyor." width="520" height="1125" loading="lazy"></div><figcaption><span class="no">Şekil 3.6</span>Özel tuşlar paneli</figcaption></figure>
-        <figure class="phone rv"><div class="frame"><img src="img/rc-p3.webp" alt="Telefonda kumanda modu ve ses karıştırıcı" data-cap="Kumanda modu: görüntü aktarmadan medya tuşları ve uygulama başına ses ayarı." width="520" height="1125" loading="lazy"></div><figcaption><span class="no">Şekil 3.7</span>Kumanda ve ses karıştırıcı</figcaption></figure>
-        <figure class="phone rv"><div class="frame"><img src="img/rc-p4.webp" alt="Telefonda dosya aktarımı" data-cap="Dosya aktarımı: bilgisayardaki dosyalara göz atma, klasör indirme, telefondan gönderme (örnek klasörle)." width="520" height="1125" loading="lazy"></div><figcaption><span class="no">Şekil 3.8</span>Dosya aktarımı</figcaption></figure>
+        <ul class="chips"><li>Python</li><li>FastAPI</li><li>SQLAlchemy</li><li>Next.js</li><li>MapLibre</li><li>OSRM</li><li>Docker</li></ul>
+        <p class="note">Henüz yayında değil; kod deposu gizli.</p>
       </div>
     </article>
 
-    <!-- 5 Ön Muhasebe -->
-    <article class="case" id="muhasebe">
-      <div class="gallery rv" data-fig="5">
+    <article class="case flip">
+      <div class="gallery rv">
         <div class="stage">
-          <img class="on" src="img/om-1.webp" alt="Ön Muhasebe paneli" data-cap="Panel: alacak, borç, kasa-banka, bu ayın navlun, yakıt ve net kârı ile yaklaşan belge vadeleri." width="1600" height="1000" loading="lazy">
-          <img src="img/om-2.webp" alt="Ön Muhasebe seferler" data-cap="Seferler: her seferin navlunu, masraflar düşüldükten sonraki net kârı ve fatura durumu; zarar eden sefer kırmızı." width="1600" height="1000" loading="lazy">
-          <img src="img/om-3.webp" alt="Ön Muhasebe belge vadeleri" data-cap="Belge vadeleri: süresi dolan kasko kırmızı; 30 gün içinde dolacak sigorta, muayene ve SRC turuncu." width="1600" height="1000" loading="lazy">
-          <img src="img/om-4.webp" alt="Ön Muhasebe e-Fatura içe aktarma" data-cap="e-Fatura içe aktarma: UBL-TR XML'den alıcı, VKN, KDV ve 2/10 tevkifat okunuyor; önizleme kayıt yazmıyor." width="1600" height="1000" loading="lazy">
-          <img src="img/om-5.webp" alt="Ön Muhasebe araç yakıt tüketimi" data-cap="Araç detayı: kilometreye göre sıradaki bakım, dolumdan doluma lt/100 km tüketim." width="1600" height="1000" loading="lazy">
-          <img src="img/om-6.webp" alt="Ön Muhasebe koyu tema" data-cap="Panelin koyu tema görünümü." width="1600" height="1000" loading="lazy">
-        </div>
-        <p class="figcap"><span class="no"></span><span class="txt"></span></p>
-        <div class="thumbs"></div>
-      </div>
-      <div class="info rv">
-        <span class="idx">05 / 06</span>
-        <h3>Ön Muhasebe ve Lojistik</h3>
-        <p class="one">Nakliye işletmeleri için sefer, araç, yakıt, cari hesap ve faturayı tek yerde tutan ön muhasebe programı.</p>
-        <p class="desc">Her seferin navlunundan yakıt, HGS ve harcırah düşülüp net kâr gösteriliyor. Araç ve şoför belgelerinin vadeleri izleniyor, portaldan indirilen UBL-TR e-faturalar içe aktarılıyor ve 2/10 tevkifat şartları otomatik kontrol ediliyor. Kurulum gerektirmeden bir klasörden çalışıyor.</p>
-        <dl class="spec">
-          <dt>Durum</dt><dd>Teslim edildi (v1.0, Ağustos 2026) · kullanımda</dd>
-          <dt>Yapı</dt><dd>Yalnızca Node.js yerleşik modülleri; XML ayrıştırıcı ve ZIP açıcı elle yazıldı</dd>
-          <dt>Yığın</dt><dd>Node.js, node:sqlite, düz JavaScript, UBL-TR 1.2</dd>
-        </dl>
-        <div class="figures">
-          <div><b>0</b><span>npm bağımlılığı</span></div>
-          <div><b>21 / 21</b><span>otomatik test geçiyor</span></div>
-          <div><b>19</b><span>ekran, 18 veritabanı tablosu</span></div>
-        </div>
-        <p class="note">Görüntülerdeki tüm firma, plaka, vergi numarası ve tutarlar örnek veridir.</p>
-      </div>
-    </article>
-
-    <!-- 6 Life Gate -->
-    <article class="case flip" id="lifegate">
-      <div class="gallery rv" data-fig="6">
-        <div class="stage">
-          <img class="on" src="img/lg-1.webp" alt="Life Gate müdahale ekranı" data-cap="Eldivenli ellerle bası uygulanırken yaralı endişesini söylüyor; öğrenci cümle seçerek cevap veriyor." width="1600" height="1000" loading="lazy">
+          <img class="on" src="img/lg-1.webp" alt="Life Gate müdahale ekranı" data-cap="Eldivenli ellerle bası uygulanırken yaralı endişesini söylüyor, öğrenci cümle seçerek cevap veriyor." width="1600" height="1000" loading="lazy">
           <img src="img/lg-2.webp" alt="Life Gate mutfak sahnesi" data-cap="Mutfak sahnesi: yaralı, tehlikeler (bıçak, açık ocak, ıslak zemin) ve ilk yardım dolabı." width="1600" height="1000" loading="lazy">
-          <img src="img/lg-3.webp" alt="Life Gate değerlendirme notu" data-cap="Kanlı bez kaldırılınca kanama yeniden başlıyor; ne yapılacağını söylemeyen bir değerlendirme notu çıkıyor." width="1600" height="1000" loading="lazy">
+          <img src="img/lg-3.webp" alt="Life Gate değerlendirme notu" data-cap="Kanlı bez kaldırılınca kanama yeniden başlıyor ve ne yapılacağını söylemeyen bir değerlendirme notu çıkıyor." width="1600" height="1000" loading="lazy">
           <img src="img/lg-4.webp" alt="Life Gate sonuç ekranı" data-cap="Senaryo tamamlandı: sargılı elin son karesi, rozet, puan ve süre." width="1600" height="1000" loading="lazy">
           <img src="img/lg-5.webp" alt="Life Gate açılış ekranı" data-cap="Açılış: öğrenci, araştırmacının verdiği katılımcı koduyla oturumu başlatıyor." width="1600" height="1000" loading="lazy">
         </div>
-        <p class="figcap"><span class="no"></span><span class="txt"></span></p>
+        <p class="cap"><span class="count"></span><span class="txt"></span></p>
         <div class="thumbs"></div>
       </div>
-      <div class="info rv">
-        <span class="idx">06 / 06</span>
-        <h3 lang="en">Life Gate</h3>
-        <p class="one">Hemşirelik öğrencilerinin kanamalarda ilk yardımı 3 boyutlu bir mutfak sahnesinde pratik ettiği simülasyon.</p>
+      <div class="info rv d1">
+        <div class="badges"><span class="badge">Araştırma projesi</span><span class="badge">3D · Tarayıcıda</span></div>
+        <h3>Life Gate</h3>
+        <p class="one">Hemşirelik öğrencilerinin kanamalarda ilk yardımı 3 boyutlu bir sahnede pratik ettiği eğitim simülasyonu.</p>
         <p class="desc">Öğrencinin her hareketi 15 davranış üzerinden kaydediliyor; hata yaptığında ne yapacağını söylemeyen kısa bir değerlendirme notu çıkıyor. Araştırmacılar şifreli kayıtları ayrı bir panelden çözüp inceliyor. Uygulama sunucusuz ve tamamen çevrimdışı çalışıyor.</p>
-        <dl class="spec">
-          <dt>Durum</dt><dd>Araştırma projesi · pilot uygulama öncesi</dd>
-          <dt>Yapı</dt><dd>Çatısız JavaScript, Three.js ile 3D sahne, Web Crypto ile şifreli kayıt</dd>
-          <dt>Yığın</dt><dd>JavaScript, Three.js, WebGL2, Web Crypto, Playwright</dd>
-        </dl>
-        <div class="figures">
-          <div><b>279</b><span>uçtan uca test</span></div>
-          <div><b>15</b><span>ölçülen davranış</span></div>
-          <div><b>0</b><span>internet isteği</span></div>
+        <div class="metrics">
+          <div class="metric"><b>279</b><span>uçtan uca test, hepsi geçiyor</span></div>
+          <div class="metric"><b>15</b><span>ölçülen davranış, 6 kanama durumu</span></div>
+          <div class="metric"><b>0</b><span>internet isteği: tamamen çevrimdışı</span></div>
         </div>
+        <ul class="chips"><li>JavaScript</li><li>Three.js</li><li>WebGL2</li><li>Web Crypto</li><li>Playwright</li></ul>
+        <p class="note">Pilot uygulama öncesi; içerik araştırmacı onayından geçiyor.</p>
       </div>
     </article>
   </section>
 
+  <!-- 02 Diğer işler -->
   <section class="section wrap" id="diger">
-    <div class="ruler" aria-hidden="true"></div>
     <div class="sec-head rv">
+      <span class="sec-num">02</span>
       <h2>Diğer işler</h2>
-      <p>Kapalı kaynak projelerin kodunu paylaşamıyorum, görüşmede ekran paylaşarak anlatabilirim.</p>
+      <p>Kapalı kaynak projelerin kodunu paylaşamıyorum, görüşmede anlatabilirim.</p>
     </div>
-    <table class="ledger rv">
-      <thead><tr><th>Proje</th><th>Ne yapıyor</th><th>Yığın</th><th>Durum</th></tr></thead>
-      <tbody>
-        <tr><td class="name">SRC Sınav Motoru<small>Her sınav ayrı bir Play Store uygulaması</small></td><td class="what">Birden fazla sınav uygulamasını aynı Dart çekirdeğinden çıkaran motor; soru bankaları uzaktan sürümlenen JSON dosyaları.</td><td class="stack">Flutter, Dart, sqflite</td><td class="state">Kapalı kaynak</td></tr>
-        <tr><td class="name">Redmine 7 Eklentileri<small>13 eklenti · 61/61 duman testi</small></td><td class="what">Redmine'ı Jira benzeri bir takip aracına çeviren paket. Yedisini BAUM stajımda yazdım; çekirdeğe dokunmadan Docker Compose ile kuruluyor.</td><td class="stack">Ruby, Rails 8, PostgreSQL</td><td class="state">Staj projesi</td></tr>
-        <tr><td class="name"><span lang="en">File Analysis Service</span><small>YARA + CAPE sandbox</small></td><td class="what">Yüklenen dosyaları YARA ile tarıyor, PE başlıklarını ayrıştırıyor ve Celery kuyruğu üzerinden CAPE sandbox'a gönderiyor.</td><td class="stack">FastAPI, YARA, Celery</td><td class="state">Kapalı kaynak</td></tr>
-        <tr><td class="name">Kurye Rota<small>10 durak: 44,3 → 14,6 km</small></td><td class="what">Kuryelerin WhatsApp'tan yapıştırdığı serbest Türkçe adresleri çevrimdışı ayrıştırıp durakları sıralıyor.</td><td class="stack">React Native, Expo</td><td class="state">Kapalı kaynak</td></tr>
-        <tr><td class="name"><span lang="en">ArrivalGuard</span><small>Nokia Network as Code</small></td><td class="what">Sağlık turizmi için gelen hastaları karşılama koruması; şebeke sinyalleri açıklanabilir bir vaka ajanını yönlendiriyor.</td><td class="stack">Python, CAMARA</td><td class="state"><a href="https://github.com/kutsibalci/arrivalguard" target="_blank" rel="noopener">Açık kaynak ↗</a></td></tr>
-      </tbody>
-    </table>
+    <div class="works">
+      <article class="work wide rv">
+        <div class="work-top"><span class="kind">Sistem · Ağ</span><span class="badge">Kapalı kaynak</span></div>
+        <h3>Uzaktan Bağlantı</h3>
+        <p class="meta">Dış sunucu yok, internetsiz çalışır</p>
+        <p class="d">Windows bilgisayarı telefondan ya da tabletten yalnızca tarayıcıyla görüp kontrol etmeyi sağlayan uzaktan masaüstü. Ekran kartının donanım kodlayıcısıyla H.264 görüntü, ikinci ekran, iki yönlü pano, dosya aktarımı ve kendi yerel sertifika otoritesiyle HTTPS.</p>
+        <ul class="chips"><li>Node.js</li><li>WebSocket</li><li>H.264</li><li>C#</li><li>X.509</li></ul>
+      </article>
+      <article class="work rv d1">
+        <div class="work-top"><span class="kind">Mobil · Motor</span><span class="badge">Kapalı kaynak</span></div>
+        <h3>SRC Sınav Motoru</h3>
+        <p class="meta">Her sınav ayrı bir Play Store uygulaması</p>
+        <p class="d">Birden fazla sınav uygulamasını aynı Dart çekirdeğinden çıkaran motor. Soru bankaları uzaktan sürümlenen JSON dosyaları; ilk ürün SRC sınavları.</p>
+        <ul class="chips"><li>Flutter</li><li>Dart</li><li>sqflite</li></ul>
+      </article>
+      <article class="work rv">
+        <div class="work-top"><span class="kind">Backend · Staj</span><span class="badge">Kapalı kaynak</span></div>
+        <h3>Redmine 7 Eklentileri</h3>
+        <p class="meta">13 eklenti · 61/61 duman testi</p>
+        <p class="d">Redmine'ı Jira benzeri bir takip aracına çeviren paket. Yedisini BAUM stajımda yazdım; Redmine çekirdeğine dokunmadan Docker Compose ile kuruluyor.</p>
+        <ul class="chips"><li>Ruby</li><li>Rails 8</li><li>PostgreSQL</li></ul>
+      </article>
+      <article class="work rv d1">
+        <div class="work-top"><span class="kind">Güvenlik · Asenkron</span><span class="badge">Kapalı kaynak</span></div>
+        <h3>File Analysis Service</h3>
+        <p class="meta">YARA + CAPE sandbox</p>
+        <p class="d">Yüklenen dosyaları YARA ile tarıyor, PE başlıklarını ayrıştırıyor ve Celery kuyruğu üzerinden CAPE sandbox'a gönderiyor.</p>
+        <ul class="chips"><li>FastAPI</li><li>YARA</li><li>Celery</li></ul>
+      </article>
+      <article class="work rv d2">
+        <div class="work-top"><span class="kind">Mobil · Rota</span><span class="badge">Kapalı kaynak</span></div>
+        <h3>Kurye Rota</h3>
+        <p class="meta">10 durak: 44,3 km → 14,6 km</p>
+        <p class="d">Kuryelerin WhatsApp'tan yapıştırdığı serbest Türkçe adresleri çevrimdışı ayrıştırıp durakları sıralıyor.</p>
+        <ul class="chips"><li>React Native</li><li>Expo</li><li>TSP 2-opt</li></ul>
+      </article>
+      <article class="work wide rv">
+        <div class="work-top"><span class="kind">Backend · Ürün</span><span class="badge">Kapalı kaynak</span></div>
+        <h3>Ön Muhasebe ve Lojistik</h3>
+        <p class="meta">Gerçek kullanıcılar</p>
+        <p class="d">Nakliye işletmeleri için seferler, yakıt ve araç evrakı, cari hesaplar, UBL-TR e-faturalar ve tahsilatlar tek yerde. Kopyalanan bir klasörden çalışıyor; kurulum ya da ağ gerekmiyor.</p>
+        <ul class="chips"><li>Node.js</li><li>SQLite</li><li>UBL-TR</li><li>e-Fatura</li></ul>
+      </article>
+      <article class="work rv d1">
+        <div class="work-top"><span class="kind">Backend · Ajan</span><span class="badge">Açık kaynak</span></div>
+        <h3>ArrivalGuard</h3>
+        <p class="meta">Nokia Network as Code · CAMARA</p>
+        <p class="d">Sağlık turizmi için gelen hastaları karşılama koruması; şebeke sinyalleri, kararlarını açıklayabilen bir vaka ajanını yönlendiriyor.</p>
+        <div class="links"><a class="link" href="https://github.com/kutsibalci/arrivalguard" target="_blank" rel="noopener">Kaynak kod ↗</a></div>
+      </article>
+    </div>
   </section>
 
+  <!-- 03 Deneyim -->
   <section class="section wrap" id="deneyim">
-    <div class="ruler" aria-hidden="true"></div>
-    <div class="sec-head rv"><h2>Deneyim</h2></div>
-    <ul class="log">
-      <li class="rv"><span class="when">Eylül 2026</span><div><h3>GSMA MENA Ignite Hackathon · <em>İlk 10</em></h3><p>22 ülkeden 1.800'den fazla katılımcının yarıştığı hackathonda tek kişilik takım olarak 1.348 takım arasından finale kaldım. HeatShield'ı 21 Eylül'de uluslararası jüriye canlı sundum.</p><a href="https://anahaber.anadolu.edu.tr/tr/haber-detay/ieryw2wyhfbm1t7qacj7rjfx" target="_blank" rel="noopener">Anadolu Üniversitesi haberi ↗</a></div></li>
-      <li class="rv"><span class="when">Ağustos 2026 – bugün</span><div><h3>Ekip geliştiricisi · <em>EKT Akademi</em></h3><p>Canlıdaki eğitim platformunu Bedirhan Çetin ve Kadir Can Yıldırım ile geliştirdik. Güvenlik denetimlerini yürüttüm; yüksek önemdeki bulguların tamamı kapatıldı.</p></div></li>
-      <li class="rv"><span class="when">Ağustos 2026 – bugün</span><div><h3>Açık kaynak katkıcısı</h3><p>NASA, CERN, LLVM, Apache, NVIDIA, Microsoft ve Rust projelerinde 18 yamam kabul edildi.</p></div></li>
-      <li class="rv"><span class="when">Temmuz – Ağustos 2026<br>Eskişehir</span><div><h3>Backend stajyeri · <em>Anadolu Üniversitesi BAUM</em></h3><p>Redmine 7 üzerine Jira tarzı proje yönetimi kuran yedi eklenti yazdım; 11 epic ve 31 kullanıcı hikâyesinden oluşan backlog'u uçtan uca tamamladım.</p></div></li>
-      <li class="rv"><span class="when">2025 – bugün</span><div><h3>Arka Yüz Yazılım Geliştirme · <em>Anadolu Üniversitesi</em></h3><p>Bilişim Teknolojileri Meslek Yüksekokulu, ön lisans, 2. sınıf.</p></div></li>
+    <div class="sec-head rv">
+      <span class="sec-num">03</span>
+      <h2>Deneyim</h2>
+    </div>
+    <ul class="timeline">
+      <li class="rv">
+        <span class="when">Eylül 2026</span>
+        <div>
+          <h3>GSMA MENA Ignite Hackathon · <span class="org">İlk 10</span></h3>
+          <p>22 ülkeden 1.800'den fazla katılımcının yarıştığı hackathonda tek kişilik takım olarak 1.348 takım arasından finale kaldım. HeatShield'ı 21 Eylül'de uluslararası jüriye canlı sundum.</p>
+          <a class="more" href="https://anahaber.anadolu.edu.tr/tr/haber-detay/ieryw2wyhfbm1t7qacj7rjfx" target="_blank" rel="noopener">Anadolu Üniversitesi haberi ↗</a>
+        </div>
+      </li>
+      <li class="rv">
+        <span class="when">Ağustos 2026 – bugün</span>
+        <div>
+          <h3>Ekip geliştiricisi · <span class="org">EKT Akademi</span></h3>
+          <p>Canlıdaki eğitim platformunu Bedirhan Çetin ve Kadir Can Yıldırım ile geliştirdik. Güvenlik denetimlerini yürüttüm; yüksek önemdeki bulguların tamamı kapatıldı.</p>
+        </div>
+      </li>
+      <li class="rv">
+        <span class="when">Ağustos 2026 – bugün · Uzaktan</span>
+        <div>
+          <h3>Açık kaynak katkıcısı</h3>
+          <p>NASA, CERN, LLVM, Apache, NVIDIA, Microsoft ve Rust projelerinde 18 yamam kabul edildi. Daha önce çalışmadığım kod tabanlarında hata buluyor, testle kanıtlayıp PR açıyorum.</p>
+        </div>
+      </li>
+      <li class="rv">
+        <span class="when">Temmuz – Ağustos 2026 · Eskişehir</span>
+        <div>
+          <h3>Backend geliştirme stajyeri · <span class="org">Anadolu Üniversitesi BAUM</span></h3>
+          <p>Bilgisayar Araştırma ve Uygulama Merkezi'nde Redmine 7 üzerine Jira tarzı proje yönetimi kuran yedi eklenti yazdım. 11 epic ve 31 kullanıcı hikâyesinden oluşan backlog'u uçtan uca tamamladım.</p>
+        </div>
+      </li>
+      <li class="rv">
+        <span class="when">2025 – bugün</span>
+        <div>
+          <h3>Arka Yüz Yazılım Geliştirme · <span class="org">Anadolu Üniversitesi</span></h3>
+          <p>Bilişim Teknolojileri Meslek Yüksekokulu, ön lisans, 2. sınıf.</p>
+        </div>
+      </li>
     </ul>
   </section>
 
+  <!-- 04 Açık kaynak -->
   <section class="section wrap" id="acik-kaynak">
-    <div class="ruler" aria-hidden="true"></div>
     <div class="sec-head rv">
+      <span class="sec-num">04</span>
       <h2>Açık kaynak</h2>
-      <p>Daha önce çalışmadığım kod tabanlarında tek bir hata türünü arıyor, bulduğumu PR açmadan önce testle kanıtlıyorum.</p>
+      <p>Daha önce çalışmadığım kod tabanlarında her seferinde tek bir hata türünü arıyorum ve bulduğumu PR açmadan önce testle kanıtlıyorum.</p>
     </div>
-    <ul class="prs">
-      <li class="rv"><a href="https://github.com/apache/kafka/pull/23098" target="_blank" rel="noopener"><span class="proj" lang="en">Apache Kafka<small>apache/kafka#23098</small></span><p><code>equals</code> altı alanı karşılaştırırken <code>hashCode</code> yedinci bir alanı da hash'liyordu; eşit iki token farklı hash üretiyordu. 89 satır testle kabul edildi.</p><span class="ok">✓ merged ↗</span></a></li>
-      <li class="rv"><a href="https://github.com/root-project/root/pull/23065" target="_blank" rel="noopener"><span class="proj" lang="en">CERN ROOT<small>root-project/root#23065</small></span><p>İlerleme çubuğu kısa döngülerde <code>inf evt/s</code> yazıyor, uzun döngülerde hızı %12–20 fazla gösteriyordu.</p><span class="ok">✓ merged ↗</span></a></li>
-      <li class="rv"><a href="https://github.com/nasa/fprime-gds/pull/333" target="_blank" rel="noopener"><span class="proj" lang="en">NASA F´<small>nasa/fprime-gds#333</small></span><p>Çıplak bir <code>except:</code> gerçek hata nedenini yutuyordu; <code>OSError</code> ile daraltıldı.</p><span class="ok">✓ merged ↗</span></a></li>
-      <li class="rv"><a href="https://github.com/eclipse-score/baselibs/pull/517" target="_blank" rel="noopener"><span class="proj" lang="en">Eclipse S-CORE<small>baselibs#517</small></span><p>BMW, Bosch ve Mercedes'in otomotiv platformu. Önerilen bir değişikliğin API'yi daraltacağını gösterdim; 292 satırlık test iki sınırı da sabitliyor.</p><span class="ok">✓ merged ↗</span></a></li>
-      <li class="rv"><a href="https://github.com/eclipse-score/baselibs/pull/444" target="_blank" rel="noopener"><span class="proj" lang="en">Eclipse S-CORE<small>baselibs#444</small></span><p>Placement new canlı nesnelerin yıkıcısını atlıyordu. Sızıntı olmadığını ölçüp PR'da yazdım; nesne ömrü düzeltmesi olarak kabul edildi.</p><span class="ok">✓ merged ↗</span></a></li>
-      <li class="rv"><a href="https://github.com/eclipse-score/logging/pull/253" target="_blank" rel="noopener"><span class="proj" lang="en">Eclipse S-CORE<small>logging#253</small></span><p>ISO 26262 güvenlik kaydı var olmayan bir sembole işaret ediyordu; testi gereksinime bağlayan denetim izi düzeltildi.</p><span class="ok">✓ merged ↗</span></a></li>
-    </ul>
+    <div class="prs">
+      <a class="pr rv" href="https://github.com/apache/kafka/pull/23098" target="_blank" rel="noopener">
+        <span class="org-badge">KFK</span>
+        <div><strong>Apache Kafka <em>Merged</em></strong><code>apache/kafka#23098 ↗</code><p><code style="display:inline">equals</code> altı alanı karşılaştırırken <code style="display:inline">hashCode</code> yedinci bir alanı da hash'liyordu; eşit iki token farklı hash üretiyordu. 89 satır testle kabul edildi.</p></div>
+      </a>
+      <a class="pr rv d1" href="https://github.com/root-project/root/pull/23065" target="_blank" rel="noopener">
+        <span class="org-badge">CERN</span>
+        <div><strong>CERN ROOT <em>Merged</em></strong><code>root-project/root#23065 ↗</code><p>İlerleme çubuğu kısa döngülerde <code style="display:inline">inf evt/s</code> yazıyor, uzunlarda %12–20 fazla gösteriyordu.</p></div>
+      </a>
+      <a class="pr rv" href="https://github.com/nasa/fprime-gds/pull/333" target="_blank" rel="noopener">
+        <span class="org-badge">NASA</span>
+        <div><strong>NASA F´ <em>Merged</em></strong><code>nasa/fprime-gds#333 ↗</code><p>Çıplak bir <code style="display:inline">except:</code> gerçek hata nedenini yutuyordu; <code style="display:inline">OSError</code> ile daraltıldı.</p></div>
+      </a>
+      <a class="pr rv d1" href="https://github.com/eclipse-score/baselibs/pull/517" target="_blank" rel="noopener">
+        <span class="org-badge">S-C</span>
+        <div><strong>Eclipse S-CORE <em>Merged</em></strong><code>eclipse-score/baselibs#517 ↗</code><p>BMW, Bosch ve Mercedes'in otomotiv platformu. Önerilen bir değişikliğin API'yi daraltacağını gösterdim; 292 satırlık test iki sınırı da sabitliyor.</p></div>
+      </a>
+      <a class="pr rv" href="https://github.com/eclipse-score/baselibs/pull/444" target="_blank" rel="noopener">
+        <span class="org-badge">S-C</span>
+        <div><strong>Eclipse S-CORE <em>Merged</em></strong><code>eclipse-score/baselibs#444 ↗</code><p>Placement new canlı nesnelerin yıkıcısını atlıyordu. Sızıntı olmadığını ölçüp PR'da yazdım; nesne ömrü düzeltmesi olarak kabul edildi.</p></div>
+      </a>
+      <a class="pr rv d1" href="https://github.com/eclipse-score/logging/pull/253" target="_blank" rel="noopener">
+        <span class="org-badge">S-C</span>
+        <div><strong>Eclipse S-CORE <em>Merged</em></strong><code>eclipse-score/logging#253 ↗</code><p>ISO 26262 güvenlik kaydı var olmayan bir sembole işaret ediyordu; testi gereksinime bağlayan denetim izi düzeltildi.</p></div>
+      </a>
+    </div>
     <details class="sweeps rv">
-      <summary><b>Hata taramaları</b><span>12 kabul edilen yama daha</span></summary>
+      <summary>Hata taramaları <span>12 kabul edilen yama daha</span></summary>
       <div class="table-scroll">
         <table>
           <tbody>
@@ -314,30 +374,34 @@
     </details>
   </section>
 
+  <!-- 05 Yetenekler -->
   <section class="section wrap" id="yetenekler">
-    <div class="ruler" aria-hidden="true"></div>
-    <div class="sec-head rv"><h2>Yetenekler</h2><p>Yukarıdaki projelerde gerçekten kullandıklarım.</p></div>
-    <dl class="skills rv">
-      <dt>Diller</dt><dd>C#, Python, TypeScript, JavaScript, Dart, SQL</dd>
-      <dt>Backend</dt><dd>ASP.NET Core, FastAPI, Node.js, Express, SQLAlchemy, Prisma, Celery, REST, JWT</dd>
-      <dt>Veri</dt><dd>PostgreSQL, SQLite, MySQL, Redis, RabbitMQ, transactional outbox</dd>
-      <dt>Gerçek zaman ve medya</dt><dd>WebSocket, WebRTC, H.264, ffmpeg, WebCodecs</dd>
-      <dt>Ön yüz ve 3D</dt><dd>Next.js, React, Three.js, MapLibre, Flutter, React Native</dd>
-      <dt>Altyapı ve test</dt><dd>Docker, nginx, AWS, Linux, GitHub Actions, Playwright, pytest</dd>
-    </dl>
+    <div class="sec-head rv">
+      <span class="sec-num">05</span>
+      <h2>Yetenekler</h2>
+      <p>Projelerimde gerçekten kullandığım araçlar.</p>
+    </div>
+    <div class="skills">
+      <div class="skill rv"><h3>Diller</h3><ul><li>C#</li><li>Python</li><li>TypeScript</li><li>JavaScript</li><li>Dart</li><li>SQL</li></ul></div>
+      <div class="skill rv d1"><h3>Backend</h3><ul><li>ASP.NET Core</li><li>FastAPI</li><li>Node.js</li><li>Express</li><li>SQLAlchemy</li><li>Prisma</li><li>Celery</li><li>REST</li><li>JWT</li></ul></div>
+      <div class="skill rv d2"><h3>Veri ve mesajlaşma</h3><ul><li>PostgreSQL</li><li>SQLite</li><li>MySQL</li><li>Redis</li><li>RabbitMQ</li><li>Transactional outbox</li></ul></div>
+      <div class="skill rv"><h3>Gerçek zamanlı ve medya</h3><ul><li>WebSocket</li><li>WebRTC</li><li>H.264</li><li>ffmpeg</li><li>WebCodecs</li></ul></div>
+      <div class="skill rv d1"><h3>Ön yüz ve 3D</h3><ul><li>Next.js</li><li>React</li><li>Three.js</li><li>MapLibre</li><li>Flutter</li><li>React Native</li></ul></div>
+      <div class="skill rv d2"><h3>Altyapı ve test</h3><ul><li>Docker</li><li>nginx</li><li>AWS</li><li>Linux</li><li>GitHub Actions</li><li>Playwright</li><li>pytest</li></ul></div>
+    </div>
   </section>
 
-  <section class="contact wrap" id="iletisim">
-    <div class="ruler" aria-hidden="true"></div>
-    <h2 class="rv">Bana<br><span>yazın.</span></h2>
-    <div class="contact-grid rv">
-      <p>Staj ya da junior backend pozisyonu arıyorum. İzmir'deyim; uzaktan ve hibrit çalışmaya açığım. Kapalı kaynak projelerimi görüşmede ekran paylaşarak gösterebilirim.</p>
+  <!-- İletişim -->
+  <section class="wrap" id="iletisim">
+    <div class="contact rv">
       <div>
-        <div class="mail"><span id="email">balcihkutsi@gmail.com</span><button class="copy" type="button" id="copy-email">Kopyala</button></div>
-        <div class="links">
-          <a href="https://github.com/kutsibalci" target="_blank" rel="noopener">GitHub ↗</a>
-          <a href="https://www.linkedin.com/in/h%C3%BCseyinkutsibalci/" target="_blank" rel="noopener">LinkedIn ↗</a>
-        </div>
+        <h2>Staj ya da junior pozisyon için yazın.</h2>
+        <p>İzmir'deyim; uzaktan ve hibrit çalışmaya açığım. Kapalı kaynak projelerimi görüşmede ekran paylaşarak anlatabilirim.</p>
+      </div>
+      <div class="c-list">
+        <div class="c-item"><div><small>E-posta</small><span id="email">balcihkutsi@gmail.com</span></div><button class="copy" type="button" id="copy-email">Kopyala</button></div>
+        <a class="c-item" href="https://github.com/kutsibalci" target="_blank" rel="noopener"><div><small>GitHub</small><span>github.com/kutsibalci</span></div><span aria-hidden="true">↗</span></a>
+        <a class="c-item" href="https://www.linkedin.com/in/h%C3%BCseyinkutsibalci/" target="_blank" rel="noopener"><div><small>LinkedIn</small><span>Hüseyin Kutsi Balcı</span></div><span aria-hidden="true">↗</span></a>
       </div>
     </div>
   </section>
@@ -351,8 +415,8 @@
 </footer>
 
 <div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="Büyütülmüş görsel">
-  <button class="tool close" type="button" id="lb-close" aria-label="Kapat">
-    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 6l12 12M18 6L6 18"/></svg>
+  <button class="icon-btn close" type="button" id="lb-close" aria-label="Kapat">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M6 6l12 12M18 6L6 18"/></svg>
   </button>
   <div id="lb-body"></div>
   <p id="lb-cap"></p>
