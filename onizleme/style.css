@@ -1075,3 +1075,90 @@ footer .wrap { display: flex; flex-wrap: wrap; justify-content: space-between; g
   .stage .tick { display: none; }
 }
 .pmodal[hidden] { display: none; }
+
+/* ===== Düzeltme: telefon şeridi her zaman en altta, yatay görseller yazının yanında ===== */
+.case .phones { order: 3; }
+/* SRC: yazı solda, telefonlar sağda */
+.case.solo { grid-template-columns: minmax(0, 0.95fr) minmax(0, 1.05fr); align-items: center; gap: 48px; }
+.case.solo .info { max-width: none; }
+.case.solo .phones.six { grid-column: auto; order: 0; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 14px; }
+
+/* ===== Yeni navbar: yüzen cam kapsül ===== */
+.topbar, .topbar.scrolled { position: fixed; top: calc(12px + env(safe-area-inset-top, 0px)); left: 0; right: 0; padding-top: 0; background: transparent; border: 0; backdrop-filter: none; pointer-events: none; }
+.topbar .wrap {
+  pointer-events: auto;
+  width: min(1200px, calc(100% - 2 * max(16px, env(safe-area-inset-left, 0px))));
+  min-height: 60px;
+  padding: 0 8px 0 10px;
+  gap: 10px;
+  border-radius: 999px;
+  background: color-mix(in srgb, var(--surface) 72%, transparent);
+  border: 1px solid var(--line-strong);
+  backdrop-filter: blur(16px) saturate(150%);
+  -webkit-backdrop-filter: blur(16px) saturate(150%);
+  box-shadow: 0 10px 30px -18px rgba(0, 0, 0, 0.6);
+  transition: min-height 0.3s var(--ease), box-shadow 0.3s ease, background 0.3s ease;
+}
+.topbar.scrolled .wrap { min-height: 54px; background: color-mix(in srgb, var(--surface) 86%, transparent); box-shadow: 0 16px 40px -20px rgba(0, 0, 0, 0.75); }
+.topbar .mark { width: 38px; height: 38px; border-radius: 50%; }
+.nav { position: relative; margin: 0 auto; padding: 4px; gap: 2px; border-radius: 999px; background: color-mix(in srgb, var(--bg) 55%, transparent); border: 1px solid var(--line); }
+.nav a { position: relative; z-index: 1; padding: 8px 15px; font-size: 14px; font-weight: 500; }
+.nav a:hover { background: transparent; }
+.nav a.active { color: var(--fg); }
+.nav a.active::after { display: none; }
+.nav .ind { position: absolute; top: 4px; bottom: 4px; left: 0; width: 0; z-index: 0; border-radius: 999px; background: var(--accent-soft); box-shadow: inset 0 0 0 1px color-mix(in srgb, var(--accent) 40%, transparent); opacity: 0; transition: transform 0.4s var(--ease), width 0.4s var(--ease), opacity 0.25s ease; }
+.nav .ind.show { opacity: 1; }
+.topbar .icon-btn { width: 38px; height: 38px; }
+.topbar .cta-sm { padding: 10px 18px; }
+@media (max-width: 980px) {
+  .nav { margin: 0; padding: 0; border: 0; background: transparent; }
+  .nav .ind { display: none; }
+  .menu-btn { margin-left: auto; }
+  .nav.open {
+    top: calc(100% + 10px);
+    left: 0;
+    right: 0;
+    padding: 10px;
+    border-radius: 22px;
+    border: 1px solid var(--line-strong);
+    background: var(--bg-2);
+    box-shadow: 0 20px 40px -20px rgba(0, 0, 0, 0.7);
+  }
+  .nav.open a { border-radius: 12px; }
+  .nav.open a:hover { background: var(--accent-soft); }
+}
+@media (max-width: 640px) {
+  .topbar .wrap { padding: 0 6px 0 8px; gap: 6px; }
+  .topbar .mark { width: 34px; height: 34px; font-size: 13px; }
+  .case.solo { grid-template-columns: 1fr; }
+  .case.solo .phones.six { grid-template-columns: repeat(6, minmax(140px, 1fr)); overflow-x: auto; }
+}
+
+/* ===== Hareketli arka plan: yavaş ışık lekeleri ve kayan nokta ızgarası ===== */
+.bg-anim { position: fixed; inset: 0; z-index: -1; overflow: hidden; pointer-events: none; }
+.bg-anim i { position: absolute; border-radius: 50%; filter: blur(90px); opacity: 0.22; will-change: transform; }
+.bg-anim i:nth-child(1) { width: 46vmax; height: 46vmax; left: -12vmax; top: -10vmax; background: #2e4bd8; animation: drift-a 48s ease-in-out infinite alternate; }
+.bg-anim i:nth-child(2) { width: 38vmax; height: 38vmax; right: -14vmax; top: 30vh; background: #157f7a; opacity: 0.14; animation: drift-b 62s ease-in-out infinite alternate; }
+.bg-anim i:nth-child(3) { width: 34vmax; height: 34vmax; left: 30vw; bottom: -18vmax; background: #4b3bc9; opacity: 0.16; animation: drift-c 55s ease-in-out infinite alternate; }
+.bg-anim::after {
+  content: "";
+  position: absolute;
+  inset: -40px;
+  background-image: radial-gradient(color-mix(in srgb, var(--fg) 9%, transparent) 1px, transparent 1.4px);
+  background-size: 34px 34px;
+  mask-image: radial-gradient(ellipse at 50% 40%, #000 30%, transparent 85%);
+  -webkit-mask-image: radial-gradient(ellipse at 50% 40%, #000 30%, transparent 85%);
+  animation: dots 90s linear infinite;
+}
+@keyframes drift-a { to { transform: translate(18vw, 22vh) scale(1.15); } }
+@keyframes drift-b { to { transform: translate(-22vw, -18vh) scale(0.9); } }
+@keyframes drift-c { to { transform: translate(-14vw, -26vh) scale(1.1); } }
+@keyframes dots { to { transform: translate(34px, 34px); } }
+:root[data-theme="light"] .bg-anim i { opacity: 0.12; }
+:root[data-theme="light"] .bg-anim i:nth-child(2), :root[data-theme="light"] .bg-anim i:nth-child(3) { opacity: 0.08; }
+.hero .blob { opacity: 0.3; }
+.marquee { background: color-mix(in srgb, var(--bg-2) 80%, transparent); }
+@media (prefers-reduced-motion: reduce) {
+  .bg-anim i, .bg-anim::after { animation: none !important; }
+}
+.topbar .wrap { position: relative; }

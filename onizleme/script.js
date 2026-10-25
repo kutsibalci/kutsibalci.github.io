@@ -81,13 +81,28 @@
     if (io) io.observe(el); else el.classList.add("in");
   });
 
-  // Menüde aktif bölüm
+  // Menüde aktif bölüm ve kayan vurgu
   var links = nav.querySelectorAll("a");
+  var ind = document.createElement("span");
+  ind.className = "ind";
+  ind.setAttribute("aria-hidden", "true");
+  nav.insertBefore(ind, nav.firstChild);
+  function moveInd(a) {
+    if (!a || nav.classList.contains("open")) { ind.classList.remove("show"); return; }
+    ind.style.width = a.offsetWidth + "px";
+    ind.style.transform = "translateX(" + a.offsetLeft + "px)";
+    ind.classList.add("show");
+  }
+  function placeInd() { moveInd(nav.querySelector("a.active")); }
+  links.forEach(function (a) { a.addEventListener("mouseenter", function () { moveInd(a); }); });
+  nav.addEventListener("mouseleave", placeInd);
+  window.addEventListener("resize", placeInd);
   if ("IntersectionObserver" in window) {
     var sio = new IntersectionObserver(function (entries) {
       entries.forEach(function (en) {
         if (!en.isIntersecting) return;
         links.forEach(function (a) { a.classList.toggle("active", a.getAttribute("href") === "#" + en.target.id); });
+        placeInd();
       });
     }, { rootMargin: "-45% 0px -50% 0px" });
     links.forEach(function (a) { var s = document.querySelector(a.getAttribute("href")); if (s) sio.observe(s); });
