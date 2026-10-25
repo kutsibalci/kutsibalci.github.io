@@ -1339,3 +1339,57 @@ footer .wrap { display: flex; flex-wrap: wrap; justify-content: space-between; g
   .js .gallery.rv .stage, .js .gallery.rv .stage img.on, .js .sec-head.rv h2 .w > span, .js .info.rv > *, .js .rv .chips li, .js .rv.skill li, .js .fixes.rv li { clip-path: none !important; transform: none !important; opacity: 1 !important; }
   .journey li { animation: none; }
 }
+
+
+/* ===== Renk paleti: antrasit + turuncu ===== */
+:root {
+  --bg:#0e0f11; --bg-2:#131417; --surface:#17191c; --surface-2:#1e2125;
+  --line:rgba(255,255,255,0.08); --line-strong:rgba(255,255,255,0.16); --fg:#efefee; --muted:#a0a3a9;
+  --accent:#ff8a3d; --accent-soft:rgba(255,138,61,0.13); --glow:rgba(255,138,61,0.32);
+}
+:root[data-theme="light"] {
+  --bg:#f2f1ee; --bg-2:#e8e6e1; --surface:#fbfaf8; --surface-2:#f1efeb;
+  --fg:#16171a; --muted:#4a4c52;
+  --accent:#c45400; --accent-soft:rgba(196,84,0,0.1); --glow:rgba(196,84,0,0.2);
+}
+.btn.primary, .lang a.on, .sc-dots button.on { color: #1f0f02; }
+:root[data-theme="light"] .btn.primary, :root[data-theme="light"] .lang a.on { color: #fff; }
+.brand .logo { filter: drop-shadow(0 6px 14px rgba(255,138,61,0.3)); }
+.brand .logo .sig1, .brand .logo .sig2 { stroke: var(--accent); }
+.bg-anim { background: radial-gradient(ellipse 70% 50% at 50% 0%, rgba(60,62,68,0.16), transparent 70%); }
+.bg-anim::before { background: conic-gradient(from 0deg at 50% 50%, transparent 0 16%, rgba(60,62,68,0.34) 26%, rgba(45,46,52,0.22) 38%, transparent 50%, rgba(70,58,48,0.24) 66%, rgba(60,62,68,0.14) 74%, transparent 84%); }
+.contact { background: linear-gradient(135deg, #1d1f23, #141518 70%); }
+.contact::before { background: #ff8a3d; opacity: 0.22; }
+.copy { color: #141518; }
+.copy:hover { background: #ff8a3d; color: #1f0f02; }
+.stage .tick i { background: linear-gradient(90deg, var(--accent), #ffd27a); box-shadow: 0 0 14px rgba(255,138,61,0.75); }
+.stage .tick i::after { box-shadow: 0 0 10px 3px rgba(255,138,61,0.9), 0 0 24px 8px rgba(255,138,61,0.4); }
+.journey .track i { background: linear-gradient(90deg, #ff9a3c, var(--accent) 45%, var(--fg)) !important; }
+.journey li::before { border-color: var(--muted) !important; box-shadow: 0 0 0 4px var(--accent-soft) !important; }
+.progress { background: linear-gradient(90deg, var(--accent), #ffd27a); }
+.pr strong em { color: var(--accent); background: var(--accent-soft); }
+.nav a.active, .timeline .org { color: var(--accent); }
+
+/* ===== Açık tema: kirli beyaz zemin, kahverengi vurgu ===== */
+:root[data-theme="light"] {
+  --bg:#e8e3da; --bg-2:#ded8cd; --surface:#f1ede6; --surface-2:#e6e0d6;
+  --line:rgba(60,45,30,0.14); --line-strong:rgba(60,45,30,0.26);
+  --fg:#2a2420; --muted:#5e544b;
+  --accent:#8a4f24; --accent-soft:rgba(138,79,36,0.12); --glow:rgba(138,79,36,0.18);
+  --warm:#9a5a1e; --live:#2f7a55;
+}
+:root[data-theme="light"] body { background: var(--bg); }
+:root[data-theme="light"] .bg-anim::before { opacity: 0.18; }
+:root[data-theme="light"] .bg-anim { background: radial-gradient(ellipse 70% 50% at 50% 0%, rgba(150,110,70,0.12), transparent 70%); }
+:root[data-theme="light"] .btn.primary, :root[data-theme="light"] .lang a.on, :root[data-theme="light"] .sc-dots button.on { color: #f6f1ea; }
+:root[data-theme="light"] .stage .tick i { background: linear-gradient(90deg, #8a4f24, #b9824f); box-shadow: 0 0 8px rgba(138,79,36,0.35); }
+:root[data-theme="light"] .stage .tick i::after { box-shadow: 0 0 6px 2px rgba(138,79,36,0.5); }
+:root[data-theme="light"] .progress { background: linear-gradient(90deg, #8a4f24, #b9824f); }
+:root[data-theme="light"] .journey li.hot::before { border-color: #9a5a1e !important; background: #9a5a1e !important; box-shadow: 0 0 0 4px rgba(154,90,30,0.18) !important; }
+:root[data-theme="light"] .journey li.hot b, :root[data-theme="light"] .journey li.hot time, :root[data-theme="light"] .journey li.hot small { color: #8a4f24 !important; }
+:root[data-theme="light"] .journey .track i { background: linear-gradient(90deg, #9a5a1e, #8a4f24 45%, var(--fg)) !important; }
+:root[data-theme="light"] .ribbon { background: #9a5a1e; color: #f6f1ea; }
+:root[data-theme="light"] .brand .logo rect { fill: #2a2420; }
+:root[data-theme="light"] .brand .logo { filter: none; }
+:root[data-theme="light"] .topbar .wrap, :root[data-theme="light"] .topbar.scrolled .wrap { background: color-mix(in srgb, var(--surface) 85%, transparent); }
+:root[data-theme="light"] .contact { background: linear-gradient(135deg, #2f2925, #1f1b18 70%); }
