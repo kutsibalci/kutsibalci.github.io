@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Giriş seçenekleri · Hüseyin Kutsi Balcı</title>
+<meta name="robots" content="noindex">
+<link rel="icon" type="image/svg+xml" href="../img/logo.svg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,700&family=Geist:wght@400;500;600&family=Geist+Mono:wght@400;500&display=swap">
+<link rel="stylesheet" href="../style.css">
+<style>
+  .page { padding: 48px 0 100px; }
+  .page h1.t { font-size: clamp(2rem, 5vw, 3rem); margin: 0; }
+  .page .intro { color: var(--muted); max-width: 72ch; margin: 14px 0 0; }
+  .page .how { margin-top: 18px; padding: 14px 18px; border-left: 3px solid var(--warm); background: rgba(255, 178, 74, 0.08); border-radius: 0 12px 12px 0; max-width: 72ch; }
+  .page .how b { color: var(--warm); }
+  .variant { position: relative; margin-top: 56px; border: 1px solid var(--line-strong); border-radius: 24px; overflow: hidden; background: color-mix(in srgb, var(--bg) 70%, transparent); }
+  .variant > header { display: flex; flex-wrap: wrap; align-items: baseline; gap: 6px 14px; padding: 18px 26px; border-bottom: 1px solid var(--line); background: var(--surface); }
+  .variant > header .tag { font-family: var(--mono); font-size: 13px; font-weight: 500; padding: 4px 11px; border-radius: 999px; background: var(--warm); color: #1d1203; }
+  .variant > header b { font-family: var(--display); font-size: 1.25rem; }
+  .variant > header span:not(.tag) { color: var(--muted); font-size: 14.5px; flex-basis: 100%; }
+  .vbody { padding: 44px 34px 40px; display: grid; grid-template-columns: minmax(0, 1.05fr) minmax(0, 1fr); gap: 44px; align-items: center; }
+  .vbody h1 { margin-top: 18px; font-size: clamp(2.4rem, 5.4vw, 4.4rem); }
+  .vbody .lead { margin-top: 18px; }
+  .mock-collage { position: relative; aspect-ratio: 1 / 0.8; }
+  .mock-collage img { position: absolute; width: 66%; border-radius: 12px; border: 1px solid var(--line-strong); box-shadow: 0 30px 60px -30px rgba(0, 0, 0, 0.7); }
+  .mock-collage img:nth-child(1) { left: 0; top: 0; transform: scale(0.82); transform-origin: top left; filter: brightness(0.6); }
+  .mock-collage img:nth-child(2) { left: 34%; top: 46%; transform: scale(0.84); transform-origin: bottom right; filter: brightness(0.72); }
+  .mock-collage img:nth-child(3) { left: 16%; top: 20%; z-index: 2; }
+  .mock-note { margin-top: 10px; font-size: 12.5px; color: var(--muted); text-align: center; }
+
+  /* A — Yolculuk çizgisi */
+  .journey { position: relative; margin-top: 30px; padding-top: 6px; }
+  .journey ol { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 12px; position: relative; }
+  .journey .track { position: absolute; left: 7px; right: 7px; top: 13px; height: 2px; background: var(--line-strong); border-radius: 2px; overflow: hidden; }
+  .journey .track i { position: absolute; inset: 0; background: linear-gradient(90deg, var(--accent), #4fd8b4, var(--warm)); transform-origin: 0 50%; animation: grow 3.2s var(--ease) both; }
+  @keyframes grow { from { transform: scaleX(0); } }
+  .journey li { position: relative; padding-top: 30px; min-width: 0; }
+  .journey li::before { content: ""; position: absolute; left: 0; top: 7px; width: 14px; height: 14px; border-radius: 50%; background: var(--bg); border: 2px solid var(--accent); box-shadow: 0 0 0 4px color-mix(in srgb, var(--accent) 18%, transparent); }
+  .journey li:last-child::before { border-color: var(--warm); box-shadow: 0 0 0 4px rgba(255, 178, 74, 0.2), 0 0 18px rgba(255, 178, 74, 0.6); animation: beat 2s ease-in-out infinite; }
+  @keyframes beat { 50% { box-shadow: 0 0 0 8px rgba(255, 178, 74, 0.08), 0 0 26px rgba(255, 178, 74, 0.8); } }
+  .journey time { display: block; font-family: var(--mono); font-size: 11.5px; color: var(--muted); letter-spacing: 0.04em; }
+  .journey b { display: block; margin-top: 4px; font-family: var(--display); font-size: 1.02rem; line-height: 1.25; }
+  .journey small { display: block; margin-top: 3px; font-size: 13px; color: var(--muted); line-height: 1.35; }
+  .journey li.hot b { color: var(--warm); }
+
+  /* B — Sistem durumu paneli */
+  .status-panel { margin-top: 28px; border: 1px solid var(--line-strong); border-radius: 16px; background: color-mix(in srgb, var(--surface) 80%, transparent); overflow: hidden; }
+  .status-panel .sp-head { display: flex; justify-content: space-between; align-items: center; padding: 11px 16px; border-bottom: 1px solid var(--line); font-family: var(--mono); font-size: 12px; color: var(--muted); }
+  .status-panel .sp-head b { color: var(--live); font-weight: 500; display: inline-flex; align-items: center; gap: 8px; }
+  .status-panel .sp-head b::before { content: ""; width: 8px; height: 8px; border-radius: 50%; background: var(--live); box-shadow: 0 0 10px var(--live); animation: blink 1.6s ease-in-out infinite; }
+  @keyframes blink { 50% { opacity: 0.35; } }
+  .sp-row { display: grid; grid-template-columns: minmax(0, 1fr) 120px auto; gap: 14px; align-items: center; padding: 12px 16px; border-bottom: 1px solid var(--line); }
+  .sp-row:last-child { border-bottom: 0; }
+  .sp-row .n { font-weight: 600; font-size: 14.5px; }
+  .sp-row .n small { display: block; font-weight: 400; font-size: 12.5px; color: var(--muted); }
+  .sp-row .bars { display: flex; gap: 2px; height: 22px; align-items: flex-end; }
+  .sp-row .bars i { flex: 1; border-radius: 2px; background: var(--live); opacity: 0.85; animation: up 1.4s var(--ease) both; }
+  .sp-row .bars i.w { background: var(--warm); }
+  .sp-row .bars i.b { background: var(--accent); }
+  @keyframes up { from { transform: scaleY(0.1); transform-origin: bottom; } }
+  .sp-row .st { font-family: var(--mono); font-size: 12px; padding: 4px 10px; border-radius: 999px; white-space: nowrap; }
+  .sp-row .st.ok { color: var(--live); background: color-mix(in srgb, var(--live) 14%, transparent); }
+  .sp-row .st.gold { color: var(--warm); background: rgba(255, 178, 74, 0.14); }
+  .sp-row .st.blue { color: var(--accent); background: var(--accent-soft); }
+
+  /* C — Manşet */
+  .headline { margin-top: 18px; font-family: var(--display); font-weight: 700; font-size: clamp(1.6rem, 3.2vw, 2.4rem); line-height: 1.12; letter-spacing: -0.03em; max-width: 18ch; }
+  .headline em { font-style: normal; background: linear-gradient(90deg, var(--accent), #4fd8b4 50%, var(--warm)); -webkit-background-clip: text; background-clip: text; color: transparent; background-size: 200% 100%; animation: shine 6s linear infinite; }
+  @keyframes shine { to { background-position: -200% 0; } }
+  .proof { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 26px; }
+  .proof a { display: flex; align-items: center; gap: 12px; padding: 10px 14px 10px 10px; border-radius: 14px; border: 1px solid var(--line-strong); background: color-mix(in srgb, var(--surface) 75%, transparent); text-decoration: none; transition: transform 0.25s var(--ease), border-color 0.25s ease; }
+  .proof a:hover { transform: translateY(-2px); border-color: var(--accent); }
+  .proof .ic { width: 38px; height: 38px; border-radius: 10px; display: grid; place-items: center; font-family: var(--display); font-weight: 700; font-size: 14px; flex: none; }
+  .proof .ic.o { background: rgba(255, 178, 74, 0.16); color: var(--warm); }
+  .proof .ic.g { background: color-mix(in srgb, var(--live) 16%, transparent); color: var(--live); }
+  .proof .ic.b { background: var(--accent-soft); color: var(--accent); }
+  .proof b { display: block; font-size: 14px; }
+  .proof small { display: block; font-size: 12.5px; color: var(--muted); }
+
+  .after { margin-top: 0; padding: 18px 34px 26px; border-top: 1px dashed var(--line); color: var(--muted); font-size: 14px; }
+  .after b { color: var(--fg); }
+  @media (max-width: 980px) { .vbody { grid-template-columns: 1fr; padding: 30px 20px; } .journey ol { grid-template-columns: 1fr 1fr; row-gap: 20px; } .journey .track { display: none; } .sp-row { grid-template-columns: 1fr auto; } .sp-row .bars { display: none; } }
+</style>
+</head>
+<body>
+<div class="bg-anim" aria-hidden="true"><i></i><i></i><i></i></div>
+<main class="wrap page">
+  <h1 class="t">Giriş seçenekleri</h1>
+  <p class="intro">Üç farklı giriş hazırladım. Üçünde de isim büyük kalıyor ve sağdaki projeleri döndüren ekran vitrini aynen duruyor. Değişen kısım ismin altı ve altındaki bilgi satırı. Dönen cümle, Odak/Eğitim/Diller satırı ve kayan şerit üçünde de kalkıyor.</p>
+  <p class="how">Beğendiğin seçeneğin harfini yaz: <b>A</b>, <b>B</b> ya da <b>C</b>. İkisini birleştirmek de olur, örneğin "C'nin başlığı, A'nın çizgisi".</p>
+
+  <!-- A -->
+  <section class="variant">
+    <header><span class="tag">A</span><b>Yolculuk çizgisi</b><span>İsmin altında 2026'daki dört önemli adımın zaman çizgisi; renkli çizgi soldan sağa dolar, son adım turuncu nabız gibi atar.</span></header>
+    <div class="vbody">
+      <div>
+        <span class="status"><span class="pulse" aria-hidden="true"></span>Staj ve junior backend pozisyonlarına açık · İzmir</span>
+        <h1>Hüseyin Kutsi Balcı</h1>
+        <p class="lead">Backend geliştiriciyim. Anadolu Üniversitesi Arka Yüz Yazılım Geliştirme 2. sınıf öğrencisiyim; derslerin yanında canlıda çalışan sistemler kuruyorum.</p>
+        <div class="journey">
+          <span class="track"><i></i></span>
+          <ol>
+            <li><time>Tem 2026</time><b>BAUM stajı</b><small>Anadolu Üniversitesi</small></li>
+            <li><time>Ağu 2026</time><b>EKT Akademi canlıda</b><small>ekip projesi</small></li>
+            <li><time>Eyl 2026</time><b>Hackathon İlk 10</b><small>1.348 takım arasından</small></li>
+            <li class="hot"><time>Ağu – Eki 2026</time><b>18 açık kaynak katkı</b><small>NASA, CERN, LLVM</small></li>
+          </ol>
+        </div>
+        <div class="actions"><a class="btn primary" href="#">Seçkin projeler <span class="arr">→</span></a><a class="btn" href="#">GitHub ↗</a><a class="btn" href="#">LinkedIn ↗</a></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- B -->
+  <section class="variant">
+    <header><span class="tag">B</span><b>Sistem durumu paneli</b><span>Backend dünyasındaki "sistem durumu" sayfalarından esinlendi: projelerin canlı durumu yanıp sönen ışıklar ve dolan çubuklarla gösterilir.</span></header>
+    <div class="vbody">
+      <div>
+        <span class="status"><span class="pulse" aria-hidden="true"></span>Staj ve junior backend pozisyonlarına açık · İzmir</span>
+        <h1>Hüseyin Kutsi Balcı</h1>
+        <p class="lead">Backend geliştiriciyim. Anadolu Üniversitesi Arka Yüz Yazılım Geliştirme 2. sınıf öğrencisiyim.</p>
+        <div class="status-panel">
+          <div class="sp-head"><span>kutsi / durum</span><b>tüm sistemler çalışıyor</b></div>
+          <div class="sp-row"><span class="n">EKT Akademi<small>eğitim platformu · AWS</small></span><span class="bars"><i style="height:60%"></i><i style="height:80%"></i><i style="height:70%"></i><i style="height:95%"></i><i style="height:85%"></i><i style="height:100%"></i><i style="height:90%"></i><i style="height:100%"></i></span><span class="st ok">canlı</span></div>
+          <div class="sp-row"><span class="n">HeatShield<small>GSMA MENA Ignite 2026</small></span><span class="bars"><i class="w" style="height:40%"></i><i class="w" style="height:55%"></i><i class="w" style="height:70%"></i><i class="w" style="height:85%"></i><i class="w" style="height:100%"></i><i class="w" style="height:100%"></i><i class="w" style="height:100%"></i><i class="w" style="height:100%"></i></span><span class="st gold">ilk 10</span></div>
+          <div class="sp-row"><span class="n">Açık kaynak<small>NASA, CERN, LLVM, Kafka…</small></span><span class="bars"><i class="b" style="height:20%"></i><i class="b" style="height:35%"></i><i class="b" style="height:45%"></i><i class="b" style="height:60%"></i><i class="b" style="height:70%"></i><i class="b" style="height:80%"></i><i class="b" style="height:90%"></i><i class="b" style="height:100%"></i></span><span class="st blue">18 kabul</span></div>
+        </div>
+        <div class="actions"><a class="btn primary" href="#">Seçkin projeler <span class="arr">→</span></a><a class="btn" href="#">GitHub ↗</a><a class="btn" href="#">LinkedIn ↗</a></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- C -->
+  <section class="variant">
+    <header><span class="tag">C</span><b>Manşet ve kanıt kartları</b><span>İsmin altında tek, güçlü bir manşet cümlesi; altında tıklanabilir üç küçük "kanıt" kartı. En sade ve en kurumsal seçenek.</span></header>
+    <div class="vbody">
+      <div>
+        <span class="status"><span class="pulse" aria-hidden="true"></span>Staj ve junior backend pozisyonlarına açık · İzmir</span>
+        <h1>Hüseyin Kutsi Balcı</h1>
+        <p class="headline">Ağ sinyalleriyle çalışan ajanlar ve <em>canlıda çalışan</em> backend sistemleri geliştiriyorum.</p>
+        <p class="lead">Anadolu Üniversitesi Arka Yüz Yazılım Geliştirme 2. sınıf öğrencisiyim.</p>
+        <div class="proof">
+          <a href="#"><span class="ic o">10</span><span><b>Hackathon ilk 10</b><small>GSMA MENA Ignite 2026</small></span></a>
+          <a href="#"><span class="ic g">●</span><span><b>EKT Akademi canlıda</b><small>20 Ağustos 2026'dan beri</small></span></a>
+          <a href="#"><span class="ic b">18</span><span><b>Açık kaynak katkı</b><small>NASA, CERN, LLVM</small></span></a>
+        </div>
+        <div class="actions"><a class="btn primary" href="#">Seçkin projeler <span class="arr">→</span></a><a class="btn" href="#">GitHub ↗</a><a class="btn" href="#">LinkedIn ↗</a></div>
+      </div>
+    </div>
+  </section>
+</main>
+</body>
+</html>
