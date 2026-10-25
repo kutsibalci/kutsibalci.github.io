@@ -27,9 +27,14 @@
   // Üst menü arka planı ve kaydırma çubuğu
   var topbar = document.querySelector(".topbar");
   var progress = document.querySelector(".progress");
+  var lastY = window.scrollY;
   function onScroll() {
     var y = window.scrollY;
     topbar.classList.toggle("scrolled", y > 20);
+    var down = y > lastY + 4, up = y < lastY - 4;
+    if (down && y > 240 && !nav.classList.contains("open")) topbar.classList.add("hide");
+    else if (up || y < 240) topbar.classList.remove("hide");
+    if (down || up) lastY = y;
     var max = document.documentElement.scrollHeight - window.innerHeight;
     progress.style.transform = "scaleX(" + (max > 0 ? y / max : 0) + ")";
   }
@@ -51,6 +56,68 @@
       next.classList.add("on");
       setTimeout(function () { cur.classList.remove("off"); }, 650);
     }, 2600);
+  }
+
+  // Arka plan: yavaşça akan sinyal dalgaları
+  var cv = document.getElementById("bg-waves");
+  if (cv && cv.getContext) {
+    var cx = cv.getContext("2d");
+    var W = 0, H = 0, DPR = Math.min(window.devicePixelRatio || 1, 1.5);
+    var col = { line: "115,144,255", warm: "255,178,74", a: 1 };
+    function readColors() {
+      var light = root.getAttribute("data-theme") === "light";
+      col = light ? { line: "35,67,201", warm: "184,95,0", a: 0.75 } : { line: "115,144,255", warm: "255,178,74", a: 1 };
+    }
+    function size() {
+      W = window.innerWidth; H = window.innerHeight;
+      cv.width = Math.round(W * DPR); cv.height = Math.round(H * DPR);
+      cx.setTransform(DPR, 0, 0, DPR, 0, 0);
+    }
+    var N = 14;
+    function waveY(i, x, t) {
+      var base = H * (0.12 + 0.78 * (i / (N - 1)));
+      var amp = 18 + 26 * Math.sin((i / (N - 1)) * Math.PI);
+      return base
+        + amp * Math.sin(x * 0.0021 + t * 0.00022 + i * 0.55)
+        + amp * 0.55 * Math.sin(x * 0.0047 - t * 0.00031 + i * 1.7)
+        + 10 * Math.sin(x * 0.011 + t * 0.0004 + i);
+    }
+    function draw(t) {
+      cx.clearRect(0, 0, W, H);
+      for (var i = 0; i < N; i++) {
+        var mid = 1 - Math.abs(i - (N - 1) / 2) / ((N - 1) / 2);
+        cx.beginPath();
+        for (var x = -20; x <= W + 20; x += 18) {
+          var y = waveY(i, x, t);
+          if (x === -20) cx.moveTo(x, y); else cx.lineTo(x, y);
+        }
+        cx.strokeStyle = "rgba(" + col.line + "," + ((0.035 + 0.075 * mid) * col.a).toFixed(3) + ")";
+        cx.lineWidth = 1;
+        cx.stroke();
+      }
+      // iki çizgi üzerinde ilerleyen sinyal noktaları
+      [3, 9].forEach(function (li, k) {
+        var px = ((t * (0.028 + k * 0.012)) + k * W * 0.5) % (W + 200) - 100;
+        var py = waveY(li, px, t);
+        var g = cx.createRadialGradient(px, py, 0, px, py, 26);
+        var c = k ? col.warm : col.line;
+        g.addColorStop(0, "rgba(" + c + "," + (0.55 * col.a) + ")");
+        g.addColorStop(1, "rgba(" + c + ",0)");
+        cx.fillStyle = g;
+        cx.beginPath(); cx.arc(px, py, 26, 0, Math.PI * 2); cx.fill();
+      });
+    }
+    readColors(); size();
+    window.addEventListener("resize", size);
+    new MutationObserver(readColors).observe(root, { attributes: true, attributeFilter: ["data-theme"] });
+    if (reduce) { draw(0); window.addEventListener("resize", function () { draw(0); }); }
+    else {
+      var lastF = 0;
+      (function loop(t) {
+        if (!document.hidden && t - lastF > 33) { draw(t); lastF = t; }
+        requestAnimationFrame(loop);
+      })(0);
+    }
   }
 
   // Sayaçlar
@@ -141,13 +208,14 @@
     var tick = null;
     if (imgs.length > 1 && !reduce) {
       tick = document.createElement("span");
-      tick.className = "tick";
-      tick.innerHTML = "<i></i>";
+      tick.className = "ring";
+      tick.innerHTML = '<svg viewBox="0 0 36 36"><circle class="bgc" cx="18" cy="18" r="15"/><circle class="fg" cx="18" cy="18" r="15"/></svg><b>1</b>';
       tick.style.setProperty("--dur", DUR + "ms");
       stage.appendChild(tick);
     }
     function runTick() {
       if (!tick) return;
+      tick.querySelector("b").textContent = cur + 1;
       tick.classList.remove("run", "paused");
       void tick.offsetWidth;
       tick.classList.add("run");
@@ -159,6 +227,7 @@
       cur = i;
       imgs[cur].classList.add("on");
       if (thumbs) thumbs.children[cur].classList.add("on");
+      if (tick) tick.querySelector("b").textContent = cur + 1;
       count.textContent = imgs.length > 1 ? String(cur + 1).padStart(2, "0") + " / " + String(imgs.length).padStart(2, "0") : "";
       txt.textContent = imgs[cur].getAttribute("data-cap") || "";
     }
