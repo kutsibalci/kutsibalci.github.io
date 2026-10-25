@@ -1162,3 +1162,76 @@ footer .wrap { display: flex; flex-wrap: wrap; justify-content: space-between; g
   .bg-anim i, .bg-anim::after { animation: none !important; }
 }
 .topbar .wrap { position: relative; }
+
+/* ===== Logo: Sinyal K ===== */
+.brand .logo { width: 40px; height: 40px; flex: none; filter: drop-shadow(0 6px 14px rgba(91, 124, 255, 0.35)); transition: transform 0.4s var(--ease); }
+.brand:hover .logo { transform: translateY(-1px) rotate(-4deg); }
+.brand .logo .sig1, .brand .logo .sig2 { animation: sig 2.8s ease-in-out infinite; }
+.brand .logo .sig2 { animation-delay: 0.35s; }
+@keyframes sig { 0%, 100% { opacity: 1; } 50% { opacity: 0.35; } }
+:root[data-theme="light"] .brand .logo rect { fill: #0b1430; }
+:root[data-theme="light"] .brand .logo path:first-of-type { stroke: #ffffff; }
+@media (max-width: 640px) { .brand .logo { width: 36px; height: 36px; } }
+
+/* ===== Arka plan: kuzey ışığı ===== */
+.bg-anim i { display: none; }
+.bg-anim::after { display: none; }
+.bg-anim::before {
+  content: "";
+  position: absolute;
+  inset: -50%;
+  background: conic-gradient(from 0deg at 50% 50%,
+    transparent 0 16%,
+    rgba(70, 110, 255, 0.34) 26%,
+    rgba(50, 190, 180, 0.2) 37%,
+    transparent 49%,
+    rgba(130, 80, 255, 0.24) 66%,
+    rgba(70, 110, 255, 0.16) 74%,
+    transparent 84%);
+  filter: blur(90px);
+  opacity: 0.75;
+  animation: aurora 80s linear infinite;
+}
+.bg-anim { background: radial-gradient(ellipse 70% 50% at 50% 0%, rgba(60, 90, 220, 0.12), transparent 70%); }
+@keyframes aurora { to { transform: rotate(360deg); } }
+:root[data-theme="light"] .bg-anim::before { opacity: 0.32; }
+.hero .blob { display: none; }
+@media (prefers-reduced-motion: reduce) { .bg-anim::before { animation: none; } }
+
+/* ===== Galeri göstergesi: parlayan renkli çizgi ===== */
+.stage .tick { height: 4px; background: rgba(7, 13, 31, 0.6); overflow: visible; transition: height 0.25s ease; }
+.stage:hover .tick { height: 6px; }
+.stage .tick i {
+  position: relative;
+  width: 0;
+  height: 100%;
+  transform: none;
+  background: linear-gradient(90deg, #7390ff, #4fd8b4 55%, #ffb24a);
+  background-size: 200% 100%;
+  box-shadow: 0 0 14px rgba(115, 144, 255, 0.75), 0 0 6px rgba(255, 178, 74, 0.6);
+  animation: none;
+}
+.stage .tick.run i { animation: tickw var(--dur, 4.5s) linear forwards, flow 2.4s linear infinite; }
+.stage .tick.paused i { animation-play-state: paused; }
+.stage .tick i::after {
+  content: "";
+  position: absolute;
+  right: -6px;
+  top: 50%;
+  width: 12px;
+  height: 12px;
+  margin-top: -6px;
+  border-radius: 50%;
+  background: #fff;
+  box-shadow: 0 0 10px 3px rgba(255, 178, 74, 0.9), 0 0 24px 8px rgba(115, 144, 255, 0.55);
+  opacity: 0;
+  transition: opacity 0.2s ease;
+}
+.stage .tick.run i::after { opacity: 1; animation: glowp 1.2s ease-in-out infinite; }
+@keyframes tickw { from { width: 0; } to { width: 100%; } }
+@keyframes flow { to { background-position: -200% 0; } }
+@keyframes glowp { 50% { transform: scale(1.35); } }
+.stage img.on { transition: opacity 0.7s ease, transform 1.2s var(--ease); }
+.stage .tick { left: 14px; right: 14px; bottom: 12px; border-radius: 999px; }
+.stage .tick i { border-radius: 999px; }
+.stage .play { bottom: 30px; }
