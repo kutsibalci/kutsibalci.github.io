@@ -68,6 +68,26 @@
     requestAnimationFrame(step);
   }
 
+  // Animasyon hazırlığı: başlık kelimeleri, sıra numaraları, sayaçlar
+  document.querySelectorAll(".sec-head h2").forEach(function (h) {
+    var words = h.textContent.trim().split(/\s+/);
+    h.setAttribute("aria-label", h.textContent.trim());
+    h.innerHTML = words.map(function (w, i) { return '<span class="w" aria-hidden="true"><span style="--i:' + i + '">' + w + "</span></span>"; }).join(" ");
+  });
+  document.querySelectorAll(".chips, .skill ul, .fixes, .journey ol").forEach(function (list) {
+    Array.prototype.forEach.call(list.children, function (li, i) { li.style.setProperty("--i", i); });
+  });
+  if (!reduce) {
+    document.querySelectorAll(".metric b").forEach(function (b) {
+      var m = b.textContent.match(/^(\d{1,3}(?:\.\d{3})*|\d+)(.*)$/);
+      if (!m) return;
+      var n = parseInt(m[1].replace(/\./g, ""), 10);
+      if (!(n > 3)) return;
+      b.setAttribute("data-count", n);
+      if (m[2]) b.setAttribute("data-suffix", m[2]);
+    });
+  }
+
   // Kaydırınca belirme
   var io = "IntersectionObserver" in window ? new IntersectionObserver(function (entries) {
     entries.forEach(function (en) {
