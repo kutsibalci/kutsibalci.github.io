@@ -1253,3 +1253,17 @@ footer .wrap { display: flex; flex-wrap: wrap; justify-content: space-between; g
   .journey li.hot b { color: var(--warm); }
 
   @media (max-width: 980px) { .journey ol { grid-template-columns: 1fr 1fr; row-gap: 20px; } .journey .track { display: none; } }
+
+/* ===== Giriş çizgisi: ilk 10 başta ve sarı ===== */
+.journey .track i { background: linear-gradient(90deg, #ffc53d, var(--accent) 45%, #4fd8b4); }
+.journey li:last-child::before { border-color: var(--accent); box-shadow: 0 0 0 4px color-mix(in srgb, var(--accent) 18%, transparent); animation: none; }
+.journey li.hot::before { border-color: #ffc53d; background: #ffc53d; box-shadow: 0 0 0 4px rgba(255, 197, 61, 0.22), 0 0 18px rgba(255, 197, 61, 0.65); animation: beat-y 2s ease-in-out infinite; }
+@keyframes beat-y { 50% { box-shadow: 0 0 0 8px rgba(255, 197, 61, 0.08), 0 0 26px rgba(255, 197, 61, 0.85); } }
+.journey li.hot b { color: #ffc53d; }
+.journey li.hot time, .journey li.hot small { color: color-mix(in srgb, #ffc53d 70%, var(--muted)); }
+:root[data-theme="light"] .journey li.hot b { color: #b07800; }
+
+/* ===== Yetenekler: 4 sütun ===== */
+.skills { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+@media (max-width: 1100px) { .skills { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+@media (max-width: 640px) { .skills { grid-template-columns: 1fr; } }
