@@ -1414,3 +1414,12 @@ footer .wrap { display: flex; flex-wrap: wrap; justify-content: space-between; g
 :root[data-theme="light"] .ribbon { background: #a3461b; color: #f4f5f7; }
 :root[data-theme="light"] .brand .logo rect { fill: #161b22; }
 :root[data-theme="light"] .contact { background: linear-gradient(135deg, #1e242c, #12161b 70%); }
+
+/* ===== Logo: Katmanlar ===== */
+.brand .logo .sig1, .brand .logo .sig2 { animation: none; }
+.brand .logo { filter: drop-shadow(0 6px 14px rgba(0,0,0,0.35)); }
+.brand .logo path:nth-of-type(4) { transform-box: fill-box; transform-origin: center; transition: transform 0.4s var(--ease); }
+.brand:hover .logo path:nth-of-type(4) { transform: translateY(-2px); }
+.brand:hover .logo { transform: none; }
+:root[data-theme="light"] .brand .logo rect { fill: #161b22; }
+:root[data-theme="light"] .brand .logo path:first-of-type { stroke: none; }
