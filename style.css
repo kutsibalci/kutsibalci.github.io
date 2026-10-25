@@ -1393,3 +1393,24 @@ footer .wrap { display: flex; flex-wrap: wrap; justify-content: space-between; g
 :root[data-theme="light"] .brand .logo { filter: none; }
 :root[data-theme="light"] .topbar .wrap, :root[data-theme="light"] .topbar.scrolled .wrap { background: color-mix(in srgb, var(--surface) 85%, transparent); }
 :root[data-theme="light"] .contact { background: linear-gradient(135deg, #2f2925, #1f1b18 70%); }
+
+/* ===== Açık tema v2: soğuk gri zemin, kiremit vurgu ===== */
+:root[data-theme="light"] {
+  --bg:#e4e7eb; --bg-2:#d9dde3; --surface:#eff1f4; --surface-2:#e2e6eb;
+  --line:rgba(20,28,40,0.12); --line-strong:rgba(20,28,40,0.24);
+  --fg:#161b22; --muted:#4a5361;
+  --accent:#a3461b; --accent-soft:rgba(163,70,27,0.1); --glow:rgba(163,70,27,0.16);
+  --warm:#a3461b; --live:#1f7a5a;
+}
+:root[data-theme="light"] .bg-anim { background: radial-gradient(ellipse 70% 50% at 50% 0%, rgba(120,135,160,0.16), transparent 70%); }
+:root[data-theme="light"] .bg-anim::before { opacity: 0.12; }
+:root[data-theme="light"] .btn.primary, :root[data-theme="light"] .lang a.on, :root[data-theme="light"] .sc-dots button.on { color: #f4f5f7; }
+:root[data-theme="light"] .stage .tick i { background: linear-gradient(90deg, #a3461b, #cf7a45); box-shadow: 0 0 8px rgba(163,70,27,0.35); }
+:root[data-theme="light"] .stage .tick i::after { box-shadow: 0 0 6px 2px rgba(163,70,27,0.5); }
+:root[data-theme="light"] .progress { background: linear-gradient(90deg, #a3461b, #cf7a45); }
+:root[data-theme="light"] .journey li.hot::before { border-color: #a3461b !important; background: #a3461b !important; box-shadow: 0 0 0 4px rgba(163,70,27,0.18) !important; }
+:root[data-theme="light"] .journey li.hot b, :root[data-theme="light"] .journey li.hot time, :root[data-theme="light"] .journey li.hot small { color: #a3461b !important; }
+:root[data-theme="light"] .journey .track i { background: linear-gradient(90deg, #a3461b, #6b7280 50%, var(--fg)) !important; }
+:root[data-theme="light"] .ribbon { background: #a3461b; color: #f4f5f7; }
+:root[data-theme="light"] .brand .logo rect { fill: #161b22; }
+:root[data-theme="light"] .contact { background: linear-gradient(135deg, #1e242c, #12161b 70%); }
