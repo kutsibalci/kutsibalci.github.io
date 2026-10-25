@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Tasarım seçenekleri · Hüseyin Kutsi Balcı</title>
+<meta name="robots" content="noindex">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,700&family=Geist:wght@400;500;600&family=Geist+Mono:wght@400;500&display=swap">
+<style>
+  :root {
+    color-scheme: dark;
+    --bg: #070d1f; --bg-2: #0a1228; --surface: #0e1733; --surface-2: #142045;
+    --line: rgba(150, 172, 255, 0.13); --line-strong: rgba(150, 172, 255, 0.26);
+    --fg: #e9edf9; --muted: #8e9abc; --accent: #7390ff; --accent-soft: rgba(115, 144, 255, 0.14);
+    --live: #4fd8b4; --warm: #ffb24a;
+    --display: "Bricolage Grotesque", "Segoe UI", system-ui, sans-serif;
+    --body: "Geist", system-ui, "Segoe UI", sans-serif;
+    --mono: "Geist Mono", ui-monospace, Consolas, monospace;
+  }
+  * { box-sizing: border-box; }
+  body { margin: 0; background: var(--bg); color: var(--fg); font-family: var(--body); line-height: 1.6; -webkit-font-smoothing: antialiased; }
+  .wrap { max-width: 1200px; margin: 0 auto; padding: 48px max(20px, env(safe-area-inset-right, 0px)) 80px max(20px, env(safe-area-inset-left, 0px)); }
+  h1 { font-family: var(--display); font-size: clamp(2rem, 5vw, 3rem); letter-spacing: -0.03em; line-height: 1.05; margin: 0; }
+  .intro { color: var(--muted); max-width: 70ch; margin: 14px 0 0; }
+  .how { margin-top: 18px; padding: 14px 18px; border-left: 3px solid var(--warm); background: rgba(255, 178, 74, 0.08); border-radius: 0 12px 12px 0; max-width: 72ch; }
+  .how b { color: var(--warm); }
+  h2 { font-family: var(--display); font-size: 1.7rem; letter-spacing: -0.02em; margin: 64px 0 6px; }
+  h2 + p { color: var(--muted); margin: 0 0 22px; }
+  .grid { display: grid; gap: 16px; }
+  .g4 { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+  .g2 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .opt { position: relative; border: 1px solid var(--line); border-radius: 18px; background: var(--surface); overflow: hidden; min-width: 0; }
+  .opt .tag { position: absolute; top: 12px; left: 12px; z-index: 5; font-family: var(--mono); font-size: 12px; font-weight: 500; padding: 4px 10px; border-radius: 999px; background: var(--warm); color: #1d1203; }
+  .opt .lbl { padding: 14px 18px 16px; border-top: 1px solid var(--line); }
+  .opt .lbl b { display: block; font-family: var(--display); font-size: 1.05rem; }
+  .opt .lbl span { display: block; color: var(--muted); font-size: 14px; }
+  .now { position: absolute; top: 12px; right: 12px; z-index: 5; font-family: var(--mono); font-size: 11px; padding: 4px 10px; border-radius: 999px; border: 1px solid var(--line-strong); color: var(--muted); background: rgba(7, 13, 31, 0.7); }
+
+  /* Logolar */
+  .logo-box { height: 180px; display: grid; place-items: center; gap: 14px; background: radial-gradient(ellipse at 50% 30%, #12204a, #070d1f 70%); }
+  .logo-row { display: flex; align-items: center; gap: 12px; }
+  .logo-row small { font-family: var(--body); font-size: 13px; color: var(--muted); line-height: 1.2; }
+  .logo-row small b { display: block; color: var(--fg); font-family: var(--display); font-size: 15px; }
+  .wm { font-family: var(--display); font-weight: 700; font-size: 34px; letter-spacing: -0.04em; }
+  .wm i { font-style: normal; color: var(--warm); }
+  .code { font-family: var(--mono); font-weight: 500; font-size: 30px; letter-spacing: -0.02em; }
+  .code em { font-style: normal; color: var(--accent); }
+
+  /* Navbar örnekleri */
+  .nav-box { height: 150px; position: relative; overflow: hidden; background: radial-gradient(ellipse 80% 120% at 85% -20%, #1b2e7a, #070d1f 65%); }
+  .nav-box .page { position: absolute; left: 24px; right: 24px; bottom: 18px; font-family: var(--display); font-size: 30px; letter-spacing: -0.03em; opacity: 0.35; }
+  .bar { position: absolute; left: 0; right: 0; top: 0; display: flex; align-items: center; gap: 16px; padding: 0 18px; height: 60px; font-size: 13px; }
+  .bar .brand { display: flex; align-items: center; gap: 8px; font-family: var(--display); font-weight: 700; font-size: 14px; white-space: nowrap; }
+  .bar .mk { width: 28px; height: 28px; border-radius: 8px; display: grid; place-items: center; background: linear-gradient(140deg, var(--accent), #3b5bdb); color: #fff; font-size: 11px; font-weight: 700; flex: none; }
+  .bar .links { display: flex; gap: 16px; color: var(--muted); }
+  .bar .links .on { color: var(--fg); }
+  .bar .btn { padding: 7px 14px; border-radius: 999px; font-weight: 600; white-space: nowrap; }
+  /* 1 kapsül (şu anki) */
+  .n1 { top: 12px; left: 14px; right: 14px; height: 52px; border-radius: 999px; background: rgba(14, 23, 51, 0.72); border: 1px solid var(--line-strong); backdrop-filter: blur(10px); }
+  .n1 .links { margin: 0 auto; padding: 4px; border-radius: 999px; background: rgba(7, 13, 31, 0.5); border: 1px solid var(--line); gap: 2px; }
+  .n1 .links span { padding: 5px 10px; border-radius: 999px; }
+  .n1 .links .on { background: var(--accent-soft); }
+  .n1 .btn { background: var(--fg); color: var(--bg); }
+  /* 2 sade */
+  .n2 { justify-content: space-between; }
+  .n2 .links { gap: 22px; }
+  .n2 .links .on { position: relative; }
+  .n2 .links .on::after { content: ""; position: absolute; left: 50%; bottom: -8px; width: 5px; height: 5px; border-radius: 50%; background: var(--warm); transform: translateX(-50%); }
+  .n2 .btn { background: var(--accent); color: #fff; }
+  /* 3 ortada isim */
+  .n3 { justify-content: space-between; border-bottom: 1px solid var(--line); background: rgba(7, 13, 31, 0.55); backdrop-filter: blur(8px); }
+  .n3 .brand { position: absolute; left: 50%; transform: translateX(-50%); flex-direction: column; gap: 0; line-height: 1.1; text-align: center; }
+  .n3 .brand small { font-family: var(--mono); font-weight: 400; font-size: 10px; letter-spacing: 0.18em; color: var(--muted); }
+  .n3 .btn { border: 1px solid var(--line-strong); }
+  /* 4 sol dikey çizgili, büyük harf */
+  .n4 { height: 56px; background: #0a1330; border-bottom: 2px solid transparent; border-image: linear-gradient(90deg, var(--accent), var(--warm)) 1; }
+  .n4 .links { margin-left: auto; gap: 18px; font-family: var(--mono); font-size: 11.5px; letter-spacing: 0.08em; text-transform: uppercase; }
+  .n4 .links .on { color: var(--warm); }
+  .n4 .btn { border-radius: 8px; background: var(--warm); color: #1d1203; }
+
+  /* Arka plan örnekleri */
+  .bg-box { height: 220px; position: relative; overflow: hidden; background: var(--bg); }
+  .bg-box .txt { position: absolute; left: 22px; bottom: 18px; z-index: 2; font-family: var(--display); font-size: 26px; letter-spacing: -0.03em; }
+  .bg-box .txt small { display: block; font-family: var(--body); font-size: 13px; color: var(--muted); letter-spacing: 0; }
+  /* 1 ışık lekeleri */
+  .b1 i { position: absolute; border-radius: 50%; filter: blur(40px); }
+  .b1 i:nth-child(1) { width: 260px; height: 260px; left: -60px; top: -80px; background: #2e4bd8; opacity: 0.45; animation: d1 14s ease-in-out infinite alternate; }
+  .b1 i:nth-child(2) { width: 200px; height: 200px; right: -40px; top: 40px; background: #157f7a; opacity: 0.3; animation: d2 18s ease-in-out infinite alternate; }
+  @keyframes d1 { to { transform: translate(120px, 60px) scale(1.2); } }
+  @keyframes d2 { to { transform: translate(-100px, -40px) scale(0.9); } }
+  /* 2 kuzey ışığı */
+  .b2::before { content: ""; position: absolute; inset: -40% -20%; background: conic-gradient(from 0deg at 50% 50%, transparent 0 20%, rgba(80, 120, 255, 0.35) 30%, rgba(60, 200, 190, 0.22) 40%, transparent 52%, rgba(140, 90, 255, 0.25) 70%, transparent 82%); filter: blur(40px); animation: spin 30s linear infinite; }
+  @keyframes spin { to { transform: rotate(360deg); } }
+  /* 3 ağ: canvas */
+  .b3 canvas { position: absolute; inset: 0; width: 100%; height: 100%; }
+  /* 4 ızgara + gezen ışık */
+  .b4 { background-image: linear-gradient(var(--line) 1px, transparent 1px), linear-gradient(90deg, var(--line) 1px, transparent 1px); background-size: 32px 32px; }
+  .b4::before { content: ""; position: absolute; width: 360px; height: 360px; border-radius: 50%; background: radial-gradient(circle, rgba(115, 144, 255, 0.35), transparent 65%); animation: roam 16s ease-in-out infinite alternate; }
+  .b4::after { content: ""; position: absolute; inset: 0; background: radial-gradient(ellipse at 50% 50%, transparent 30%, var(--bg) 85%); }
+  @keyframes roam { 0% { transform: translate(-80px, -120px); } 50% { transform: translate(280px, -20px); } 100% { transform: translate(60px, 0px); } }
+
+  /* Gösterge örnekleri */
+  .ind-box { height: 200px; position: relative; overflow: hidden; background: #0b1530; }
+  .ind-box .shot { position: absolute; inset: 0; background-size: cover; background-position: top left; opacity: 0; transition: opacity 0.6s ease; }
+  .ind-box .shot.on { opacity: 1; }
+  /* i1 çizgi */
+  .i1 .bar1 { position: absolute; left: 0; right: 0; bottom: 0; height: 3px; background: rgba(255, 255, 255, 0.12); z-index: 3; }
+  .i1 .bar1 b { display: block; height: 100%; background: var(--accent); width: 0; }
+  /* i2 hikaye çubukları */
+  .i2 .story { position: absolute; left: 12px; right: 12px; top: 12px; display: flex; gap: 5px; z-index: 3; }
+  .i2 .story span { flex: 1; height: 4px; border-radius: 4px; background: rgba(255, 255, 255, 0.3); overflow: hidden; }
+  .i2 .story b { display: block; height: 100%; width: 0; background: #fff; }
+  /* i3 noktalar */
+  .i3 .dots { position: absolute; left: 50%; bottom: 14px; transform: translateX(-50%); display: flex; gap: 7px; padding: 6px 10px; border-radius: 999px; background: rgba(7, 13, 31, 0.7); z-index: 3; }
+  .i3 .dots span { width: 8px; height: 8px; border-radius: 999px; background: rgba(255, 255, 255, 0.4); transition: width 0.35s ease, background 0.35s ease; }
+  .i3 .dots span.on { width: 26px; background: #fff; }
+  /* i4 sayaç */
+  .i4 .cnt { position: absolute; right: 14px; bottom: 14px; z-index: 3; font-family: var(--mono); font-size: 13px; padding: 6px 12px; border-radius: 999px; background: rgba(7, 13, 31, 0.75); color: #fff; }
+  .i4 .cnt em { font-style: normal; color: var(--warm); font-weight: 500; }
+
+  .opt:has(.nav-box) .tag, .opt:has(.ind-box) .tag, .opt:has(.bg-box) .tag { top: auto; bottom: 16px; left: auto; right: 16px; }
+  .opt:has(.nav-box) .now, .opt:has(.ind-box) .now, .opt:has(.bg-box) .now { top: auto; bottom: 18px; right: 52px; }
+  .bar .links span { white-space: nowrap; }
+  .n2 .links { gap: 18px; }
+  @media (max-width: 980px) { .g4 { grid-template-columns: repeat(2, minmax(0, 1fr)); } .g2 { grid-template-columns: 1fr; } }
+  @media (max-width: 560px) { .g4 { grid-template-columns: 1fr; } .bar .links { display: none; } }
+  @media (prefers-reduced-motion: reduce) { *, *::before, *::after { animation: none !important; } }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <h1>Tasarım seçenekleri</h1>
+  <p class="intro">Logo, navbar, arka plan ve görsel geçiş göstergesi için birkaç seçenek hazırladım. Hepsi canlı çalışıyor; hareket edenleri izleyebilirsin.</p>
+  <p class="how">Her bölümden beğendiğini harf ya da numarasıyla yazman yeterli. Örneğin: <b>Logo B, Navbar 2, Arka plan 3, Gösterge 2</b>. Hiçbirini beğenmezsen "hiçbiri" yaz, neyi sevmediğini söyle; ona göre yenilerini yaparım.</p>
+
+  <h2>Logo</h2>
+  <p>Navbar'da ismin solunda ve tarayıcı sekmesinde duracak.</p>
+  <div class="grid g4">
+    <div class="opt"><span class="tag">A</span><div class="logo-box"><div class="logo-row">
+      <svg width="54" height="54" viewBox="0 0 48 48"><circle cx="24" cy="24" r="22" fill="none" stroke="#7390ff" stroke-width="2"/><text x="24" y="30.5" text-anchor="middle" font-family="Bricolage Grotesque, Segoe UI, sans-serif" font-weight="700" font-size="17" fill="#e9edf9" letter-spacing="-0.5">HK</text></svg>
+      <small><b>Hüseyin Kutsi Balcı</b>Backend Geliştirici</small></div></div>
+      <div class="lbl"><b>Halka monogram</b><span>İnce mavi halka içinde HK. Sade ve klasik.</span></div></div>
+    <div class="opt"><span class="tag">B</span><div class="logo-box"><div class="wm">kutsi<i>.</i></div></div>
+      <div class="lbl"><b>Yazı logo</b><span>Sadece "kutsi" ve turuncu nokta. Modern, kişisel.</span></div></div>
+    <div class="opt"><span class="tag">C</span><div class="logo-box"><div class="code"><em>&lt;</em>HK<em>/&gt;</em></div></div>
+      <div class="lbl"><b>Kod etiketi</b><span>Yazılımcı kimliğini vurgulayan HTML etiketi biçimi.</span></div></div>
+    <div class="opt"><span class="tag">D</span><div class="logo-box"><div class="logo-row">
+      <svg width="54" height="54" viewBox="0 0 48 48"><rect x="2" y="2" width="44" height="44" rx="12" fill="#e9edf9"/><path d="M14 13v22M14 24l13-11M19 20l9 15" stroke="#0a1228" stroke-width="3.6" fill="none" stroke-linecap="round" stroke-linejoin="round"/><path d="M33 17a10 10 0 0 1 0 14M37 13a16 16 0 0 1 0 22" stroke="#7390ff" stroke-width="2.6" fill="none" stroke-linecap="round"/></svg>
+      <small><b>Hüseyin Kutsi Balcı</b>Backend Geliştirici</small></div></div>
+      <div class="lbl"><b>Sinyal K</b><span>K harfi ve yanında ağ sinyali dalgaları; HeatShield ve ArrivalGuard'a gönderme.</span></div></div>
+  </div>
+
+  <h2>Navbar</h2>
+  <p>Sayfanın en üstündeki menü.</p>
+  <div class="grid g2">
+    <div class="opt"><span class="tag">1</span><span class="now">şu anki</span><div class="nav-box"><div class="bar n1"><span class="brand"><span class="mk">HK</span>Hüseyin Kutsi Balcı</span><span class="links"><span class="on">Projeler</span><span>Deneyim</span><span>Açık kaynak</span></span><span class="btn">İletişim</span></div><div class="page">Hüseyin Kutsi Balcı</div></div>
+      <div class="lbl"><b>Yüzen kapsül</b><span>Cam görünümlü yuvarlak çubuk, ortada vurgulu menü.</span></div></div>
+    <div class="opt"><span class="tag">2</span><div class="nav-box"><div class="bar n2"><span class="brand"><span class="mk">HK</span>Hüseyin Kutsi Balcı</span><span class="links"><span class="on">Projeler</span><span>Deneyim</span><span>Açık kaynak</span><span>Yetenekler</span></span><span class="btn">İletişim</span></div><div class="page">Hüseyin Kutsi Balcı</div></div>
+      <div class="lbl"><b>Sade ve şeffaf</b><span>Arka plansız, bulunduğun bölümün altında turuncu nokta. Bedirhan'ınkine en yakın sadelik.</span></div></div>
+    <div class="opt"><span class="tag">3</span><div class="nav-box"><div class="bar n3"><span class="links"><span class="on">Projeler</span><span>Deneyim</span></span><span class="brand">Hüseyin Kutsi Balcı<small>BACKEND</small></span><span class="links"><span>Açık kaynak</span><span class="btn">İletişim</span></span></div><div class="page">Hüseyin Kutsi Balcı</div></div>
+      <div class="lbl"><b>İsim ortada</b><span>Menü iki yana bölünmüş, isim tam ortada. Dergi havası.</span></div></div>
+    <div class="opt"><span class="tag">4</span><div class="nav-box"><div class="bar n4"><span class="brand"><span class="mk">HK</span>Hüseyin Kutsi Balcı</span><span class="links"><span class="on">Projeler</span><span>Deneyim</span><span>Açık kaynak</span></span><span class="btn">İletişim</span></div><div class="page">Hüseyin Kutsi Balcı</div></div>
+      <div class="lbl"><b>Koyu şerit</b><span>Düz lacivert çubuk, altında maviden turuncuya çizgi, büyük harfli menü.</span></div></div>
+  </div>
+
+  <h2>Arka plan</h2>
+  <p>Sayfanın tamamının arkasında, yavaş hareket edecek.</p>
+  <div class="grid g2">
+    <div class="opt"><span class="tag">1</span><span class="now">şu anki</span><div class="bg-box b1"><i></i><i></i><div class="txt">Işık lekeleri<small>Yavaş kayan mavi ve yeşil ışıklar</small></div></div>
+      <div class="lbl"><b>Işık lekeleri</b><span>Bulanık renk lekeleri yavaşça yer değiştiriyor.</span></div></div>
+    <div class="opt"><span class="tag">2</span><div class="bg-box b2"><div class="txt">Kuzey ışığı<small>Dönen yumuşak renk bantları</small></div></div>
+      <div class="lbl"><b>Kuzey ışığı</b><span>Mavi, yeşil ve mor bantlar çok yavaş dönüyor.</span></div></div>
+    <div class="opt"><span class="tag">3</span><div class="bg-box b3"><canvas id="net"></canvas><div class="txt">Ağ<small>Birbirine bağlanan noktalar</small></div></div>
+      <div class="lbl"><b>Ağ</b><span>Yavaş süzülen noktalar yaklaşınca ince çizgilerle bağlanıyor; backend ve ağ temasına uygun.</span></div></div>
+    <div class="opt"><span class="tag">4</span><div class="bg-box b4"><div class="txt">Izgara ve ışık<small>Izgarada gezinen bir ışık</small></div></div>
+      <div class="lbl"><b>Izgara ve ışık</b><span>İnce ızgaranın üzerinde yumuşak bir ışık dolaşıyor.</span></div></div>
+  </div>
+
+  <h2>Görsel geçiş göstergesi</h2>
+  <p>Proje fotoğrafları kendiliğinden geçerken bir sonrakine ne kadar kaldığını gösterecek.</p>
+  <div class="grid g4">
+    <div class="opt"><span class="tag">1</span><span class="now">şu anki</span><div class="ind-box i1" data-ind="1"><div class="shot on"></div><div class="shot"></div><div class="shot"></div><div class="bar1"><b></b></div></div>
+      <div class="lbl"><b>Alt çizgi</b><span>Görselin altında dolan mavi çizgi.</span></div></div>
+    <div class="opt"><span class="tag">2</span><div class="ind-box i2" data-ind="2"><div class="shot on"></div><div class="shot"></div><div class="shot"></div><div class="story"><span><b></b></span><span><b></b></span><span><b></b></span></div></div>
+      <div class="lbl"><b>Hikâye çubukları</b><span>Instagram hikâyeleri gibi üstte her görsel için bir çubuk.</span></div></div>
+    <div class="opt"><span class="tag">3</span><div class="ind-box i3" data-ind="3"><div class="shot on"></div><div class="shot"></div><div class="shot"></div><div class="dots"><span class="on"></span><span></span><span></span></div></div>
+      <div class="lbl"><b>Noktalar</b><span>Altta ortada, aktif olan uzayan noktalar.</span></div></div>
+    <div class="opt"><span class="tag">4</span><div class="ind-box i4" data-ind="4"><div class="shot on"></div><div class="shot"></div><div class="shot"></div><div class="cnt"><em>01</em> / 03</div></div>
+      <div class="lbl"><b>Sayaç</b><span>Köşede sade "01 / 03" yazısı, gösterge çizgisi yok.</span></div></div>
+  </div>
+</div>
+
+<script>
+(function () {
+  var reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  var DUR = 3500;
+
+  // Gösterge örnekleri
+  document.querySelectorAll(".ind-box").forEach(function (box) {
+    var type = box.getAttribute("data-ind");
+    var shots = box.querySelectorAll(".shot");
+    var cur = 0, start = performance.now();
+    function show(i) {
+      shots[cur].classList.remove("on"); cur = i; shots[cur].classList.add("on"); start = performance.now();
+      if (type === "3") box.querySelectorAll(".dots span").forEach(function (d, k) { d.classList.toggle("on", k === cur); });
+      if (type === "4") box.querySelector(".cnt em").textContent = String(cur + 1).padStart(2, "0");
+    }
+    (function frame(t) {
+      var p = Math.min(1, (t - start) / DUR);
+      if (type === "1") box.querySelector(".bar1 b").style.width = (p * 100) + "%";
+      if (type === "2") box.querySelectorAll(".story b").forEach(function (b, k) { b.style.width = (k < cur ? 100 : k === cur ? p * 100 : 0) + "%"; });
+      if (p >= 1 && !reduce) show((cur + 1) % shots.length);
+      requestAnimationFrame(frame);
+    })(performance.now());
+  });
+
+  // Ağ arka planı
+  var cv = document.getElementById("net");
+  var cx = cv.getContext("2d");
+  var W, H, pts = [];
+  function size() {
+    var r = cv.getBoundingClientRect(), d = Math.min(window.devicePixelRatio || 1, 2);
+    W = r.width; H = r.height; cv.width = W * d; cv.height = H * d; cx.setTransform(d, 0, 0, d, 0, 0);
+    pts = []; for (var i = 0; i < Math.round(W * H / 4200); i++) pts.push({ x: Math.random() * W, y: Math.random() * H, vx: (Math.random() - 0.5) * 0.18, vy: (Math.random() - 0.5) * 0.18 });
+  }
+  size(); window.addEventListener("resize", size);
+  (function loop() {
+    cx.clearRect(0, 0, W, H);
+    for (var i = 0; i < pts.length; i++) {
+      var a = pts[i];
+      if (!reduce) { a.x += a.vx; a.y += a.vy; if (a.x < 0 || a.x > W) a.vx *= -1; if (a.y < 0 || a.y > H) a.vy *= -1; }
+      for (var j = i + 1; j < pts.length; j++) {
+        var b = pts[j], dx = a.x - b.x, dy = a.y - b.y, dd = dx * dx + dy * dy;
+        if (dd < 9000) { cx.strokeStyle = "rgba(115,144,255," + (0.28 * (1 - dd / 9000)).toFixed(3) + ")"; cx.beginPath(); cx.moveTo(a.x, a.y); cx.lineTo(b.x, b.y); cx.stroke(); }
+      }
+      cx.fillStyle = i % 7 === 0 ? "rgba(255,178,74,0.9)" : "rgba(180,196,255,0.7)";
+      cx.beginPath(); cx.arc(a.x, a.y, i % 7 === 0 ? 2 : 1.4, 0, Math.PI * 2); cx.fill();
+    }
+    requestAnimationFrame(loop);
+  })();
+})();
+</script>
+</body>
+</html>
